@@ -1,13 +1,17 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* Reset geral */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Estilo base do corpo da página */
 body{
-    background:#000;
+    background:#000000;
     color:white;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 280; /* ExtraBold */
 }
 
 .container{
@@ -19,36 +23,51 @@ body{
     padding:90px 0;
 }
 
+/*  -------------------------------------------  */
+/*  -------------- TÍTULO DA SECÇÃO ------------  */
+/*  -------------------------------------------  */
 .books h2{
-    text-align:center;
-    font-size:72px;
+    text-align:left;
+    font-size:6cap;
     font-weight:700;
     margin-bottom:70px;
-    letter-spacing:2px;
+    letter-spacing:1px;
 }
+
+/* Estrutura em grelha para os livros */
 
 .books-grid{
 
     display:grid;
+    /* --NUMERO DE COLUNAS-- */
     grid-template-columns:repeat(2,1fr);
-    gap:34px;
+    gap:60px;
 
 }
+
+
+/* Estilo dos cartões de livro */
 
 .book-card{
 
     position:relative;
-    height:420px;
+    height:500px;
     overflow:hidden;
-    border-radius:28px;
+    border-radius:15px;
     display:block;
     text-decoration:none;
     background:#1b1b1b;
 
 }
 
+/*  -------------------------------------------  */
+/*  ------------ IMAGENS E HOVER --------------  */
+/*  -------------------------------------------  */
+
 .book-card img{
 
+    position:absolute;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
@@ -56,11 +75,26 @@ body{
 
 }
 
-.book-card:hover img{
-
-    transform:scale(1.08);
-
+.book-card .main-img{
+    opacity:1;
 }
+
+.book-card .hover-img{
+    opacity:0;
+}
+
+.book-card:hover .main-img{
+    opacity:0;
+}
+
+.book-card:hover .hover-img{
+    opacity:1;
+    transform:scale(1.05);
+}
+
+
+/*  -------------------------------------------  */
+/*      SOBREPOSIÇÃO ESCURA NOS CARDS          */
 
 .overlay{
 
@@ -69,35 +103,47 @@ body{
 
     background:linear-gradient(
         to top,
-        rgba(0,0,0,.75) 0%,
-        rgba(0,0,0,.35) 30%,
+        rgba(0,0,0,.85) 0%,
+        rgba(0,0,0,.30) 30%,
         rgba(0,0,0,0) 60%
     );
 
 }
 
+/*  -------------------------------------------  */
+
+
+/* Título do livro sobre a imagem */
+
 .book-card h3{
 
     position:absolute;
 
-    left:38px;
-    bottom:34px;
+/*  --POSIÇÃO DO TEXTO NA IMAGEM--  */
+    left:25px;
+    bottom:35px;
 
     color:white;
 
-    font-size:34px;
-    font-weight:300;
+    font-size:18px;
+    font-weight:500;
     line-height:1.15;
 
-    width:70%;
+    width:90%;
 
     z-index:2;
 
 }
 
+/*  -------------------------------------------  */
+/*  ------------ EFEITO AO PASSAR O MOUSE ------  */
+/*  -------------------------------------------  */
+
 .book-card:hover{
 
-    transform:translateY(-3px);
-    transition:.35s;
+    transform:translateY(-2px);
+    transition:.5s;
 
 }
+/*  -------------------------------------------  */
+
