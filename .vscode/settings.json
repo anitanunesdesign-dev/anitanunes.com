@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd /workspaces/anitanunes\\.com/anitanunes\\.com && python3 - <<'PY'\nfrom pathlib import Path\nimport struct, zlib\n\nwidth, height = 1, 1\nraw = b'\\\\x00' \\+ b'\\\\x00\\\\x00\\\\x00\\\\x00'  # filter byte \\+ RGBA pixel\n\ndef chunk\\(chunk_type, data\\):\n    return \\(\n        struct\\.pack\\('>I', len\\(data\\)\\) \\+ chunk_type \\+ data \\+ struct\\.pack\\('>I', zlib\\.crc32\\(chunk_type \\+ data\\) & 0xFFFFFFFF\\)\n    \\)\n\npng = b'\\\\x89PNG\\\\r\\\\n\\\\x1a\\\\n'\npng \\+= chunk\\(b'IHDR', struct\\.pack\\('>IIBBBBB', width, height, 8, 6, 0, 0, 0\\)\\)\npng \\+= chunk\\(b'IDAT', zlib\\.compress\\(raw\\)\\)\npng \\+= chunk\\(b'IEND', b''\\)\nPath\\('images/tosquia\\.png'\\)\\.write_bytes\\(png\\)\nprint\\(Path\\('images/tosquia\\.png'\\)\\.exists\\(\\), Path\\('images/tosquia\\.png'\\)\\.stat\\(\\)\\.st_size\\)\nPY\nfile images/tosquia\\.png$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
