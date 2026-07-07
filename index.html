@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anita Nunes</title>
+    <title>Anita N.</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-i18n-root="page">
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" data-i18n="siteBrand">Anita</a>
+
+            <div class="lang-switcher" role="group" aria-label="Language selector">
+                <button class="lang-btn active" type="button" data-lang="pt" aria-pressed="true" data-i18n="langPt">PT</button>
+                <button class="lang-btn" type="button" data-lang="en" aria-pressed="false" data-i18n="langEn">EN</button>
+            </div>
+
+        </div>
+    </header>
+
     <section class="books">
     <div class="container">
 
-        <h2>BOOKS</h2>
+        <h2 data-i18n="sectionTitle">BOOKS</h2>
 
         <div class="books-grid">
 
@@ -22,10 +34,10 @@
             <h3>MUNDO DE SONHOS E FANTASIA</h3>
 
                 <img class="main-img" src="images/sonhosfantasia_frente.jpg" 
-                alt="Imagem do livro Mundo de Sonhos e Fantasia">
+                alt="Imagem do livro Mundo de Sonhos e Fantasia" data-i18n-alt="book1Alt">
 
                 <img class="hover-img" src="images/sonhosfantasia_tras.jpg" 
-                alt="Imagem do livro Mundo de Sonhos e Fantasia">
+                alt="Imagem do livro Mundo de Sonhos e Fantasia" data-i18n-alt="book1Alt">
                
                 <div class="overlay"></div>
                 
@@ -38,10 +50,10 @@
             <h3>A TOSQUIA</h3>
 
                 <img class="main-img" src="images/tosquia comp.png" 
-                alt="Imagem do livro A Tosquia">
+                alt="Imagem do livro A Tosquia" data-i18n-alt="book2Alt">
 
                 <img class="hover-img" src="images/tosquia comp.png" 
-                alt="Imagem do livro A Tosquia">
+                alt="Imagem do livro A Tosquia" data-i18n-alt="book2Alt">
                
                 <div class="overlay"></div>
                
@@ -53,13 +65,13 @@
     <a href="#" class="book-card">
                
                 <img class="hover-img" src="images/monsanto_frente_.jpg" 
-                alt="Imagem do livro Memórias e Tradições de Monsanto">
+                alt="Imagem do livro Memórias e Tradições de Monsanto" data-i18n-alt="book3Alt">
                 
                 <div class="overlay"></div>
                 <h3>MEMÓRIAS E TRADIÇÕES DE MONSANTO</h3>
                
                 <img class="main-img" src="images/monsanto_frente_.jpg" 
-                alt="Imagem do livro Memórias e Tradições de Monsanto">
+                alt="Imagem do livro Memórias e Tradições de Monsanto" data-i18n-alt="book3Alt">
     </a>
 
 
@@ -199,5 +211,7 @@
 
     </div>
 </section>
+
+<script src="script.js"></script>
 </body>
 </html>
