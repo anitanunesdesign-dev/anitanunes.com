@@ -1,2 +1,2 @@
 # anitanunes.com
-Editorial Design &amp; Photography
+Editorial Design and Photography
