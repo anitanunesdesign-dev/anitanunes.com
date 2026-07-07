@@ -5,24 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anita N.</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer/footer.css">
+
 </head>
+
+
+
 <body data-i18n-root="page">
+    <!-- Cabeçalho com logo e seletor de idioma -->
     <header class="site-header">
         <div class="header-inner">
-            <a class="brand" href="index.html" data-i18n="siteBrand">Anita</a>
+            <div class="brand-wrap">
+                <img class="logo-placeholder" src="images/logo-placeholder.png" alt="Logótipo da Anita Nunes" aria-label="Logo placeholder" title="Logo placeholder">
+                <a class="brand" href="index.html" data-i18n="siteBrand">Anita</a>
+            </div>
 
-            <div class="lang-switcher" role="group" aria-label="Language selector">
-                <button class="lang-btn active" type="button" data-lang="pt" aria-pressed="true" data-i18n="langPt">PT</button>
-                <button class="lang-btn" type="button" data-lang="en" aria-pressed="false" data-i18n="langEn">EN</button>
+
+            <div class="control-group" role="group" aria-label="Theme and language selector">
+                <div class="theme-switcher" role="group" aria-label="Theme selector">
+                    <button class="theme-btn active" type="button" data-theme="light" aria-pressed="true" aria-label="Day mode">
+                        <span class="theme-icon sun" aria-hidden="true">☀︎</span>
+                    </button>
+                    <button class="theme-btn" type="button" data-theme="dark" aria-pressed="false" aria-label="Night mode">
+                        <span class="theme-icon moon" aria-hidden="true">🌙</span>
+                    </button>
+                </div>
+
+                <div class="lang-switcher" role="group" aria-label="Language selector">
+                    <button class="lang-btn active" type="button" data-lang="pt" aria-pressed="true" data-i18n="langPt">PT</button>
+                    <button class="lang-btn" type="button" data-lang="en" aria-pressed="false" data-i18n="langEn">EN</button>
+                </div>
             </div>
 
         </div>
     </header>
 
+    <!-- Secção inicial da página -->
+    <section class="landing">
+        <div class="container landing-grid">
+            <div class="landing-copy">
+                <h1>ANITA</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção com os livros -->
     <section class="books">
     <div class="container">
 
-        <h2 data-i18n="sectionTitle">BOOKS</h2>
+        <h2 data-i18n="sectionTitle">LIVROS</h2>
 
         <div class="books-grid">
 
@@ -212,6 +244,11 @@
     </div>
 </section>
 
+
+<div id="footer-placeholder"></div>
+<script src="footer/load-footer.js"></script>
 <script src="script.js"></script>
+
+
 </body>
 </html>

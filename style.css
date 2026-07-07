@@ -1,35 +1,54 @@
-/* Reset geral */
+/* Reset geral do layout */
 
-* {
+:root{
+    --bg: #000000;
+    --text: #ffffff;
+    --text-rgb: 255, 255, 255;
+    --text-soft: rgba(255, 255, 255, 0.75);
+    --surface: rgba(255, 255, 255, 0.08);
+    --surface-border: rgba(255, 255, 255, 0.12);
+    --header-bg: rgba(0, 0, 0, 0.72);
+    --highlight: #ce0075;
+}
+
+body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* Estilo base do corpo da página */
-body{
-    background:#000000;
-    color:white;
+    background: var(--bg);
+    color: var(--text);
     font-family: 'Montserrat', sans-serif;
     font-weight: 280; /* ExtraBold */
     padding-top: 84px;
 }
 
-/*  -------------------- LINGUAGE CHANGER -----------------------  */
+body.light-theme{
+    --bg: #ffffff;
+    --text: #111111;
+    --text-rgb: 17, 17, 17;
+    --text-soft: rgba(17, 17, 17, 0.75);
+    --surface: rgba(0, 0, 0, 0.05);
+    --surface-border: rgba(0, 0, 0, 0.1);
+    --header-bg: rgba(255, 255, 255, 0.94);
+}
+
+/* --------- Cabeçalho ---------- */
 .site-header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 20;
-    padding: 16px 24px;
-    background: rgba(0, 0, 0, 0.82);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
+    padding: 16px 2vw;
 
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--surface-border);
+}
+ 
+/* Container interno do cabeçalho */
 .header-inner{
-    max-width: 1400px;
+    max-width: 90%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -37,62 +56,195 @@ body{
     gap: 16px;
 }
 
-.brand{
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
+.control-group{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+    /* Agrupamento do logotipo e marca do site */
+
+    .brand-wrap{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+        /* Placeholder para o logotipo do site */
+        .logo-placeholder{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.06));
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        /* Marca do site no cabeçalho */
+        .brand{
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+
+    /* Seletor de tema e idioma no cabeçalho */
+    .control-group{
+        display: inline-flex;
+        align-items: right;
+        gap: 10px;
+    }
+
+
+    /* Botões FORA de controlo no cabeçalho */
+    .lang-switcher,
+    .theme-switcher{
+        display: inline-flex;
+        align-items: right;
+        gap: 0;
+        padding: 6px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Botões DENTRO de controlo no cabeçalho */
+    .theme-switcher .theme-btn,
+    .lang-switcher .lang-btn{
+      
+        background: transparent;
+        color: var(--text);
+        padding: 6px;
+        width: 30px;
+        height: 20px;
+    
+        transition: background 0.2s ease, transform 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        background: transparent;
+        padding: 8px;
+        Border: 0;
+        border-radius: 99px;
+        cursor: pointer;
+
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: background 0.2s ease, transform 0.2s ease;
+
+        }
+
+            /* Efeito hover dos botões */
+            .lang-btn:hover,
+            .theme-btn:hover{
+                background: rgba(255, 255, 255, 0.14);
+                transform: translateY(-1px);
+            }
+
+            body.light-theme .lang-btn:hover,
+            body.light-theme .theme-btn:hover{
+                background: rgba(0, 0, 0, 0.08);
+            }
+
+            .lang-btn.active,
+            .theme-btn.active{
+                background: linear-gradient(135deg, var(--highlight), #3b0119);
+                color: #fff;
+            }
+
+            .theme-btn{
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 8px 12px;
+            }
+
+            .theme-icon{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 20px;
+                font-size: 0.9rem;
+                transition: opacity 0.2s ease, transform 0.2s ease;
+            }
+
+            .theme-icon.sun{
+                color: #ffdd57;
+            }
+
+            .theme-icon.moon{
+                color: #cfd8ff;
+            }
+
+            body.light-theme .theme-icon.sun{
+                opacity: 1;
+            }
+
+            body.light-theme .theme-icon.moon{
+                opacity: 0.6;
+            }
+
+            body:not(.light-theme) .theme-icon.sun{
+                opacity: 0.6;
+            }
+
+            body:not(.light-theme) .theme-icon.moon{
+                opacity: 1;
+            }
+
+
+/* ------------ Fim do cabeçalho ----------- */
+
+
+
+/* ------------- Conteúdo central da página ------------ */
+.container{
+    width:min(1400px, 88vw);
+    margin: 0px auto;
+}
+
+
+.landing{
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    padding: 40px 2.2vw 80px;
+}
+
+.landing-grid{
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    width: min(1400px, 88vw);
+    margin: 0 auto;
+}
+
+.landing-copy h1{
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
     text-transform: uppercase;
 }
 
-.lang-switcher{
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+.landing-copy p{
+    max-width: 420px;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 400;
+        color: var(--text-soft);
 }
 
-.lang-btn{
-    border: 0;
-    background: transparent;
-    color: #f5f5f5;
-    padding: 8px 14px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
 
-.lang-btn:hover{
-    background: rgba(255, 255, 255, 0.14);
-    transform: translateY(-1px);
-}
-
-.lang-btn.active{
-    background: linear-gradient(135deg, #fce4bd, #f4b7d0);
-    color: #111;
-}
-/*  ------------------------------------------  */
-
-
-.container{
-    width:min(1400px,92%);
-    margin:auto;
-}
-
-.books{
-    padding:90px 0;
-    /*background:tomato;*/
-}
-
-/*  -------------------------------------------  */
-/*  -------------- TÍTULO DA SECÇÃO -----------  */
-/*  -------------------------------------------  */
+/* Título da secção de livros */
 .books h2{
     text-align:left;
     font-size:6cap;
@@ -101,7 +253,7 @@ body{
     letter-spacing:1px;
 }
 
-/* Estrutura em grelha para os livros */
+/* Grelha dos cartões de livros */
 
 .books-grid{
 
@@ -124,9 +276,7 @@ body{
     display:block;
 }
 
-/*  -------------------------------------------  */
-/*  ------------ IMAGENS E HOVER --------------  */
-/*  -------------------------------------------  */
+/* Imagens e efeito hover dos cartões */
 
 .book-card img{
 
@@ -158,8 +308,7 @@ body{
 }
 
 
-/*  -------------------------------------------  */
-/*      SOBREPOSIÇÃO ESCURA NOS CARDS          */
+/* Camada escura sobre os cartões */
 
 .overlay{
 
@@ -177,10 +326,9 @@ body{
 
 }
 
-/*  -------------------------------------------  */
+/* Fim da camada escura */
 
-
-/* Título do livro sobre a imagem */
+/* Nome do livro sobre a imagem */
 
 .book-card h3{
 
@@ -202,9 +350,7 @@ body{
 
 }
 
-/*  -------------------------------------------  */
-/*  ------------ EFEITO AO PASSAR O MOUSE ------  */
-/*  -------------------------------------------  */
+/* Efeito ao passar o cursor */
 
 .book-card:hover{
     /* Hover apenas troca imagem — sem deslocamento, sem sombra */
