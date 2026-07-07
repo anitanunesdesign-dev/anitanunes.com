@@ -1,3 +1,6 @@
+
+
+/* Estilo base do rodapé. */
 .site-footer{
     background: rgba(255, 255, 255, 0.04);
     border-top: 1px solid var(--surface-border);
@@ -6,38 +9,46 @@
     color: var(--text-soft);
 }
 
+/* Layout da grelha de colunas. */
 .footer-grid{
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 36px;
+    gap: 60px;
     max-width: min(1400px, 88vw);
     margin: 0 auto;
     padding-bottom: 24px;
 }
 
+/* Estilo dos títulos das colunas. */
 .footer-col h3{
     margin: 0 0 16px;
-    font-size: 0.95rem;
-    letter-spacing: 0.12em;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 650;
     color: var(--text);
 }
 
+/* Espaçamento interno do texto e listas. */
 .footer-col p,
 .footer-col ul{
     margin: 0;
-    padding: 0;
+    padding: 5px 0;
+        font-size: 1.2rem;
 }
 
+/* Lista sem marcadores. */
 .footer-col ul{
     list-style: none;
 }
 
+/* Espaço entre itens da lista. */
 .footer-col ul li{
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    font-size: 1.2rem;
 }
 
+/* Estilo dos links do rodapé. */
 .footer-col a{
     color: var(--text-soft);
     text-decoration: none;
@@ -48,18 +59,21 @@
     color: var(--text);
 }
 
+/* Marca principal do rodapé. */
 .footer-brand{
     display: inline-block;
     margin-bottom: 18px;
-    font-size: 1.4rem;
+    font-size: 1.9rem;
     font-weight: 700;
     color: var(--text);
 }
 
+/* Espaço entre os ícones sociais. */
 .social-list li{
     margin-bottom: 10px;
 }
 
+/* Base inferior do rodapé. */
 .footer-bottom{
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 20px;
@@ -68,12 +82,17 @@
     font-size: 0.95rem;
 }
 
+
+
+
+/* Ajuste para ecrãs médios. */
 @media (max-width: 900px) {
     .footer-grid{
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* Ajuste para ecrãs pequenos. */
 @media (max-width: 620px) {
     .footer-grid{
         grid-template-columns: 1fr;
