@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anita N.</title>
     <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="livros/livros_index.css">
     <link rel="stylesheet" href="footer/footer.css">
 
 </head>
@@ -56,10 +57,10 @@
 
         <h2 data-i18n="designEditorialTitle">DESIGN EDITORIAL</h2>
 
-        <div class="books-grid" data-random-books-source="livros.html"></div>
-
+        <div class="books-grid" data-random-books-source="livros/livros.html"></div>
+        
         <div class="books-actions">
-            <a href="livros.html" class="view-more-btn" data-i18n="viewMore">Ver mais</a>
+            <a href="livros/livros.html" class="view-more-btn" data-i18n="viewMore">Ver mais</a>
         </div>
 
     </div>
@@ -173,7 +174,24 @@
 
 <div id="footer-placeholder"></div>
 <script src="footer/load-footer.js"></script>
+<!-- Google reCAPTCHA: replace YOUR_SITE_KEY with your site key -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="script.js"></script>
+
+<!-- CAPTCHA modal shown to first-time visitors until verified -->
+<div id="human-check-modal" class="human-check-modal" role="dialog" aria-modal="true" aria-labelledby="human-check-title">
+    <div class="modal-card">
+        <h2 id="human-check-title">Verificação de segurança</h2>
+        <p>Por favor confirme que é um visitante humano para continuar a navegar no site.</p>
+        <div id="recaptcha-container">
+            <!-- Replace data-sitekey value with your Google reCAPTCHA site key -->
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY" data-callback="onHumanVerified"></div>
+        </div>
+        <div>
+            <button class="human-fallback-btn" id="human-fallback">Sou humano</button>
+        </div>
+    </div>
+</div>
 
 
 </body>

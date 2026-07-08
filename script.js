@@ -176,4 +176,156 @@ function initLanguageSwitcher() {
   showRandomHomeBooks();
 }
 
-document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+// --- Organize books by date/year and insert meta date if missing ---
+function parseDateString(str) {
+  if (!str) return new Date('2026-07-08');
+  str = str.trim();
+  const m = str.match(/(\d{2})\.(\d{2})\.(\d{4})/);
+  if (m) {
+    return new Date(`${m[3]}-${m[2]}-${m[1]}`);
+  }
+  const iso = new Date(str);
+  if (!isNaN(iso)) return iso;
+  return new Date('2026-07-08');
+}
+
+function organizeGridByYear(grid) {
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.book-card'));
+  if (!cards.length) return;
+
+  // ensure each card has a date source: prefer existing data-date attribute, else read .book-date, else set default
+  cards.forEach((card) => {
+    const existing = card.querySelector('.book-date');
+
+    if (card.dataset.date && card.dataset.date.trim()) {
+      // if visible badge is missing, create one from data-date for editing/visibility
+      if (!existing) {
+        const iso = card.dataset.date.trim();
+        const d = new Date(iso);
+        let display = '08.07.2026';
+        if (!isNaN(d)) {
+          const dd = String(d.getDate()).padStart(2,'0');
+          const mm = String(d.getMonth()+1).padStart(2,'0');
+          const yyyy = d.getFullYear();
+          display = `${dd}.${mm}.${yyyy}`;
+        }
+        const meta = document.createElement('div');
+        meta.className = 'book-meta';
+        const span = document.createElement('span');
+        span.className = 'book-date';
+        span.textContent = display;
+        meta.appendChild(span);
+        card.appendChild(meta);
+      }
+    } else if (existing) {
+      const txt = existing.textContent.trim();
+      const m = txt.match(/(\d{2})\.(\d{2})\.(\d{4})/);
+      if (m) {
+        card.dataset.date = `${m[3]}-${m[2]}-${m[1]}`;
+      } else {
+        const d = new Date(txt);
+        if (!isNaN(d)) card.dataset.date = d.toISOString().slice(0,10);
+        else card.dataset.date = '2026-07-08';
+      }
+    } else {
+      // no source present: set default but do not force visible badge (so you can add later)
+      card.dataset.date = '2026-07-08';
+      const meta = document.createElement('div');
+      meta.className = 'book-meta';
+      const span = document.createElement('span');
+      span.className = 'book-date';
+      span.textContent = '08.07.2026';
+      meta.appendChild(span);
+      card.appendChild(meta);
+    }
+  });
+
+  // sort descending by date
+  cards.sort((a,b) => {
+    const da = parseDateString(a.dataset.date);
+    const db = parseDateString(b.dataset.date);
+    return db - da;
+  });
+
+  // group by year
+  const groups = new Map();
+  cards.forEach(c => {
+    const year = parseDateString(c.dataset.date).getFullYear();
+    if (!groups.has(year)) groups.set(year, []);
+    groups.get(year).push(c);
+  });
+
+  // create new container
+  const newGrid = document.createElement('div');
+  newGrid.className = grid.className + ' grouped-books';
+
+  Array.from(groups.keys()).sort((a,b)=>b-a).forEach(year => {
+    const sep = document.createElement('div');
+    sep.className = 'year-section';
+    const label = document.createElement('div'); label.className='year-label'; label.textContent=year;
+    const line = document.createElement('div'); line.className='year-line';
+    sep.appendChild(label);
+    sep.appendChild(line);
+    newGrid.appendChild(sep);
+
+    groups.get(year).forEach(card => newGrid.appendChild(card));
+  });
+
+  grid.replaceWith(newGrid);
+}
+
+// --- Human verification (CAPTCHA) ---
+function isHumanVerified() {
+  return document.cookie.split('; ').indexOf('human_verified=1') !== -1;
+}
+
+function setHumanVerified() {
+  // 1 year
+  const maxAge = 60 * 60 * 24 * 365;
+  document.cookie = `human_verified=1; path=/; max-age=${maxAge}`;
+  hideHumanModal();
+}
+
+function showHumanModal() {
+  const modal = document.getElementById('human-check-modal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+  // prevent interaction with page behind modal
+  document.documentElement.style.overflow = 'hidden';
+}
+
+function hideHumanModal() {
+  const modal = document.getElementById('human-check-modal');
+  if (!modal) return;
+  modal.style.display = 'none';
+  document.documentElement.style.overflow = '';
+}
+
+// Callback used by Google reCAPTCHA when verification succeeds
+window.onHumanVerified = function (token) {
+  if (token) {
+    setHumanVerified();
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  initLanguageSwitcher();
+
+  // fallback manual button if reCAPTCHA can't load
+  const fallback = document.getElementById('human-fallback');
+  if (fallback) {
+    fallback.addEventListener('click', () => {
+      setHumanVerified();
+    });
+  }
+
+  if (!isHumanVerified()) {
+    // show modal to block bots until human verification
+    showHumanModal();
+  }
+  // organize each books grid by year only on pages inside the /livros/ folder
+  if (location.pathname.includes('/livros/')) {
+    document.querySelectorAll('section.books .books-grid').forEach(grid => organizeGridByYear(grid));
+  }
+});

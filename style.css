@@ -1,4 +1,5 @@
 /* Reset geral do layout */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
 :root{
     --bg: #000000;
@@ -133,8 +134,8 @@ body.light-theme{
         border-radius: 99px;
         cursor: pointer;
 
-        font-weight: 500;
-        font-size: 0.9rem;
+        font-weight: 600;
+        font-size: 0.8rem;
         transition: background 0.2s ease, transform 0.2s ease;
 
         }
@@ -247,143 +248,90 @@ body.light-theme{
 }
 
 
+
 /* Título da secção de livros */
-.books h2{
-    text-align:left;
-    font-size:1.75vw;
-    font-weight:600;
-    margin-bottom:70px;
-    margin-top:140px;
-    letter-spacing:1px;
-}
-
-/* Grelha dos cartões de livros */
-
-.books-grid{
-
-    display:grid;
-    /* --NUMERO DE COLUNAS-- */
-    grid-template-columns:repeat(2,1fr);
-    gap:7vh;
-
-}
+/* livros-specific styles moved to livros/livros_indivi.css */
 
 
-/* Estilo dos cartões de livro */
 
-.book-card{
-
-    position:relative;
-    height: 50vh ;
-    overflow:hidden;
-    border-radius:10px;
-    display:block;
-}
-
-/* Imagens e efeito hover dos cartões */
-
-.book-card img{
-
-    position:absolute;
-    inset:-1px;
-    width:calc(100% + 2px);
-    height:calc(100% + 2px);
-    object-fit:cover;
-    z-index:0;
-    border-radius:inherit;
-
-}
-
-.book-card .main-img{
-    opacity:1;
-}
-
-.book-card .hover-img{
-    opacity:0;
-}
-
-.book-card:hover .main-img{
-    opacity:0;
-}
-
-.book-card:hover .hover-img{
-    opacity:1;
-    /*transform:scale(1.05);*/
-}
-
-
-/* Camada escura sobre os cartões */
-
-.overlay{
-
-    position:absolute;
-    inset:-1px;
-    z-index:1;
-    pointer-events:none;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.85) 0%,
-        rgba(0,0,0,.30) 30%,
-        rgba(0,0,0,0) 60%
-    );
-
-}
-
-/* Fim da camada escura */
-
-/* Nome do livro sobre a imagem */
-
-.book-card h3{
-
-    position:absolute;
-
-/*  --POSIÇÃO DO TEXTO NA IMAGEM--  */
-    left:25px;
-    bottom:35px;
-
-    color:white;
-
-    font-size:18px;
-    font-weight:500;
-    line-height:1.15;
-
-    width:90%;
-
-    z-index:2;
-    text-transform: uppercase;
-
-}
-
-.books-actions{
-    display:flex;
-    justify-content:center;
-    margin-top:48px;
-    padding-bottom:24px;
-}
-
-.view-more-btn{
-    display:inline-flex;
+/* --- Modal de verificação humana (CAPTCHA) --- */
+.human-check-modal{
+    position:fixed;
+    inset:0;
+    display:none;
     align-items:center;
     justify-content:center;
-    padding:12px 28px;
-    border-radius:999px;
+    background: rgba(0,0,0,0.75);
+    z-index: 9999;
+}
+.human-check-modal .modal-card{
+    background: var(--bg);
+    color: var(--text);
+    padding: 28px;
+    border-radius: 10px;
+    max-width: 520px;
+    width: calc(100% - 40px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    text-align: center;
+}
+.human-check-modal h2{
+    margin-top:0;
+    margin-bottom:12px;
+}
+.human-check-modal p{margin-bottom:18px;color:var(--text-soft);}
+.human-check-modal .human-fallback-btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 18px;
+    border-radius:8px;
     border:1px solid var(--surface-border);
     background:var(--surface);
     color:var(--text);
-    text-decoration:none;
-    font-weight:600;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    transition:transform 0.2s ease, background 0.2s ease;
+    cursor:pointer;
 }
 
-.view-more-btn:hover{
-    transform:translateY(-2px);
-    background:rgba(255,255,255,0.16);
+/* --- Book meta and year grouping styles --- */
+.book-meta{
+    position:absolute;
+    left:18px;
+    top:18px;
+    background: rgba(0,0,0,0.55);
+    color: var(--text);
+    padding:6px 8px;
+    border-radius:6px;
+    font-size:0.9rem;
+    z-index:3;
+}
+.book-meta .book-date{display:block}
+
+.grouped-books .year-section{
+    grid-column: 1 / -1;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin: 40px 0 10px;
 }
 
-body.light-theme .view-more-btn:hover{
-    background:rgba(0,0,0,0.08);
+
+
+/* --- A N O --- */
+
+.grouped-books .year-label{
+    font-weight:700;
+    font-size:1.4rem;
+    position:absolute;
+    left:11vw;
+    color:var(--text);
 }
 
+.grouped-books .year-line{
+    flex:1 1 auto;
+    height:2px;
+    background:var(--surface-border);
+    border:0;
+}
+
+
+
+/* Ensure book-card position relative for meta placement */
+.book-card{position:relative}

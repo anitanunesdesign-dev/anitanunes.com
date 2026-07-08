@@ -1,0 +1,217 @@
+.books h2{
+    text-align:left;
+    font-size:1.75vw;
+    font-weight:600;
+    margin-bottom:70px;
+    margin-top:140px;
+    letter-spacing:1px;
+}
+
+/* Grelha dos cartões de livros */
+
+.books-grid{
+
+    display:grid;
+    /* --NUMERO DE COLUNAS-- */
+    grid-template-columns:repeat(2,1fr);
+    gap:7vh;
+
+}
+
+
+/* Estilo dos cartões de livro */
+
+.book-card{
+
+    position:relative;
+    height: 50vh ;
+    overflow:hidden;
+    border-radius:10px;
+    display:block;
+}
+
+/* Imagens e efeito hover dos cartões */
+
+.book-card img{
+
+    position:absolute;
+    inset:-1px;
+    width:calc(100% + 2px);
+    height:calc(100% + 2px);
+    object-fit:cover;
+    z-index:0;
+    border-radius:inherit;
+
+}
+
+.book-card .main-img{
+    opacity:1;
+}
+
+.book-card .hover-img{
+    opacity:0;
+}
+
+.book-card:hover .main-img{
+    opacity:0;
+}
+
+.book-card:hover .hover-img{
+    opacity:1;
+    /*transform:scale(1.05);*/
+}
+
+
+/* Camada escura sobre os cartões */
+
+.overlay{
+
+    position:absolute;
+    inset:-1px;
+    z-index:1;
+    pointer-events:none;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.85) 0%,
+        rgba(0,0,0,.30) 30%,
+        rgba(0,0,0,0) 60%
+    );
+
+}
+
+/* Fim da camada escura */
+
+/* Nome do livro sobre a imagem */
+
+.book-card h3{
+
+    position:absolute;
+
+/*  --POSIÇÃO DO TEXTO NA IMAGEM--  */
+    left:25px;
+    bottom:35px;
+
+    color:white;
+
+    font-size:18px;
+    font-weight:500;
+    line-height:1.15;
+
+    width:90%;
+
+    z-index:2;
+    text-transform: uppercase;
+
+}
+
+.books-actions{
+    display:flex;
+    justify-content:center;
+    margin-top:48px;
+    padding-bottom:24px;
+}
+
+.view-more-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 28px;
+    border-radius:999px;
+    border:1px solid var(--surface-border);
+    background:var(--surface);
+    color:var(--text);
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:transform 0.2s ease, background 0.2s ease;
+}
+
+.view-more-btn:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,0.16);
+}
+
+body.light-theme .view-more-btn:hover{
+    background:rgba(0,0,0,0.08);
+}
+
+
+/* --- Conteúdo específico de páginas de detalhe de livros (antes em livros.css) --- */
+.book-detail-page .site-header{
+    background: rgba(0,0,0,.18);
+    backdrop-filter: blur(18px);
+    
+}
+
+.book-detail-landing{
+    position: relative;
+    min-height: calc(50vh - 90px);
+    background-image: linear-gradient(
+        90deg,
+        rgba(0,0,0,.78) 0%,
+        rgba(0,0,0,.50) 42%,
+        rgba(0,0,0,.10) 100%
+    ), var(--book-hero-image);
+
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+
+}
+
+
+
+.book-detail-copy{
+    max-width: min(760px, 90vw);
+    color: #ffffff;
+}
+
+/* ---  Nome do livro em grande ---*/
+.book-detail-copy h1{
+    max-width: 40vw;
+    color: #ffffff;
+    font-size: 3vw;
+    font-weight: 600;
+    letter-spacing: .05em;
+}
+
+
+
+.back-link{
+    display: inline-flex;
+    margin-bottom: 28px;
+    color: #fff;
+    font-size: 1.82rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.back-link:hover{
+    text-decoration: underline;
+}
+
+
+
+
+.book-detail-gallery{
+    padding-bottom: 110px;
+}
+
+.book-detail-gallery h2{
+    margin-top: 110px;
+}
+
+.book-detail-gallery .book-card:hover .main-img{
+    opacity: 1;
+}
+
+.book-detail-gallery .book-card h3{
+    text-transform: capitalize;
+    bottom: 10px;
+    font-size: max(0.4vw, 12px);
+    font-weight: 200;
+}
