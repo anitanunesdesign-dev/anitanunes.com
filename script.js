@@ -116,21 +116,35 @@ function applyTheme(theme) {
   localStorage.setItem('site-theme', theme);
 }
 
-function showRandomHomeBooks() {
+async function showRandomHomeBooks() {
   const editorialSection = document.querySelector('.home-editorial-section');
   if (!editorialSection) return;
 
-  const cards = Array.from(editorialSection.querySelectorAll('.books-grid .book-card'));
-  if (cards.length <= 4) return;
+  const grid = editorialSection.querySelector('.books-grid[data-random-books-source]');
+  if (!grid) return;
 
-  cards.forEach((card) => {
-    card.style.display = 'none';
-  });
+  const sourceUrl = grid.getAttribute('data-random-books-source');
+  if (!sourceUrl) return;
 
-  const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
-  shuffledCards.slice(0, 4).forEach((card) => {
-    card.style.display = 'block';
-  });
+  try {
+    const response = await fetch(sourceUrl);
+    if (!response.ok) return;
+
+    const sourceHtml = await response.text();
+    const sourceDocument = new DOMParser().parseFromString(sourceHtml, 'text/html');
+    const cards = Array.from(sourceDocument.querySelectorAll('.books-grid .book-card'));
+    if (!cards.length) return;
+
+    const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+    const selectedCards = shuffledCards.slice(0, 4).map((card) => document.importNode(card, true));
+
+    grid.replaceChildren(...selectedCards);
+
+    const savedLang = localStorage.getItem('site-language') || 'pt';
+    applyLanguage(savedLang);
+  } catch (error) {
+    console.error('Não foi possível carregar os livros.', error);
+  }
 }
 
 function initLanguageSwitcher() {

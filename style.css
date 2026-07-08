@@ -264,7 +264,7 @@ body.light-theme{
     display:grid;
     /* --NUMERO DE COLUNAS-- */
     grid-template-columns:repeat(2,1fr);
-    gap:60px;
+    gap:7vh;
 
 }
 
@@ -351,6 +351,7 @@ body.light-theme{
     width:90%;
 
     z-index:2;
+    text-transform: uppercase;
 
 }
 
