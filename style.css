@@ -205,13 +205,14 @@ body.light-theme{
 
 /* ------------- Conteúdo central da página ------------ */
 .container{
-    width:min(1400px, 88vw);
+    /* --- tamanho das margens principais ---*/
+    width: 70vw;
     margin: 0px auto;
 }
 
 
 .landing{
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 250px);
     display: flex;
     align-items: center;
     padding: 40px 2.2vw 80px;
@@ -226,20 +227,22 @@ body.light-theme{
     margin: 0 auto;
 }
 
+
+/* ----------- ANITA home page -----------*/
 .landing-copy h1{
     font-size: clamp(3.2rem, 8vw, 7rem);
-    font-weight: 800;
-    line-height: 0.95;
+    font-weight: 200;
+    line-height: 1;
     letter-spacing: 0.04em;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .landing-copy p{
-    max-width: 420px;
+    max-width: 400px;
     font-size: 1rem;
-    line-height: 1.7;
-    font-weight: 400;
+    line-height: 1.4;
+    font-weight: 300;
         color: var(--text-soft);
 }
 
@@ -271,7 +274,7 @@ body.light-theme{
 .book-card{
 
     position:relative;
-    height:520px;
+    height: 50vh ;
     overflow:hidden;
     border-radius:10px;
     display:block;
