@@ -247,9 +247,10 @@ body.light-theme{
 /* Título da secção de livros */
 .books h2{
     text-align:left;
-    font-size:6cap;
-    font-weight:700;
+    font-size:1.75vw;
+    font-weight:600;
     margin-bottom:70px;
+    margin-top:140px;
     letter-spacing:1px;
 }
 
@@ -348,5 +349,37 @@ body.light-theme{
 
     z-index:2;
 
+}
+
+.books-actions{
+    display:flex;
+    justify-content:center;
+    margin-top:48px;
+    padding-bottom:24px;
+}
+
+.view-more-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 28px;
+    border-radius:999px;
+    border:1px solid var(--surface-border);
+    background:var(--surface);
+    color:var(--text);
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:transform 0.2s ease, background 0.2s ease;
+}
+
+.view-more-btn:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,0.16);
+}
+
+body.light-theme .view-more-btn:hover{
+    background:rgba(0,0,0,0.08);
 }
 

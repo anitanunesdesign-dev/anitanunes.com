@@ -1,9 +1,12 @@
 const translations = {
   pt: {
-    sectionTitle: 'LIVROS',
+    designEditorialTitle: 'DESIGN EDITORIAL',
+    designGraficoTitle: 'DESIGN GRÁFICO',
+    fotografiaTitle: 'FOTOGRAFIA',
     siteBrand: 'Anita',
     langPt: 'PT',
     langEn: 'EN',
+    viewMore: 'Ver mais',
     'Imagem do livro Mundo de Sonhos e Fantasia': 'Imagem do livro Mundo de Sonhos e Fantasia',
     'Imagem do livro A Tosquia': 'Imagem do livro A Tosquia',
     'Imagem do livro Memórias e Tradições de Monsanto': 'Imagem do livro Memórias e Tradições de Monsanto',
@@ -18,10 +21,13 @@ const translations = {
     'Imagem do livro Inteligência Artificial': 'Imagem do livro Inteligência Artificial'
   },
   en: {
-    sectionTitle: 'BOOKS',
+    designEditorialTitle: 'DESIGN EDITORIAL',
+    designGraficoTitle: 'GRAPHIC DESIGN',
+    fotografiaTitle: 'PHOTOGRAPHY',
     siteBrand: 'Anita',
     langPt: 'PT',
     langEn: 'EN',
+    viewMore: 'See more',
     'Imagem do livro Mundo de Sonhos e Fantasia': 'Image of the book World of Dreams and Fantasy',
     'Imagem do livro A Tosquia': 'Image of the book The Shave',
     'Imagem do livro Memórias e Tradições de Monsanto': 'Image of the book Memories and Traditions of Monsanto',
@@ -110,6 +116,23 @@ function applyTheme(theme) {
   localStorage.setItem('site-theme', theme);
 }
 
+function showRandomHomeBooks() {
+  const editorialSection = document.querySelector('.home-editorial-section');
+  if (!editorialSection) return;
+
+  const cards = Array.from(editorialSection.querySelectorAll('.books-grid .book-card'));
+  if (cards.length <= 4) return;
+
+  cards.forEach((card) => {
+    card.style.display = 'none';
+  });
+
+  const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+  shuffledCards.slice(0, 4).forEach((card) => {
+    card.style.display = 'block';
+  });
+}
+
 function initLanguageSwitcher() {
   const root = document.querySelector('[data-i18n-root]') || document.body;
   const buttons = root.querySelectorAll('.lang-btn');
@@ -136,6 +159,7 @@ function initLanguageSwitcher() {
   const savedTheme = localStorage.getItem('site-theme') || 'dark';
   applyLanguage(savedLang);
   applyTheme(savedTheme);
+  showRandomHomeBooks();
 }
 
 document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
