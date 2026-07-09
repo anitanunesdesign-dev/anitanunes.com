@@ -6,8 +6,11 @@
     --text: #ffffff;
     --text-rgb: 255, 255, 255;
     --text-soft: rgba(255, 255, 255, 0.75);
+    --inverse-text: #000000;
+    --alternate-bg: rgba(0, 0, 0, 0.4);
     --surface: rgba(255, 255, 255, 0.08);
     --surface-border: rgba(255, 255, 255, 0.12);
+
     --header-bg: rgba(0, 0, 0, 0.72);
     --highlight: #ce0075;
 }
@@ -28,9 +31,12 @@ body.light-theme{
     --text: #111111;
     --text-rgb: 17, 17, 17;
     --text-soft: rgba(17, 17, 17, 0.75);
+    --alternate-bg: rgba(0, 0, 0, 0.4);
+    --inverse-text: #ffffff;
     --surface: rgba(0, 0, 0, 0.05);
     --surface-border: rgba(0, 0, 0, 0.1);
     --header-bg: rgba(255, 255, 255, 0.94);
+    --highlight: #ce0075;
 }
 
 /* --------- Cabeçalho ---------- */
@@ -98,64 +104,67 @@ body.light-theme{
         display: inline-flex;
         align-items: right;
         gap: 10px;
+ 
     }
-
 
     /* Botões FORA de controlo no cabeçalho */
-    .lang-switcher,
-    .theme-switcher{
+    body.light-theme .lang-switcher,
+    body.light-theme .theme-switcher {
         display: inline-flex;
         align-items: right;
-        gap: 0;
-        padding: 6px;
+        gap: 7px;
+        padding: 7px 7px;
         border-radius: 99px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid  rgba(0, 0, 0, 0.1);
+        background: rgba(0, 0, 0, 0.07);
     }
+    
+    body:not(.light-theme) .lang-switcher,
+    body:not(.light-theme) .theme-switcher {
+        display: inline-flex;
+        align-items: right;
+        gap: 7px;
+        padding: 7px 7px;
+        border-radius: 99px;
+        border: 1px solid  rgba(255, 255, 255, 0.15);
+        background:  rgba(255, 255, 255, 0.15);
+    }
+
+
 
     /* Botões DENTRO de controlo no cabeçalho */
     .theme-switcher .theme-btn,
     .lang-switcher .lang-btn{
-      
-        background: transparent;
-        color: var(--text);
-        padding: 6px;
-        width: 30px;
-        height: 20px;
+        color: rgba(255, 255, 255, 0.7);
+        background: rgba(0, 0, 0, 0.2);
+        width: 35px;
+        height: 23px;
     
-        transition: background 0.2s ease, transform 0.2s ease;
         display: inline-flex;
         align-items: center;
         justify-content: center;
 
-        background: transparent;
-        padding: 8px;
         Border: 0;
         border-radius: 99px;
         cursor: pointer;
 
-        font-weight: 600;
-        font-size: 0.8rem;
-        transition: background 0.2s ease, transform 0.2s ease;
+        font-weight: 550;
+        font-size: 0.75rem;
 
         }
 
-            /* Efeito hover dos botões */
-            .lang-btn:hover,
-            .theme-btn:hover{
-                background: rgba(255, 255, 255, 0.14);
-                transform: translateY(-1px);
-            }
-
+            /* -- LANG BUTTON HOVER  ---- DARK  theme -- */
+            .lang-btn:hover,  .theme-btn:hover,
             body.light-theme .lang-btn:hover,
             body.light-theme .theme-btn:hover{
-                background: rgba(0, 0, 0, 0.08);
+                     background: rgba(126, 126, 126, 0.787);            
+
             }
 
-            .lang-btn.active,
-            .theme-btn.active{
-                background: linear-gradient(135deg, var(--highlight), #3b0119);
-                color: #fff;
+            /* -- LANG BUTTON ACTIVE  ----- */
+            .lang-btn.active, .theme-btn.active {
+                background: linear-gradient(135deg, var(--highlight), #830037);
+                color:#ffffff;
             }
 
             .theme-btn{
@@ -169,33 +178,17 @@ body.light-theme{
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                width: 30px;
-                height: 20px;
-                font-size: 0.9rem;
-                transition: opacity 0.2s ease, transform 0.2s ease;
-            }
 
-            .theme-icon.sun{
-                color: #ffdd57;
             }
-
-            .theme-icon.moon{
-                color: #cfd8ff;
+            
+            theme-icon.moon, theme-icon.sun {
+                color: #fff;
+                opacity: 0.8;
             }
-
-            body.light-theme .theme-icon.sun{
-                opacity: 1;
-            }
-
-            body.light-theme .theme-icon.moon{
-                opacity: 0.6;
-            }
-
-            body:not(.light-theme) .theme-icon.sun{
-                opacity: 0.6;
-            }
-
-            body:not(.light-theme) .theme-icon.moon{
+            
+            body.light-theme .theme-icon.sun,
+            body:not(.light-theme) .theme-icon.moon {
+                 color: #ffffff;
                 opacity: 1;
             }
 
@@ -211,12 +204,11 @@ body.light-theme{
     margin: 0px auto;
 }
 
-
+/* ------------------- L A N D I N G  --------------- */
 .landing{
-    min-height: calc(100vh - 250px);
+    min-height: calc(100vh - 84px);
     display: flex;
     align-items: center;
-    padding: 40px 2.2vw 80px;
 }
 
 .landing-grid{
@@ -224,8 +216,9 @@ body.light-theme{
     grid-template-columns: 1.2fr 0.8fr;
     gap: 40px;
     align-items: center;
-    width: min(1400px, 88vw);
-    margin: 0 auto;
+    width: 70vw;
+    margin-bottom: 100px;
+        
 }
 
 
@@ -240,17 +233,13 @@ body.light-theme{
 }
 
 .landing-copy p{
-    max-width: 400px;
+    max-width: 450px;
     font-size: 1rem;
     line-height: 1.4;
     font-weight: 300;
         color: var(--text-soft);
 }
 
-
-
-/* Título da secção de livros */
-/* livros-specific styles moved to livros/livros_indivi.css */
 
 
 
@@ -290,18 +279,31 @@ body.light-theme{
     cursor:pointer;
 }
 
-/* --- Book meta and year grouping styles --- */
+
+
+
+/* ---  D A T A S   D O S   L I V R O S  --- */
 .book-meta{
     position:absolute;
     left:18px;
     top:18px;
-    background: rgba(0,0,0,0.55);
+
+    background: var(--alternate-bg);
     color: var(--text);
+
     padding:6px 8px;
     border-radius:6px;
-    font-size:0.9rem;
+    font-size:0.8rem;
+    letter-spacing: 0.05rem;
     z-index:3;
 }
+
+.book-meta, light-theme {
+font-weight: 450;
+color:  var(--inverse-text);
+}
+
+
 .book-meta .book-date{display:block}
 
 .grouped-books .year-section{
@@ -312,9 +314,7 @@ body.light-theme{
     margin: 40px 0 10px;
 }
 
-
-
-/* --- A N O --- */
+/* --- S E P A R A D O R E S  --- D A T A S   D O S   L I  V R O S --- */
 
 .grouped-books .year-label{
     font-weight:700;
