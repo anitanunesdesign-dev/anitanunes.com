@@ -4,45 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anita N.</title>
+    <link rel="stylesheet" href="Header/header.css">
     <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="livros/livros_index.css">
+    <link rel="stylesheet" href="livros/livros_index.css">
     <link rel="stylesheet" href="footer/footer.css">
+    <link rel="import"       href="Header/header.html">
 
 </head>
 
 
 
 <body data-i18n-root="page">
+
     <!-- Cabeçalho com logo e seletor de idioma -->
     <header class="site-header">
-        <div class="header-inner">
-            <div class="brand-wrap">
-                <img class="logo-placeholder" src="images/logo-placeholder.png" alt="Logótipo da Anita Nunes" aria-label="Logo placeholder" title="Logo placeholder">
-                <a class="brand" href="index.html" data-i18n="siteBrand">Anita</a>
-            </div>
 
+        <link rel="import" href="Header/header.html">
 
-            <div class="control-group" role="group" aria-label="Theme and language selector">
-                <div class="theme-switcher" role="group" aria-label="Theme selector">
-
-                    <button class="theme-btn active" type="button" data-theme="light" aria-pressed="true" aria-label="Day mode">
-                        <span class="theme-icon sun" aria-hidden="true">☀︎</span>
-                    </button>
-
-                    <button class="theme-btn" type="button" data-theme="dark" aria-pressed="false" aria-label="Night mode">
-                        <span class="theme-icon moon" aria-hidden="true">☽</span>
-                    </button>
-
-                </div>
-
-                <div class="lang-switcher" role="group" aria-label="Language selector">
-                    <button class="lang-btn active" type="button" data-lang="pt" aria-pressed="true" data-i18n="langPt">PT</button>
-                    <button class="lang-btn" type="button" data-lang="en" aria-pressed="false" data-i18n="langEn">EN</button>
-                </div>
-            </div>
-
-        </div>
     </header>
+
+
 
     <!-- Secção inicial da página -->
     <section class="landing">
@@ -180,6 +161,9 @@
 <!-- Google reCAPTCHA: replace YOUR_SITE_KEY with your site key -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="script.js"></script>
+
+
+
 
 <!-- CAPTCHA modal shown to first-time visitors until verified -->
 <div id="human-check-modal" class="human-check-modal" role="dialog" aria-modal="true" aria-labelledby="human-check-title">

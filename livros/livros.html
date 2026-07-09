@@ -14,33 +14,14 @@
 
 <body data-i18n-root="page">
     <header class="site-header">
-        <div class="header-inner">
-            <div class="brand-wrap">
-                <img class="logo-placeholder" src="../images/logo-placeholder.png" alt="Logótipo da Anita Nunes"
-                    aria-label="Logo placeholder" title="Logo placeholder">
-                <a class="brand" href="../index.html" data-i18n="siteBrand">Anita</a>
-            </div>
 
-            <div class="control-group" role="group" aria-label="Theme and language selector">
-                <div class="theme-switcher" role="group" aria-label="Theme selector">
-                    <button class="theme-btn active" type="button" data-theme="light" aria-pressed="true"
-                        aria-label="Day mode">
-                        <span class="theme-icon sun" aria-hidden="true">☀︎</span>
-                    </button>
-                    <button class="theme-btn" type="button" data-theme="dark" aria-pressed="false"
-                        aria-label="Night mode">
-                        <span class="theme-icon moon" aria-hidden="true">🌙</span>
-                    </button>
-                </div>
-
-                <div class="lang-switcher" role="group" aria-label="Language selector">
-                    <button class="lang-btn active" type="button" data-lang="pt" aria-pressed="true"
-                        data-i18n="langPt">PT</button>
-                    <button class="lang-btn" type="button" data-lang="en" aria-pressed="false"
-                        data-i18n="langEn">EN</button>
-                </div>
-            </div>
-        </div>
+        <script>
+            fetch("../Header/header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("site-header").innerHTML = data;
+                });
+        </script>
     </header>
 
 
@@ -55,57 +36,42 @@
 
 
                 <a href="#" class="book-card">
-                    <h3>Gafanhoto Arco-íris/h3>
-                    <div class="book-meta"><span class="book-date">07.07.2023</span></div>
+                    <h3>Ai...Mui me Tarda <br>A Descoberta na Guarda</h3>
+                    <div class="book-meta"><span class="book-date">26.02.2026</span></div>
                     <div class="overlay"></div>
-                    <img class="main-img" src="https://placehold.co/700x500/2F4F4F/FFFFFF?text=Rainbow+Grasshopper"
-                        alt="Imagem do livro Rainbow Grasshopper">
-                    <img class="hover-img" src="https://placehold.co/700x500/4F6F6F/FFFFFF?text=Rainbow+Grasshopper"
-                        alt="Imagem do livro Rainbow Grasshopper">
-                </a>
 
-                <a href="#" class="book-card">
-                    <h3>The Mars Twins</h3>
-                    <div class="book-meta"><span class="book-date">20.08.2023</span></div>
-                    <div class="overlay"></div>
-                    <img class="main-img" src="https://placehold.co/700x500/333333/FFFFFF?text=The+Mars+Twins"
-                        alt="Imagem do livro The Mars Twins">
-                    <img class="hover-img" src="https://placehold.co/700x500/555555/FFFFFF?text=The+Mars+Twins"
-                        alt="Imagem do livro The Mars Twins">
+                    <img class="main-img" src="../images/descoberta_frente.png"
+                        alt="Imagem do livro Ai...Mui me Tarda a Descoberta na Guarda">
+
+                    <img class="hover-img" src="../images/descoberta_tras.png"
+                        alt="Imagem do livro Ai...Mui me Tarda a Descoberta na Guarda">
+
                 </a>
 
 
-      
-                <a href="#" class="book-card">
-                    <h3>Vamos fazer presépio</h3>
-                    <div class="book-meta"><span class="book-date">27.11.2022</span></div>
-                    <div class="overlay"></div>
-                    <img class="main-img" src="https://placehold.co/700x500/223322/FFFFFF?text=Presepio"
-                        alt="Imagem do livro Vamos fazer presépio">
-                    <img class="hover-img" src="https://placehold.co/700x500/445544/FFFFFF?text=Presepio"
-                        alt="Imagem do livro Vamos fazer presépio">
-                </a>
 
+                <a href="#" class="book-card" data-date="2025-05-18">
 
-   
-                <a href="#" class="book-card">
                     <h3>Quando Deus Quer</h3>
                     <div class="book-meta"><span class="book-date">18.05.2025</span></div>
                     <div class="overlay"></div>
-                    <img class="main-img" src="https://placehold.co/700x500/2A2330/FFFFFF?text=Quando+Deus+Quer"
-                        alt="Imagem do livro Quando Deus Quer">
-                    <img class="hover-img" src="https://placehold.co/700x500/4A4350/FFFFFF?text=Quando+Deus+Quer"
-                        alt="Imagem do livro Quando Deus Quer">
+
+                    <img class="main-img" src="../images/deus_frente.png" alt="Imagem do livro Quando Deus Quer">
+
+                    <img class="hover-img" src="../images/deus_tras.png" alt="Imagem do livro Quando Deus Quer">
                 </a>
 
-                <a href="#" class="book-card">
+
+                <a href="#" class="book-card" data-date="2025-11-27">
+
                     <h3>A Magia do Amor</h3>
                     <div class="book-meta"><span class="book-date">27.11.2025</span></div>
                     <div class="overlay"></div>
-                    <img class="main-img" src="https://placehold.co/700x500/3C2B2B/FFFFFF?text=A+Magia+do+Amor"
-                        alt="Imagem do livro A Magia do Amor">
-                    <img class="hover-img" src="https://placehold.co/700x500/5C4B4B/FFFFFF?text=A+Magia+do+Amor"
-                        alt="Imagem do livro A Magia do Amor">
+                    
+                    <img class="main-img" src="../images/magia_frente.png" alt="Imagem do livro A Magia do Amor">
+                    
+                    <img class="hover-img" src="../images/magia_tras.png" alt="Imagem do livro A Magia do Amor">
+                
                 </a>
 
 
@@ -122,16 +88,30 @@
                         alt="Imagem do livro A Ginasta das Estrelas">
                 </a>
 
+
+                <a href="#" class="book-card" data-date="2024-04-24">
+
+                    <h3>Além da Linha de Chegada<br>A Jornada Olímpica de Melanie Santos</h3>
+                    <div class="book-meta"><span class="book-date">24.04.2024</span></div>
+                    <div class="overlay"></div>
+
+                    <img class="main-img" src="../images/melanie_frente.png" alt="Imagem do livro Além da Linha de Chegada">
+
+                    <img class="hover-img" src="../images/melanie_tras.png" alt="Imagem do livro Além da Linha de Chegada">
+                </a>
+
+
+
                 <a href="#" class="book-card" data-date="2024-07-25">
 
                     <h3>Entre Braçadas e Sonhos:<br>A Jornada Olímpica de Miguel Nascimento</h3>
                     <div class="book-meta"><span class="book-date">25.07.2024</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="https://placehold.co/700x500/2EB6D6/FFFFFF?text=Entre+Bracadas+e+Sonhos"
+                    <img class="main-img" src="../images/miguel_frente.png"
                         alt="Imagem do livro Entre Braçadas e Sonhos">
 
-                    <img class="hover-img" src="https://placehold.co/700x500/1292A7/FFFFFF?text=Entre+Bracadas+e+Sonhos"
+                    <img class="hover-img" src="../images/miguel_tras.png"
                         alt="Imagem do livro Entre Braçadas e Sonhos">
                 </a>
 
@@ -141,10 +121,10 @@
                     <div class="book-meta"><span class="book-date">24.08.2024</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="https://placehold.co/700x500/333333/FFFFFF?text=Luta+pelo+Bronze"
+                    <img class="main-img" src="../images/patricia_frente.png"
                         alt="Imagem do livro Luta pelo Bronze">
 
-                    <img class="hover-img" src="https://placehold.co/700x500/111111/FFFFFF?text=Luta+pelo+Bronze"
+                    <img class="hover-img" src="../images/patricia_tras.png"
                         alt="Imagem do livro Luta pelo Bronze">
                 </a>
 
@@ -154,11 +134,9 @@
                     <div class="book-meta"><span class="book-date">08.06.2024</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="https://placehold.co/700x500/76C7C0/FFFFFF?text=Lancamento+Improvavel"
-                        alt="Imagem do livro Lançamento Improvável">
+                    <img class="main-img" src="../images/liliana_frente.png" alt="Imagem do livro Lançamento Improvável">
 
-                    <img class="hover-img" src="https://placehold.co/700x500/3EA2A0/FFFFFF?text=Lancamento+Improvavel"
-                        alt="Imagem do livro Lançamento Improvável">
+                    <img class="hover-img" src="../images/liliana_tras.png" alt="Imagem do livro Lançamento Improvável">
                 </a>
 
                 <a href="mundo-de-sonhos-e-fantasia-pintura-a-oleo-em-tela.html" class="book-card">
@@ -194,15 +172,15 @@
                     <div class="book-meta"><span class="book-date">12.05.2025</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="../images/monsanto_frente_.jpg"
+                    <img class="main-img" src="../images/monsanto_frente.png"
                         alt="Imagem do livro Memórias e Tradições de Monsanto">
 
-                    <img class="hover-img" src="../images/monsanto_tras.jpg"
+                    <img class="hover-img" src="../images/monsanto_tras.png"
                         alt="Imagem do livro Memórias e Tradições de Monsanto">
                 </a>
 
 
-   
+
                 <a href="veredas-da-vida.html" class="book-card">
 
                     <h3>VEREDAS DA VIDA</h3>
@@ -233,9 +211,9 @@
                     <div class="book-meta"><span class="book-date">05.02.2024</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="../images/pedacos_frente.jpg" alt="Imagem do livro Pedaços de Mim">
+                    <img class="main-img" src="../images/pedacos_frente.png" alt="Imagem do livro Pedaços de Mim">
 
-                    <img class="hover-img" src="../images/pedacos_tras.jpg" alt="Imagem do livro Pedaços de Mim">
+                    <img class="hover-img" src="../images/pedacos_tras.png" alt="Imagem do livro Pedaços de Mim">
                 </a>
 
 
@@ -245,9 +223,9 @@
                     <div class="book-meta"><span class="book-date">03.07.2023</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="../images/sapo_frente.jpg" alt="Imagem do livro O Sapo">
+                    <img class="main-img" src="../images/sapo_frente.png" alt="Imagem do livro O Sapo">
 
-                    <img class="hover-img" src="../images/sapo_tras.jpg" alt="Imagem do livro O Sapo">
+                    <img class="hover-img" src="../images/sapo_tras.png" alt="Imagem do livro O Sapo">
                 </a>
 
 
@@ -280,9 +258,9 @@
                     <div class="book-meta"><span class="book-date">29.11.2024</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="../images/adot_frente.jpg" alt="Imagem do livro ADOT">
+                    <img class="main-img" src="../images/adot_frente.png" alt="Imagem do livro ADOT">
 
-                    <img class="hover-img" src="../images/adot_tras.jpg" alt="Imagem do livro ADOT">
+                    <img class="hover-img" src="../images/adot_tras.png" alt="Imagem do livro ADOT">
                 </a>
 
                 <a href="da-pintura-a-poesia.html" class="book-card">
@@ -291,10 +269,10 @@
                     <div class="book-meta"><span class="book-date">21.04.2023</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="../images/pinturapoesia_frente.jpg"
+                    <img class="main-img" src="../images/pinturapoesia_frente.png"
                         alt="Imagem do livro Pintura e Poesia">
 
-                    <img class="hover-img" src="../images/pinturapoesia_tras.jpg"
+                    <img class="hover-img" src="../images/pinturapoesia_tras.png"
                         alt="Imagem do livro Pintura e Poesia">
                 </a>
 
@@ -304,10 +282,10 @@
                     <div class="book-meta"><span class="book-date">11.05.2024</span></div>
                     <div class="overlay"></div>
 
-                    <img class="main-img" src="../images/poesiapintura_frente.jpg"
+                    <img class="main-img" src="../images/poesiapintura_frente.png"
                         alt="Imagem do livro Poesia e Pintura">
 
-                    <img class="hover-img" src="../images/poesiapintura_tras.jpg"
+                    <img class="hover-img" src="../images/poesiapintura_tras.png"
                         alt="Imagem do livro Poesia e Pintura">
                 </a>
 
@@ -337,7 +315,7 @@
                     <h3>Mundo de Sonhos e Fantasia <br>- PINTURA EM AGUARELA</h3>
                     <div class="book-meta"><span class="book-date">11.06.2023</span></div>
                     <div class="overlay"></div>
-                    
+
                     <img class="main-img" src="../images/aguarelas_frente.jpg" alt="Imagem do livro Aquarelas">
 
                     <img class="hover-img" src="../images/aguarelas_tras.jpg" alt="Imagem do livro Aquarelas">

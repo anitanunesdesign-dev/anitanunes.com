@@ -73,14 +73,31 @@
 
     background:linear-gradient(
         to top,
-        rgba(0,0,0,.85) 0%,
-        rgba(0,0,0,.30) 30%,
+        rgba(0,0,0, .5) 0%,
+        rgba(0,0,0,.05) 20%,
+        rgba(0,0,0,0) 60%
+    );
+
+}
+body.light-theme .overlay{
+
+    position:absolute;
+    inset:-1px;
+    z-index:1;
+    pointer-events:none;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.5) 0%,
+        rgba(0,0,0,0.1) 20%,
         rgba(0,0,0,0) 60%
     );
 
 }
 
 /* Fim da camada escura */
+
+
 
 /* Nome do livro sobre a imagem */
 
