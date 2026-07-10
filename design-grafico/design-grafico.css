@@ -1,12 +1,12 @@
-
-
 .projs h2{
     text-align:left;
     font-size:1.75vw;
     font-weight:600;
     margin-bottom:70px;
     margin-top:140px;
+    margin-left: 50px;
     letter-spacing:1px;
+
 }
 
 /* Grelha dos cartões de livros */
@@ -16,7 +16,8 @@
     display:grid;
     /* --NUMERO DE COLUNAS-- */
     grid-template-columns:repeat(2,1fr);
-    gap:7vh;
+    /* gap:7vh; */
+    gap:0vh;
 
 }
 
@@ -26,9 +27,12 @@
 .proj-card{
 
     position:relative;
-    height: 50vh ;
+    /* height: 50vh ; */
+    height: 100vh ;
+
     overflow:hidden;
-    border-radius:10px;
+    /* border-radius:10px; */
+    border-radius:0px;
     display:block;
 }
 
@@ -37,9 +41,9 @@
 .proj-card img{
 
     position:absolute;
-    width:100%;
-    height:100%;
-    /* transform:translate(-5%, -5%); */
+    width:110%;
+    height:110%;
+    transform:translate(-5%, -5%);
 
     object-fit:cover;
     z-index:0;
@@ -116,8 +120,8 @@ body.light-theme .overlay{
 
     font-size:15px;
     font-weight:420;
-    line-height:1.45em;
-    letter-spacing: 0.06em ;
+    line-height:1.4em;
+    letter-spacing: 0.035em ;
 
     width:90%;
 
@@ -157,3 +161,56 @@ body.light-theme .overlay{
 body.light-theme .view-more-btn:hover{
     background:rgba(0,0,0,0.08);
 }
+
+
+
+
+
+/*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
+
+@media (max-width: 768px) {
+
+.projs h2{
+    margin-left: 2vw;
+    font-size:4.8vw;
+ }
+
+.projs-grid{
+
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+
+/* Estilo dos cartões de livro */
+
+.proj-card{
+
+    height: 90vh ;
+    border-radius:0px;
+}
+
+/*  --POSIÇÃO DO TEXTO NA IMAGEM--  */
+.proj-card h3{
+    left:20px;
+    bottom:5px;
+}
+
+
+/* Camada escura sobre os cartões */
+
+.overlay, body.light-theme .overlay{
+    background:transparent;
+}
+
+.proj-card h3{
+
+    color: var(--alternate-bg);
+    font-weight: 600;
+
+}
+
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------*/

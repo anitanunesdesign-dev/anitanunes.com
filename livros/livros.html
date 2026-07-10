@@ -13,13 +13,16 @@
     <link rel="stylesheet" href="livros_index.css">
     <link rel="import" href="header/header.html">
     <link rel="stylesheet" href="../footer/footer.css">
+<link rel="stylesheet" href="../header/header.css">
+    
 </head>
 
 
 <body data-i18n-root="page">
       <header class="site-header">
 
-        <div id="header-placeholder"></div>
+        <div id="header-placeholder" data-header-src="../header/header.html"> </div>
+
         <script src="../header/load-header.js"></script>
 
     </header>
@@ -319,9 +322,12 @@
 
     <!-- ------- F O O T E R ----- -->
 
-    <div id="footer-placeholder"></div>
-    <script src="footer/load-footer.js"></script>
+<div
+    id="footer-placeholder"
+    data-footer-src="../footer/footer.html">
+</div>
 
+<script src="../footer/load-footer.js"></script>
     <!-- ---------------------------- -->
 
 

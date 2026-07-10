@@ -143,17 +143,16 @@ body.light-theme {
     left: 18px;
     top: 18px;
 
-    background: var(--alternate-bg);
-    color: var(--text);
-    font-weight: 500;
+    background:transparent;
+    color: var(--alternate-bg);
+    font-size: 1rem;
+    font-weight: 600;
+
     padding: 6px 8px;
     border-radius: 6px;
-    font-size: 0.8rem;
     letter-spacing: 0.05rem;
     z-index: 3;
 
-
-    background: var(--fundo-datas);
 }
 
 
