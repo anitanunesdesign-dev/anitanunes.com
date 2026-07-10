@@ -69,11 +69,11 @@ body.light-theme{
 /* ----------- ANITA home page -----------*/
 .landing-copy h1{
     font-size: clamp(3.2rem, 8vw, 7rem);
-    font-weight: 200;
+    font-weight: 400;
     line-height: 1;
     letter-spacing: 0.04em;
     margin-bottom: 20px;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .landing-copy p{
@@ -175,8 +175,3 @@ body.light-theme .book-meta{
     background:var(--surface-border);
     border:0;
 }
-
-
-
-/* Ensure book-card position relative for meta placement */
-.book-card{position:relative}

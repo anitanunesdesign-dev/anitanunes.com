@@ -1,0 +1,159 @@
+
+
+.projs h2{
+    text-align:left;
+    font-size:1.75vw;
+    font-weight:600;
+    margin-bottom:70px;
+    margin-top:140px;
+    letter-spacing:1px;
+}
+
+/* Grelha dos cartões de livros */
+
+.projs-grid{
+
+    display:grid;
+    /* --NUMERO DE COLUNAS-- */
+    grid-template-columns:repeat(2,1fr);
+    gap:7vh;
+
+}
+
+
+/* Estilo dos cartões de livro */
+
+.proj-card{
+
+    position:relative;
+    height: 50vh ;
+    overflow:hidden;
+    border-radius:10px;
+    display:block;
+}
+
+/* Imagens e efeito hover dos cartões */
+
+.proj-card img{
+
+    position:absolute;
+    width:100%;
+    height:100%;
+    /* transform:translate(-5%, -5%); */
+
+    object-fit:cover;
+    z-index:0;
+    border-radius:inherit;
+
+}
+
+.proj-card .main-img{
+    opacity:1;
+}
+
+.proj-card .hover-img{
+    opacity:0;
+}
+
+.proj-card:hover .main-img{
+    opacity:0;
+}
+
+.proj-card:hover .hover-img{
+    opacity:1;
+    /*transform:scale(1.05);*/
+}
+
+
+/* Camada escura sobre os cartões */
+
+.overlay{
+
+    position:absolute;
+    inset:-1px;
+    z-index:1;
+    pointer-events:none;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0, .5) 0%,
+        rgba(0,0,0,.05) 20%,
+        rgba(0,0,0,0) 60%
+    );
+
+}
+body.light-theme .overlay{
+
+    position:absolute;
+    inset:-1px;
+    z-index:1;
+    pointer-events:none;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.05) 20%,
+        rgba(0,0,0,0) 60%
+    );
+
+}
+
+/* Fim da camada escura */
+
+
+
+/* Nome do livro sobre a imagem */
+
+.proj-card h3{
+
+    position:absolute;
+
+/*  --POSIÇÃO DO TEXTO NA IMAGEM--  */
+    left:25px;
+    bottom:12px;
+
+    color:white;
+
+    font-size:15px;
+    font-weight:420;
+    line-height:1.45em;
+    letter-spacing: 0.06em ;
+
+    width:90%;
+
+    z-index:2;
+    text-transform: uppercase;
+
+}
+
+.projs-actions{
+    display:flex;
+    justify-content:center;
+    margin-top:48px;
+    padding-bottom:24px;
+}
+
+.view-more-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 28px;
+    border-radius:999px;
+    border:1px solid var(--surface-border);
+    background:var(--surface);
+    color:var(--text);
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:transform 0.2s ease, background 0.2s ease;
+}
+
+.view-more-btn:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,0.16);
+}
+
+body.light-theme .view-more-btn:hover{
+    background:rgba(0,0,0,0.08);
+}

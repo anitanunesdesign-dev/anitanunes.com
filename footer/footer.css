@@ -1,29 +1,33 @@
-
-
 /* Estilo base do rodapé. */
-.site-footer{
+.site-footer {
     background: rgba(255, 255, 255, 0.04);
     border-top: 1px solid var(--surface-border);
-    padding: 60px 2vw 30px;
-    margin-top: 120px;
+
+    margin-top: 150px;
+
+    padding-top: 60px;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 30px;
+
     color: var(--text-soft);
 }
 
 /* Layout da grelha de colunas. */
-.footer-grid{
+.footer-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 60px;
-    max-width: min(1400px, 88vw);
+    width: 80vw;
     margin: 0 auto;
     padding-bottom: 24px;
 }
 
 /* Estilo dos títulos das colunas. */
-.footer-col h3{
-    margin: 0 0 16px;
-    font-size: 1.4rem;
-    letter-spacing: 0.1em;
+.footer-col h3 {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     font-weight: 650;
     color: var(--text);
@@ -31,55 +35,58 @@
 
 /* Espaçamento interno do texto e listas. */
 .footer-col p,
-.footer-col ul{
+.footer-col ul {
     margin: 0;
     padding: 5px 0;
-        font-size: 0.25vvw;
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+    font-weight: 300;
+    max-width: 10vw;
 }
 
 /* Lista sem marcadores. */
-.footer-col ul{
+.footer-col ul {
     list-style: none;
 }
 
 /* Espaço entre itens da lista. */
-.footer-col ul li{
-    margin-bottom: 14px;
-    font-size: 1.2rem;
+.footer-col ul li {
+    margin-bottom: 10px;
+    font-size: 0.8rem;
 }
 
 /* Estilo dos links do rodapé. */
-.footer-col a{
+.footer-col a {
     color: var(--text-soft);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.footer-col a:hover{
+.footer-col a:hover {
     color: var(--text);
 }
 
-/* Marca principal do rodapé. */
-.footer-brand{
+/* Marca principal do rodapé.------ ANITA N.---- */
+.footer-brand {
     display: inline-block;
-    margin-bottom: 18px;
-    font-size: 1.9rem;
+    margin-bottom: 4px;
+    font-size: 1.55rem;
     font-weight: 700;
     color: var(--text);
 }
 
 /* Espaço entre os ícones sociais. */
-.social-list li{
-    margin-bottom: 10px;
+.social-list li {
+    margin-bottom: 8px;
 }
 
 /* Base inferior do rodapé. */
-.footer-bottom{
+.footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 20px;
     text-align: center;
     color: var(--text-soft);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 
@@ -87,18 +94,18 @@
 
 /* Ajuste para ecrãs médios. */
 @media (max-width: 900px) {
-    .footer-grid{
+    .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 /* Ajuste para ecrãs pequenos. */
 @media (max-width: 620px) {
-    .footer-grid{
+    .footer-grid {
         grid-template-columns: 1fr;
     }
 
-    .footer-bottom{
+    .footer-bottom {
         text-align: left;
     }
 }

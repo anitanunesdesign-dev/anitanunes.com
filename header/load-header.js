@@ -1,15 +1,16 @@
 
+
 document.addEventListener('DOMContentLoaded', () => {
-    const placeholder = document.getElementById('footer-placeholder');
+    const placeholder = document.getElementById('header-placeholder');
     if (!placeholder) return;
 
-    const footerSrc = placeholder.getAttribute('data-footer-src') || 'footer/footer.html';
-    const linkPrefix = placeholder.getAttribute('data-footer-prefix') || '';
+    const headerSrc = placeholder.getAttribute('data-header-src') || 'header/header.html';
+    const linkPrefix = placeholder.getAttribute('data-header-prefix') || '';
 
-    fetch(footerSrc)
+    fetch(headerSrc)
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Não foi possível carregar o footer.');
+                throw new Error('Não foi possível carregar o header.');
             }
             return response.text();
         })

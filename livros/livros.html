@@ -5,24 +5,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livros | Anita N.</title>
+    
+    <title>Livros  |  Anita N.</title>
+
+
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="livros_index.css">
+    <link rel="import" href="header/header.html">
     <link rel="stylesheet" href="../footer/footer.css">
 </head>
 
 
 <body data-i18n-root="page">
-    <header class="site-header">
+      <header class="site-header">
 
-        <script>
-            fetch("../Header/header.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("site-header").innerHTML = data;
-                });
-        </script>
+        <div id="header-placeholder"></div>
+        <script src="../header/load-header.js"></script>
+
     </header>
+
 
 
 
@@ -316,53 +317,13 @@
     </section>
 
 
+    <!-- ------- F O O T E R ----- -->
 
+    <div id="footer-placeholder"></div>
+    <script src="footer/load-footer.js"></script>
 
+    <!-- ---------------------------- -->
 
-
-    <!-- Inline footer (copied from footer/footer.html and adjusted paths) -->
-    <footer class="site-footer">
-
-        <div class="container footer-grid">
-
-            <div class="footer-col footer-about">
-                <a class="footer-brand" href="../index.html">Anita N.</a>
-                <p>Placeholder para uma breve apresentação da autora, novidades e ligações úteis.</p>
-
-            </div>
-
-            <div class="footer-col footer-sitemap">
-                <h3>Site Map</h3>
-                <ul>
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="livros.html">Livros</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Contactos</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col footer-contact">
-                <h3>Contactos</h3>
-                <p>Email: <a href="mailto:anitanunes.design@gmail.com">anitanunes.design@gmail.com</a></p>
-                <p>Portugal </p>
-            </div>
-
-            <div class="footer-col footer-social">
-
-                <h3>Redes Sociais</h3>
-
-                <ul class="social-list">
-                    <li><a href="#" aria-label="Instagram">Instagram</a></li>
-                    <li><a href="#" aria-label="Facebook">Facebook</a></li>
-                    <li><a href="https://www.linkedin.com/in/anitamn" aria-label="LinkedIn">LinkedIn</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Anita Nunes. Todos os direitos reservados.</p>
-        </div>
-    </footer>
 
     <script src="../script.js"></script>
 </body>
