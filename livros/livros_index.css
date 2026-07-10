@@ -4,7 +4,9 @@
     font-weight:600;
     margin-bottom:70px;
     margin-top:140px;
+    margin-left: 50px;
     letter-spacing:1px;
+
 }
 
 /* Grelha dos cartões de livros */
@@ -14,7 +16,8 @@
     display:grid;
     /* --NUMERO DE COLUNAS-- */
     grid-template-columns:repeat(2,1fr);
-    gap:7vh;
+    /* gap:7vh; */
+    gap:0vh;
 
 }
 
@@ -24,9 +27,12 @@
 .book-card{
 
     position:relative;
-    height: 50vh ;
+    /* height: 50vh ; */
+    height: 90vh ;
+
     overflow:hidden;
-    border-radius:10px;
+    /* border-radius:10px; */
+    border-radius:0px;
     display:block;
 }
 
@@ -165,7 +171,7 @@ body.light-theme .view-more-btn:hover{
 @media (max-width: 768px) {
 
 .books h2{
-    margin-left: 20px;
+    margin-left: 2vw;
     font-size:4.8vw;
  }
 

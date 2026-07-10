@@ -33,7 +33,7 @@ body.light-theme {
     --text-rgb: 17, 17, 17;
     --text-soft: rgba(17, 17, 17, 0.75);
     --alternate-bg: rgba(0, 0, 0, 0.4);
-        --fundo-datas: rgba(0, 0, 0, 0.25);
+    --fundo-datas: rgba(0, 0, 0, 0.25);
 
     --inverse-text: #ffffff;
     --surface: rgba(0, 0, 0, 0.05);
@@ -47,7 +47,8 @@ body.light-theme {
 /* ------------- Conteúdo central da página ------------ */
 .container {
     /* --- tamanho das margens principais ---*/
-    width: 70vw;
+    /* width: 70vw; */
+    width: 100vw;
     margin: 0px auto;
 }
 
@@ -150,15 +151,15 @@ body.light-theme {
     font-size: 0.8rem;
     letter-spacing: 0.05rem;
     z-index: 3;
-    
-    
-    background: var(--fundo-datas);      
+
+
+    background: var(--fundo-datas);
 }
 
 
 body.light-theme .book-meta {
     background: var(--surface);
-  
+
     color: var(--inverse-text);
 }
 
@@ -181,8 +182,11 @@ body.light-theme .book-meta {
     font-weight: 700;
     font-size: 1.4rem;
     position: absolute;
-    left: 11vw;
     color: var(--text);
+
+    margin-top: 2vh;
+    left: 2vw;
+    margin-bottom: 4vh;
 }
 
 .grouped-books .year-line {
@@ -190,6 +194,10 @@ body.light-theme .book-meta {
     height: 2px;
     background: var(--surface-border);
     border: 0;
+
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    margin-left: 5vw;
 }
 
 
@@ -218,18 +226,12 @@ body.light-theme .book-meta {
 
 
     /* ------------- Conteúdo central da página ------------ */
-    .container {
-        /* --- tamanho das margens principais ---*/
-        width: 100vw;
-        margin: auto;
-    }
-
 
 
     .grouped-books .year-label {
         left: 4vw;
         margin-bottom: 2vh;
-            background:transparent;
+        background: transparent;
     }
 
     .grouped-books .year-line {
@@ -237,11 +239,12 @@ body.light-theme .book-meta {
         margin-left: 18vw;
     }
 
-.book-meta {
-    left: 8vw;
-    top: 8vw;
+    .book-meta {
+        left: 8vw;
+        top: 8vw;
 
-}
+
+    }
 
 
 }
