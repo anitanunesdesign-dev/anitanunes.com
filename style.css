@@ -1,7 +1,7 @@
 /* Reset geral do layout */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
-:root{
+:root {
     --bg: #000000;
     --text: #ffffff;
     --text-rgb: 255, 255, 255;
@@ -10,28 +10,31 @@
     --alternate-bg: rgba(0, 0, 0, 0.4);
     --surface: rgba(255, 255, 255, 0.08);
     --surface-border: rgba(255, 255, 255, 0.12);
-
+    --fundo-datas: rgba(0, 0, 0, 0.25);
     --header-bg: rgba(0, 0, 0, 0.72);
     --highlight: #ce0075;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background: var(--bg);
     color: var(--text);
     font-family: 'Montserrat', sans-serif;
-    font-weight: 280; /* ExtraBold */
+    font-weight: 280;
+    /* ExtraBold */
     padding-top: 84px;
 }
 
-body.light-theme{
+body.light-theme {
     --bg: #ffffff;
     --text: #111111;
     --text-rgb: 17, 17, 17;
     --text-soft: rgba(17, 17, 17, 0.75);
     --alternate-bg: rgba(0, 0, 0, 0.4);
+        --fundo-datas: rgba(0, 0, 0, 0.25);
+
     --inverse-text: #ffffff;
     --surface: rgba(0, 0, 0, 0.05);
     --surface-border: rgba(0, 0, 0, 0.1);
@@ -42,32 +45,32 @@ body.light-theme{
 
 
 /* ------------- Conteúdo central da página ------------ */
-.container{
+.container {
     /* --- tamanho das margens principais ---*/
     width: 70vw;
     margin: 0px auto;
 }
 
 /* ------------------- L A N D I N G  --------------- */
-.landing{
+.landing {
     min-height: calc(100vh - 84px);
     display: flex;
     align-items: center;
 }
 
-.landing-grid{
+.landing-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 40px;
     align-items: center;
     width: 70vw;
     margin-bottom: 100px;
-        
+
 }
 
 
 /* ----------- ANITA home page -----------*/
-.landing-copy h1{
+.landing-copy h1 {
     font-size: clamp(3.2rem, 8vw, 7rem);
     font-weight: 400;
     line-height: 1;
@@ -76,102 +79,169 @@ body.light-theme{
     text-transform: capitalize;
 }
 
-.landing-copy p{
+.landing-copy p {
     max-width: 450px;
     font-size: 1rem;
     line-height: 1.4;
     font-weight: 300;
-        color: var(--text-soft);
+    color: var(--text-soft);
 }
 
 
 
 
 /* --- Modal de verificação humana (CAPTCHA) --- */
-.human-check-modal{
-    position:fixed;
-    inset:0;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    background: rgba(0,0,0,0.75);
+.human-check-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
     z-index: 9999;
 }
-.human-check-modal .modal-card{
+
+.human-check-modal .modal-card {
     background: var(--bg);
     color: var(--text);
     padding: 28px;
     border-radius: 10px;
     max-width: 520px;
     width: calc(100% - 40px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
     text-align: center;
 }
-.human-check-modal h2{
-    margin-top:0;
-    margin-bottom:12px;
+
+.human-check-modal h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
 }
-.human-check-modal p{margin-bottom:18px;color:var(--text-soft);}
-.human-check-modal .human-fallback-btn{
-    display:inline-block;
-    margin-top:12px;
-    padding:10px 18px;
-    border-radius:8px;
-    border:1px solid var(--surface-border);
-    background:var(--surface);
-    color:var(--text);
-    cursor:pointer;
+
+.human-check-modal p {
+    margin-bottom: 18px;
+    color: var(--text-soft);
+}
+
+.human-check-modal .human-fallback-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--surface-border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
 }
 
 
 
 
 /* ---  D A T A S   D O S   L I V R O S  --- */
-.book-meta{
-    position:absolute;
-    left:18px;
-    top:18px;
+.book-meta {
+    position: absolute;
+    left: 18px;
+    top: 18px;
 
     background: var(--alternate-bg);
     color: var(--text);
-        font-weight: 500;
-    padding:6px 8px;
-    border-radius:6px;
-    font-size:0.8rem;
+    font-weight: 500;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
     letter-spacing: 0.05rem;
-    z-index:3;
+    z-index: 3;
+    
+    
+    background: var(--fundo-datas);      
 }
 
 
-body.light-theme .book-meta{
+body.light-theme .book-meta {
     background: var(--surface);
+  
     color: var(--inverse-text);
 }
 
 
-.book-meta .book-date{display:block}
+.book-meta .book-date {
+    display: block
+}
 
-.grouped-books .year-section{
+.grouped-books .year-section {
     grid-column: 1 / -1;
-    display:flex;
-    align-items:center;
-    gap:16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
     margin: 40px 0 10px;
 }
 
 /* --- S E P A R A D O R E S  --- D A T A S   D O S   L I  V R O S --- */
 
-.grouped-books .year-label{
-    font-weight:700;
-    font-size:1.4rem;
-    position:absolute;
-    left:11vw;
-    color:var(--text);
+.grouped-books .year-label {
+    font-weight: 700;
+    font-size: 1.4rem;
+    position: absolute;
+    left: 11vw;
+    color: var(--text);
 }
 
-.grouped-books .year-line{
-    flex:1 1 auto;
-    height:2px;
-    background:var(--surface-border);
-    border:0;
+.grouped-books .year-line {
+    flex: 1 1 auto;
+    height: 2px;
+    background: var(--surface-border);
+    border: 0;
+}
+
+
+/*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
+@media (max-width: 620px) {
+
+    /* ------------------- L A N D I N G  --------------- */
+    .landing {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .landing-grid {
+        grid-template-columns: 1fr;
+        width: 100vw;
+
+    }
+
+    /* ----------- ANITA home page -----------*/
+    .landing-copy h1,
+    .landing-copy p {
+        margin-left: 10vw;
+
+    }
+
+
+
+    /* ------------- Conteúdo central da página ------------ */
+    .container {
+        /* --- tamanho das margens principais ---*/
+        width: 100vw;
+        margin: auto;
+    }
+
+
+
+    .grouped-books .year-label {
+        left: 4vw;
+        margin-bottom: 2vh;
+            background:transparent;
+    }
+
+    .grouped-books .year-line {
+        margin-bottom: 2vh;
+        margin-left: 18vw;
+    }
+
+.book-meta {
+    left: 8vw;
+    top: 8vw;
+
+}
+
+
 }

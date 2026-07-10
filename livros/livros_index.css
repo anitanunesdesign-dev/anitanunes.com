@@ -114,8 +114,8 @@ body.light-theme .overlay{
 
     font-size:15px;
     font-weight:420;
-    line-height:1.45em;
-    letter-spacing: 0.06em ;
+    line-height:1.4em;
+    letter-spacing: 0.035em ;
 
     width:90%;
 
@@ -155,3 +155,56 @@ body.light-theme .overlay{
 body.light-theme .view-more-btn:hover{
     background:rgba(0,0,0,0.08);
 }
+
+
+
+
+
+/*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
+
+@media (max-width: 768px) {
+
+.books h2{
+    margin-left: 20px;
+    font-size:4.8vw;
+ }
+
+.books-grid{
+
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+
+/* Estilo dos cartões de livro */
+
+.book-card{
+
+    height: 90vh ;
+    border-radius:0px;
+}
+
+/*  --POSIÇÃO DO TEXTO NA IMAGEM--  */
+.book-card h3{
+    left:20px;
+    bottom:5px;
+}
+
+
+/* Camada escura sobre os cartões */
+
+.overlay, body.light-theme .overlay{
+    background:transparent;
+}
+
+.book-card h3{
+
+    color: var(--alternate-bg);
+    font-weight: 600;
+
+}
+
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
