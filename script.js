@@ -136,7 +136,7 @@ async function showRandomHomeBooks() {
     if (!cards.length) return;
 
     const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
-    const selectedCards = shuffledCards.slice(0, 4).map((card) => document.importNode(card, true));
+    const selectedCards = shuffledCards.slice(0, 6).map((card) => document.importNode(card, true));
 
     grid.replaceChildren(...selectedCards);
 
