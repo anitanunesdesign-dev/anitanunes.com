@@ -192,7 +192,9 @@ body.light-theme .view-more-btn:hover{
 
 /*  --POSIÇÃO DO TEXTO NA IMAGEM--  */
 .book-card h3{
-    left:20px;
+
+            left: 6vw;
+
     bottom:5px;
 }
 
