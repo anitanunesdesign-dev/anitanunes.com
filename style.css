@@ -241,6 +241,7 @@ body.light-theme .book-meta {
     .book-meta {
         left: 8vw;
         top: 8vw;
+        font-weight: 300;
 
 
     }
