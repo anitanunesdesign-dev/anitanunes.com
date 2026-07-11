@@ -25,6 +25,8 @@ body {
     font-weight: 280;
     /* ExtraBold */
     padding-top: 84px;
+
+
 }
 
 body.light-theme {
@@ -50,6 +52,9 @@ body.light-theme {
     /* width: 70vw; */
     width: 100vw;
     margin: 0px auto;
+
+    
+    
 }
 
 /* ------------------- L A N D I N G  --------------- */
@@ -73,19 +78,18 @@ body.light-theme {
 /* ----------- ANITA home page -----------*/
 .landing-copy h1 {
     font-size: clamp(3.2rem, 8vw, 7rem);
-    font-weight: 400;
+    font-weight: 450;
     line-height: 1;
-    letter-spacing: 0.04em;
     margin-bottom: 20px;
     text-transform: capitalize;
 }
 
 .landing-copy p {
     max-width: 450px;
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.4;
-    font-weight: 300;
-    color: var(--text-soft);
+    font-weight: 500;
+    color: var(--text);
 }
 
 
@@ -201,7 +205,7 @@ body.light-theme .book-meta {
 
 
 /*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
-@media (max-width: 620px) {
+@media (max-width: 1023px) {
 
     /* ------------------- L A N D I N G  --------------- */
     .landing {
