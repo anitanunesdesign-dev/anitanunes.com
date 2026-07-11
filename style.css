@@ -81,6 +81,7 @@ body.light-theme {
     line-height: 1;
     margin-bottom: 20px;
     text-transform: capitalize;
+    mar
 }
 
 .landing-copy p {
@@ -225,8 +226,8 @@ body.light-theme .book-meta {
     /* ----------- ANITA home page -----------*/
     .landing-copy h1,
     .landing-copy p {
-        margin-left: 10vw;
-
+        margin-left: 2vw;
+max-width: 80vw;
     }
 
 
