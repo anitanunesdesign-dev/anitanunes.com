@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then((html) => {
             placeholder.innerHTML = html;
+            if (typeof initLanguageSwitcher === 'function') {
+    initLanguageSwitcher();
+}
             if (!linkPrefix) return;
 
             placeholder.querySelectorAll('a[href]').forEach((link) => {

@@ -3,10 +3,7 @@ const translations = {
     designEditorialTitle: 'DESIGN EDITORIAL',
     designGraficoTitle: 'DESIGN GRÁFICO',
     fotografiaTitle: 'FOTOGRAFIA',
-    siteBrand: 'Anita',
-    langPt: 'PT',
-    langEn: 'EN',
-    viewMore: 'Ver mais',
+
     'Imagem do livro Mundo de Sonhos e Fantasia': 'Imagem do livro Mundo de Sonhos e Fantasia',
     'Imagem do livro A Tosquia': 'Imagem do livro A Tosquia',
     'Imagem do livro Memórias e Tradições de Monsanto': 'Imagem do livro Memórias e Tradições de Monsanto',
@@ -19,15 +16,14 @@ const translations = {
     'Imagem do livro Chat GPT': 'Imagem do livro Chat GPT',
     'Imagem do livro O Mundo Mágico da Inteligência': 'Imagem do livro O Mundo Mágico da Inteligência',
     'Imagem do livro Inteligência Artificial': 'Imagem do livro Inteligência Artificial'
+  
   },
+
   en: {
-    designEditorialTitle: 'DESIGN EDITORIAL',
+    designEditorialTitle: 'EDITORIAL DESIGN',
     designGraficoTitle: 'GRAPHIC DESIGN',
     fotografiaTitle: 'PHOTOGRAPHY',
-    siteBrand: 'Anita',
-    langPt: 'PT',
-    langEn: 'EN',
-    viewMore: 'See more',
+ 
     'Imagem do livro Mundo de Sonhos e Fantasia': 'Image of the book World of Dreams and Fantasy',
     'Imagem do livro A Tosquia': 'Image of the book The Shave',
     'Imagem do livro Memórias e Tradições de Monsanto': 'Image of the book Memories and Traditions of Monsanto',
@@ -329,3 +325,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('section.books .books-grid').forEach(grid => organizeGridByYear(grid));
   }
 });
+

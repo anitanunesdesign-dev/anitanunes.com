@@ -54,7 +54,6 @@ body.light-theme {
     margin: 0px auto;
 
     
-    
 }
 
 /* ------------------- L A N D I N G  --------------- */
@@ -141,6 +140,7 @@ body.light-theme {
 
 
 
+
 /* ---  D A T A S   D O S   L I V R O S  --- */
 .book-meta {
     position: absolute;
@@ -202,6 +202,9 @@ body.light-theme .book-meta {
     margin-bottom: 4vh;
     margin-left: 5vw;
 }
+
+
+
 
 
 /*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
