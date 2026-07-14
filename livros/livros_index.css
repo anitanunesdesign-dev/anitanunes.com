@@ -185,7 +185,7 @@ body.light-theme .view-more-btn:hover {
 @media (max-width: 1023px) {
 
     .books h2 {
-        margin-left: 2vw;
+    margin-left: 50px;
         font-size: 4.8vw;
     }
 
@@ -210,15 +210,8 @@ body.light-theme .view-more-btn:hover {
         left: 6vw;
 
         bottom: 5px;
-    }
 
-
-    /* Camada escura sobre os cartões */
-
-
-    .book-card h3 {
-
-        color: var(--alternate-bg);
+        color: #FFFFFF;
         font-weight: 600;
 
     }
