@@ -22,7 +22,7 @@
 .books a {
     color: var(--text);
     font-weight: 400;
-    
+
 }
 
 /* Grelha dos cartões de livros */
@@ -185,8 +185,10 @@ body.light-theme .view-more-btn:hover {
 @media (max-width: 1023px) {
 
     .books h2 {
-    margin-left: 50px;
         font-size: 4.8vw;
+        max-width: 80vw;
+        margin-left: 5vw;
+        margin-bottom: 12px;
     }
 
     .books-grid {
@@ -207,7 +209,7 @@ body.light-theme .view-more-btn:hover {
     /*  --POSIÇÃO DO TEXTO NA IMAGEM--  */
     .book-card h3 {
 
-        left: 6vw;
+        left: 5vw;
 
         bottom: 5px;
 
@@ -216,11 +218,25 @@ body.light-theme .view-more-btn:hover {
 
     }
 
-.book-card img {
+    .books p {
+        max-width: 80vw;
+        margin: auto;
+        margin-left: 5vw;
+        font-size: 1rem;
+    }
 
-    width: 100%;
-    height: 100%
+    .buy {
+        margin: 20px auto 50px 5vw;
+        font-size: 2.2vw;
+        max-width: 80vw;
+
+    }
+
+    .view-more-btn{
+                font-size: 2.2vw;
+
+    }
+
 
 }
 
-}

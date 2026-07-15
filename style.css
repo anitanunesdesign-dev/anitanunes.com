@@ -226,7 +226,7 @@ body.light-theme .book-meta {
     /* ----------- ANITA home page -----------*/
     .landing-copy h1,
     .landing-copy p {
-        margin-left: 2vw;
+        margin-left: 5vw;
 max-width: 80vw;
     }
 
@@ -236,7 +236,7 @@ max-width: 80vw;
 
 
     .grouped-books .year-label {
-        left: 4vw;
+        left: 5vw;
         margin-bottom: 2vh;
         background: transparent;
     }
