@@ -1,0 +1,113 @@
+.loja-intro h2 {
+    margin-top: 120px;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.loja-intro p {
+    max-width: 700px;
+    margin-bottom: 30px;
+}
+
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.store-card {
+    height: auto;
+    min-height: 440px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    /* border: 1px solid var(--surface-border); */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.store-visual {
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.store-visual--one {
+    background: linear-gradient(135deg, #111111, #740042);
+}
+
+.store-visual--two {
+    background: linear-gradient(135deg, #1a1a1a, #5b0281);
+}
+
+.store-visual--three {
+    background: linear-gradient(135deg, #2a2a2a, #014853);
+}
+
+.store-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.store-info h3 {
+    position: static;
+    color: var(--text);
+    font-size: 1.1rem;
+    margin: 0;
+    text-transform: none;
+    width: auto;
+}
+
+.store-info p {
+    margin: 0;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+.store-info .view-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: 1px solid var(--surface-border);
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background 0.2s ease;
+    text-align: center;
+    width: fit-content;
+    margin: 8px 0 0;
+}
+
+.store-info .view-more-btn:hover {
+    transform: translateY(-1.5px);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+body.light-theme .store-info .view-more-btn:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 1023px) {
+    .store-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 5vw;
+    }
+
+    .loja-intro h2,
+    .loja-intro p {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+}

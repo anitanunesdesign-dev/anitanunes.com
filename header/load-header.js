@@ -7,6 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const headerSrc = placeholder.getAttribute('data-header-src') || 'header/header.html';
     const linkPrefix = placeholder.getAttribute('data-header-prefix') || '';
 
+    const headerDir = headerSrc.includes('/')
+        ? headerSrc.slice(0, headerSrc.lastIndexOf('/') + 1)
+        : '';
+    const headerCssHref = `${headerDir}header.css`;
+
+    if (!document.querySelector('link[data-header-stylesheet]')) {
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = headerCssHref;
+        stylesheet.setAttribute('data-header-stylesheet', 'true');
+        document.head.appendChild(stylesheet);
+    }
+
     fetch(headerSrc)
         .then((response) => {
             if (!response.ok) {
@@ -17,8 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((html) => {
             placeholder.innerHTML = html;
             if (typeof initLanguageSwitcher === 'function') {
-    initLanguageSwitcher();
-}
+                initLanguageSwitcher();
+            }
+
+            const currentPath = window.location.pathname.replace(/\/$/, '');
+            const normalizedPath = currentPath === '' ? '/index.html' : currentPath;
+
+            placeholder.querySelectorAll('.nav-link').forEach((link) => {
+                const href = link.getAttribute('href') || '';
+                const normalizedHref = href.startsWith('/') ? href : `/${href}`;
+                const isCurrent = normalizedHref === normalizedPath || normalizedHref === `${normalizedPath}/`;
+
+                link.classList.toggle('nav-link--highlight', isCurrent);
+            });
+
             if (!linkPrefix) return;
 
             placeholder.querySelectorAll('a[href]').forEach((link) => {

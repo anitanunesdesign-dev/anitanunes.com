@@ -48,12 +48,21 @@ body.light-theme {
 
 /* ------------- Conteúdo central da página ------------ */
 .container {
-    /* --- tamanho das margens principais ---*/
-    /* width: 70vw; */
-    width: 100vw;
-    margin: 0px auto;
+    max-width: 1320px;
+    width: calc(100% - 2 * clamp(24px, 4vw, 56px));
+    margin: 0 auto;
+    box-sizing: border-box;
+}
 
-    
+main .books h2,
+main .container > h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 120px;
+    margin-bottom: 16px;
+    line-height: 1.1;
 }
 
 /* ------------------- L A N D I N G  --------------- */
@@ -161,12 +170,6 @@ body.light-theme {
 }
 
 
-body.light-theme .book-meta {
-    background: var(--surface);
-
-    color: var(--inverse-text);
-}
-
 
 .book-meta .book-date {
     display: block
@@ -207,6 +210,66 @@ body.light-theme .book-meta {
 
 
 
+
+.contact-form-wrapper {
+    max-width: 720px;
+    margin: 24px auto 0;
+    padding: 24px;
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    background: var(--surface);
+}
+
+.contact-form {
+    display: grid;
+    gap: 16px;
+}
+
+.contact-form__field {
+    display: grid;
+    gap: 8px;
+}
+
+.contact-form label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--surface-border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    box-sizing: border-box;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-soft);
+}
+
+.contact-form button {
+    justify-self: start;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 999px;
+    background: var(--text);
+    color: var(--inverse-text);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-1px);
+}
 
 /*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
 @media (max-width: 1023px) {
@@ -254,5 +317,10 @@ max-width: 80vw;
 
     }
 
+    .store-callout__content {
+        margin-left: 5vw;
+        margin-right: 5vw;
+        padding: 24px;
+    }
 
 }

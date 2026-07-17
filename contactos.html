@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos | Anita N.</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header/header.css">
+</head>
+<body data-i18n-root="page">
+    <header class="site-header">
+        <div id="header-placeholder" data-header-src="header/header.html"></div>
+        <script src="header/load-header.js"></script>
+    </header>
+
+    <main>
+        <section class="books">
+            <div class="container">
+                <h2>Contactos</h2>
+                <p>Para pedidos de informação sobre a loja, livros ou projetos, pode preencher o formulário abaixo e entrarei em contacto.</p>
+
+                <div class="contact-form-wrapper" id="contact-form">
+                    <form class="contact-form" action="https://formsubmit.co/anitanunes.design@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Nova mensagem do site Anita Nunes">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://anitanunes.com/contactos.html">
+
+                        <div class="contact-form__field">
+                            <label for="contact-name">Nome</label>
+                            <input id="contact-name" name="name" type="text" placeholder="O seu nome" required>
+                        </div>
+
+                        <div class="contact-form__field">
+                            <label for="contact-email">Email</label>
+                            <input id="contact-email" name="email" type="email" placeholder="O seu email" required>
+                        </div>
+
+                        <div class="contact-form__field">
+                            <label for="contact-message">Mensagem</label>
+                            <textarea id="contact-message" name="message" rows="6" placeholder="Escreva a sua mensagem" required></textarea>
+                        </div>
+
+                        <button type="submit">Enviar mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="footer/load-footer.js"></script>
+</body>
+</html>

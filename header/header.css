@@ -7,23 +7,27 @@
 
     background: rgba(0,0,0,0.5);
     border-bottom: 1px solid var(--surface-border);
-filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.5));
+}
+
+body.light-theme .site-header {
+    background: #ffffff;
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.08));
 }
 
 /* Container interno do cabeçalho */
 .header-inner {
     max-width: 95%;
-    padding: 10px 50px;
-
-    height: clamp(3vh, 4vh, 5vh);
-
+    padding: 10px 24px;
+    min-height: 64px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
+    gap: 18px;
+    flex-wrap: wrap;
 }
-
 
 .control-group {
     display: inline-flex;
@@ -31,13 +35,55 @@ filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.5));
     gap: 15px;
 }
 
-
 /* Agrupamento do logotipo e marca do site */
-
 .brand-wrap {
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 1vw, 12px);
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+    font-size: clamp(0.72rem, 0.9vw, 0.86rem);
+    font-weight: 600;
+    letter-spacing: clamp(0.08em, 0.11vw, 0.15em);
+    text-transform: uppercase;
+    padding: clamp(5px, 0.6vw, 7px) clamp(7px, 0.9vw, 10px);
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.nav-link--highlight {
+    background: rgba(255, 255, 255, 0.16);
+    color: var(--text);
+}
+
+body.light-theme .nav-link--highlight {
+    background: rgba(0, 0, 0, 0.08);
+    color: #111111;
+}
+
+body.light-theme .nav-link {
+    color: var(--text);
+}
+
+body.light-theme .nav-link:hover,
+body.light-theme .nav-link:focus-visible {
+    background: rgba(0, 0, 0, 0.08);
 }
 
 /* Placeholder para o logotipo do site */
