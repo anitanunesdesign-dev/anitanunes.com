@@ -54,6 +54,25 @@ body.light-theme {
     box-sizing: border-box;
 }
 
+.index-page .container {
+    max-width: none;
+    width: 100%;
+}
+
+.home-page .books .container {
+    width: 100%;
+    max-width: none;
+}
+
+.home-page .books h2 {
+    margin-top: 140px;
+    margin-left: 50px;
+}
+
+.home-page .books p {
+    margin-left: 50px;
+}
+
 main .books h2,
 main .container > h2 {
     font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -77,9 +96,28 @@ main .container > h2 {
     grid-template-columns: 1.2fr 0.8fr;
     gap: 40px;
     align-items: center;
-    width: 70vw;
+    width: 100%;
     margin-bottom: 100px;
 
+}
+
+.landing-placeholder {
+    justify-self: end;
+    width: min(34vw, 420px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.28), transparent 38%),
+        radial-gradient(circle at 50% 50%, rgba(206, 0, 117, 0.22), rgba(206, 0, 117, 0.08) 55%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+body.light-theme .landing-placeholder {
+    background:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.65), transparent 38%),
+        radial-gradient(circle at 50% 50%, rgba(206, 0, 117, 0.18), rgba(206, 0, 117, 0.08) 55%, rgba(0, 0, 0, 0.04) 100%);
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
 
@@ -89,6 +127,7 @@ main .container > h2 {
     font-weight: 450;
     line-height: 1;
     margin-bottom: 20px;
+    margin-left: 50px;
     text-transform: capitalize;
 
 }
@@ -98,7 +137,19 @@ main .container > h2 {
     font-size: 1.05rem;
     line-height: 1.4;
     font-weight: 500;
+    margin-left: 50px;
     color: var(--text);
+}
+
+@media (max-width: 1023px) {
+    .landing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .landing-placeholder {
+        justify-self: start;
+        width: min(72vw, 340px);
+    }
 }
 
 
