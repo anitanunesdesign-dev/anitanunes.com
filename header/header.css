@@ -264,7 +264,10 @@ body:not(.light-theme) .theme-icon.moon {
     opacity: 1;
 }
 
-/* Mobile */
+
+
+
+/* ----------------------------- Mobile -----------------------------  */
 @media (max-width: 1023px) {
     .header-inner {
         position: relative;
@@ -299,11 +302,12 @@ body:not(.light-theme) .theme-icon.moon {
         align-items: stretch;
         gap: 0;
         padding: 10px 12px 12px;
-        background: rgba(0, 0, 0, 0.92);
+        background: rgba(27, 27, 27, 0.823);
         border-bottom: 1px solid var(--surface-border);
         border-radius: 16px;
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
         z-index: 25;
+
     }
 
     body.light-theme .site-nav {
@@ -329,9 +333,9 @@ body:not(.light-theme) .theme-icon.moon {
     }
 
     .nav-link {
-        width: 100%;
-        padding: 12px 14px;
+        width: 90%;
+        padding: 10px 10px;
         font-size: 0.9rem;
         border-radius: 14px;
+        font-weight: 700;
     }
-}
