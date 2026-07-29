@@ -57,6 +57,14 @@ body.light-theme {
 .index-page .container {
     max-width: none;
     width: 100%;
+    margin: 0;
+}
+
+.index-page .books .container,
+.books-page .books .container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
 }
 
 .home-page .books .container {
@@ -280,6 +288,10 @@ body.light-theme .landing-placeholder {
 .contact-form button:hover {
     transform: translateY(-1px);
 }
+
+
+
+
 
 /*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
 @media (max-width: 1023px) {
