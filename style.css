@@ -149,6 +149,61 @@ body.light-theme .landing-placeholder {
     color: var(--text);
 }
 
+.home-editorial-section .books-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px 0 18px;
+}
+
+.home-editorial-section .columns-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--surface-border);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.home-editorial-section .columns-toggle__square {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: currentColor;
+    opacity: 0.9;
+}
+
+.home-editorial-section .columns-toggle:hover,
+.home-editorial-section .columns-toggle:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+body.light-theme .home-editorial-section .columns-toggle:hover,
+body.light-theme .home-editorial-section .columns-toggle:focus-visible {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.home-editorial-section .books-grid {
+    --home-columns: 2;
+    --home-card-scale: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--home-columns), minmax(0, 1fr));
+    gap: 0;
+}
+
+.home-editorial-section .book-card {
+    height: calc(100vh * var(--home-card-scale));
+}
+
 @media (max-width: 1023px) {
     .landing-grid {
         grid-template-columns: 1fr;
@@ -157,6 +212,23 @@ body.light-theme .landing-placeholder {
     .landing-placeholder {
         justify-self: start;
         width: min(72vw, 340px);
+    }
+
+    .home-editorial-section .books-toolbar {
+        justify-content: flex-start;
+    }
+
+    .home-editorial-section .columns-toggle {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+    }
+
+    .home-editorial-section .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-editorial-section .book-card {
+        height: 90vh;
     }
 }
 

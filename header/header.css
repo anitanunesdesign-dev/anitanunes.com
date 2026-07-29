@@ -1,3 +1,4 @@
+/* Header fixo */
 .site-header {
     position: fixed;
     top: 0;
@@ -6,17 +7,18 @@
     z-index: 20;
 
     background: rgba(0,0,0,0.5);
-    border-bottom: 1px solid var(--surface-border);
+    border-bottom: 2px solid var(--surface-border);
     filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.5));
 }
 
+/* Header claro */
 body.light-theme .site-header {
     background: #ffffff;
     border-bottom-color: rgba(0, 0, 0, 0.08);
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.08));
 }
 
-/* Container interno do cabeçalho */
+/* Linha principal */
 .header-inner {
     max-width: 95%;
     padding: 10px 24px;
@@ -29,6 +31,7 @@ body.light-theme .site-header {
     flex-wrap: wrap;
 }
 
+/* Botão hamburger */
 .menu-toggle {
     display: none;
     align-items: center;
@@ -45,6 +48,7 @@ body.light-theme .site-header {
     flex-direction: column;
 }
 
+/* Barras do ícone */
 .menu-toggle__line {
     display: block;
     width: 18px;
@@ -54,19 +58,21 @@ body.light-theme .site-header {
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+/* Controles do topo */
 .control-group {
     display: inline-flex;
     align-items: center;
     gap: 15px;
 }
 
-/* Agrupamento do logotipo e marca do site */
+/* Logo e marca */
 .brand-wrap {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
+/* Navegação principal */
 .site-nav {
     display: flex;
     align-items: center;
@@ -74,6 +80,7 @@ body.light-theme .site-header {
     flex-wrap: wrap;
 }
 
+/* Link do menu */
 .nav-link {
     color: var(--text);
     text-decoration: none;
@@ -86,47 +93,55 @@ body.light-theme .site-header {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
+/* Hover do menu */
 .nav-link:hover,
 .nav-link:focus-visible {
     background: rgba(255, 255, 255, 0.12);
     transform: translateY(-1px);
 }
 
+/* Página ativa */
 .nav-link--highlight {
     background: rgba(255, 255, 255, 0.16);
     color: var(--text);
 }
 
+/* Ativa no claro */
 body.light-theme .nav-link--highlight {
     background: rgba(0, 0, 0, 0.08);
     color: #111111;
 }
 
+/* Links no claro */
 body.light-theme .nav-link {
     color: var(--text);
 }
 
+/* Hover no claro */
 body.light-theme .nav-link:hover,
 body.light-theme .nav-link:focus-visible {
     background: rgba(0, 0, 0, 0.08);
 }
 
+/* Hover do hamburger */
 .menu-toggle:hover,
 .menu-toggle:focus-visible {
     background: rgba(255, 255, 255, 0.14);
 }
 
+/* Hamburger no claro */
 body.light-theme .menu-toggle {
     border-color: rgba(0, 0, 0, 0.12);
     background: rgba(0, 0, 0, 0.04);
 }
 
+/* Hover do hamburger no claro */
 body.light-theme .menu-toggle:hover,
 body.light-theme .menu-toggle:focus-visible {
     background: rgba(0, 0, 0, 0.08);
 }
 
-/* Placeholder para o logotipo do site */
+/* Placeholder do logo */
 .logo-placeholder {
 
     height: 26px;
@@ -139,7 +154,7 @@ body.light-theme .menu-toggle:focus-visible {
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
-/* Marca do site no cabeçalho */
+/* Nome do site */
 .brand {
     color: var(--text);
     text-decoration: none;
@@ -150,7 +165,7 @@ body.light-theme .menu-toggle:focus-visible {
 }
 
 
-/* Seletor de tema e idioma no cabeçalho */
+/* Controles de tema e idioma */
 .control-group {
     display: inline-flex;
     align-items: right;
@@ -158,7 +173,7 @@ body.light-theme .menu-toggle:focus-visible {
 
 }
 
-/* Botões FORA de controlo no cabeçalho */
+/* Grupo de botões */
 body.light-theme .lang-switcher,
 body.light-theme .theme-switcher {
     display: inline-flex;
@@ -169,6 +184,7 @@ body.light-theme .theme-switcher {
     background: rgba(0, 0, 0, 0.07);
 }
 
+/* Grupo de botões no escuro */
 body:not(.light-theme) .lang-switcher,
 body:not(.light-theme) .theme-switcher {
     display: inline-flex;
@@ -182,7 +198,7 @@ body:not(.light-theme) .theme-switcher {
 
 
 
-/* Botões DENTRO de controlo no cabeçalho */
+/* Botões internos */
 .theme-switcher .theme-btn,
 .lang-switcher .lang-btn {
     color: rgba(255, 255, 255, 0.7);
@@ -203,7 +219,7 @@ body:not(.light-theme) .theme-switcher {
 
 }
 
-/* -- LANG BUTTON HOVER  ---- DARK  theme -- */
+/* Hover dos botões */
 .lang-btn:hover,
 .theme-btn:hover,
 body.light-theme .lang-btn:hover,
@@ -212,7 +228,7 @@ body.light-theme .theme-btn:hover {
 
 }
 
-/* -- LANG BUTTON ACTIVE  ----- */
+/* Botão ativo */
 .lang-btn.active,
 .theme-btn.active {
     background: linear-gradient(135deg, var(--highlight), #830037);
@@ -226,6 +242,7 @@ body.light-theme .theme-btn:hover {
     padding: 8px 12px;
 }
 
+/* Ícones do tema */
 .theme-icon {
     display: inline-flex;
     align-items: center;
@@ -233,18 +250,21 @@ body.light-theme .theme-btn:hover {
 
 }
 
+/* Ícones claros */
 theme-icon.moon,
 theme-icon.sun {
     color: #fff;
     opacity: 0.8;
 }
 
+/* Ícone ativo no tema */
 body.light-theme .theme-icon.sun,
 body:not(.light-theme) .theme-icon.moon {
     color: #ffffff;
     opacity: 1;
 }
 
+/* Mobile */
 @media (max-width: 1023px) {
     .header-inner {
         position: relative;

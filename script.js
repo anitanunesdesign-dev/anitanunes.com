@@ -143,6 +143,41 @@ async function showRandomHomeBooks() {
   }
 }
 
+function initHomeBooksColumnsToggle() {
+  const editorialSection = document.querySelector('.home-editorial-section');
+  if (!editorialSection) return;
+
+  const grid = editorialSection.querySelector('.books-grid[data-random-books-source]');
+  const toggleButton = editorialSection.querySelector('.columns-toggle');
+  if (!grid || !toggleButton) return;
+
+  const columnValues = [2, 3, 4];
+  const columnScales = {
+    2: 1,
+    3: 0.9,
+    4: 0.81,
+  };
+  const savedColumns = Number(localStorage.getItem('home-books-columns'));
+  const initialColumns = columnValues.includes(savedColumns) ? savedColumns : 2;
+
+  const applyColumns = (columns) => {
+    grid.style.setProperty('--home-columns', String(columns));
+    grid.style.setProperty('--home-card-scale', String(columnScales[columns] || 1));
+    const nextColumns = columnValues[(columnValues.indexOf(columns) + 1) % columnValues.length];
+    toggleButton.setAttribute('aria-label', `Alternar grelha para ${nextColumns} colunas`);
+    toggleButton.dataset.columns = String(columns);
+    localStorage.setItem('home-books-columns', String(columns));
+  };
+
+  applyColumns(initialColumns);
+
+  toggleButton.addEventListener('click', () => {
+    const currentColumns = Number(grid.style.getPropertyValue('--home-columns')) || initialColumns;
+    const nextColumns = columnValues[(columnValues.indexOf(currentColumns) + 1) % columnValues.length];
+    applyColumns(nextColumns);
+  });
+}
+
 function initLanguageSwitcher() {
   const root = document.querySelector('[data-i18n-root]') || document.body;
   const buttons = root.querySelectorAll('.lang-btn');
@@ -273,6 +308,7 @@ function organizeGridByYear(grid) {
 
 document.addEventListener('DOMContentLoaded', () => {
   initLanguageSwitcher();
+  initHomeBooksColumnsToggle();
 
   // organize each books grid by year only on pages inside the /livros/ folder
   if (location.pathname.includes('/livros/')) {
