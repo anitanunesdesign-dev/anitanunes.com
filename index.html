@@ -57,6 +57,7 @@
 
 
 
+
             <div class="books-grid" data-random-books-source="livros/livros.html"></div>
 
             <div class="books-actions">
@@ -200,29 +201,8 @@
 
     <!-- ---------------------------- -->
 
-
-    <!-- Google reCAPTCHA: replace YOUR_SITE_KEY with your site key -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="script.js"></script>
 
-
-
-
-    <!-- CAPTCHA modal shown to first-time visitors until verified -->
-    <div id="human-check-modal" class="human-check-modal" role="dialog" aria-modal="true"
-        aria-labelledby="human-check-title">
-        <div class="modal-card">
-            <h2 id="human-check-title">Verificação de segurança</h2>
-            <p>Por favor confirme que é um visitante humano para continuar a navegar no site.</p>
-            <div id="recaptcha-container">
-                <!-- Replace data-sitekey value with your Google reCAPTCHA site key -->
-                <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY" data-callback="onHumanVerified"></div>
-            </div>
-            <div>
-                <button class="human-fallback-btn" id="human-fallback">Sou humano</button>
-            </div>
-        </div>
-    </div>
 
 
 </body>

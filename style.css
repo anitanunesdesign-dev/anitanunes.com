@@ -155,48 +155,7 @@ body.light-theme .landing-placeholder {
 
 
 
-/* --- Modal de verificação humana (CAPTCHA) --- */
-.human-check-modal {
-    position: fixed;
-    inset: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 9999;
-}
 
-.human-check-modal .modal-card {
-    background: var(--bg);
-    color: var(--text);
-    padding: 28px;
-    border-radius: 10px;
-    max-width: 520px;
-    width: calc(100% - 40px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    text-align: center;
-}
-
-.human-check-modal h2 {
-    margin-top: 0;
-    margin-bottom: 12px;
-}
-
-.human-check-modal p {
-    margin-bottom: 18px;
-    color: var(--text-soft);
-}
-
-.human-check-modal .human-fallback-btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
-    border-radius: 8px;
-    border: 1px solid var(--surface-border);
-    background: var(--surface);
-    color: var(--text);
-    cursor: pointer;
-}
 
 
 

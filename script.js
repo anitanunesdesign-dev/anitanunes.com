@@ -271,55 +271,9 @@ function organizeGridByYear(grid) {
   grid.replaceWith(newGrid);
 }
 
-// --- Human verification (CAPTCHA) ---
-function isHumanVerified() {
-  return document.cookie.split('; ').indexOf('human_verified=1') !== -1;
-}
-
-function setHumanVerified() {
-  // 1 year
-  const maxAge = 60 * 60 * 24 * 365;
-  document.cookie = `human_verified=1; path=/; max-age=${maxAge}`;
-  hideHumanModal();
-}
-
-function showHumanModal() {
-  const modal = document.getElementById('human-check-modal');
-  if (!modal) return;
-  modal.style.display = 'flex';
-  // prevent interaction with page behind modal
-  document.documentElement.style.overflow = 'hidden';
-}
-
-function hideHumanModal() {
-  const modal = document.getElementById('human-check-modal');
-  if (!modal) return;
-  modal.style.display = 'none';
-  document.documentElement.style.overflow = '';
-}
-
-// Callback used by Google reCAPTCHA when verification succeeds
-window.onHumanVerified = function (token) {
-  if (token) {
-    setHumanVerified();
-  }
-};
-
 document.addEventListener('DOMContentLoaded', () => {
   initLanguageSwitcher();
 
-  // fallback manual button if reCAPTCHA can't load
-  const fallback = document.getElementById('human-fallback');
-  if (fallback) {
-    fallback.addEventListener('click', () => {
-      setHumanVerified();
-    });
-  }
-
-  if (!isHumanVerified()) {
-    // show modal to block bots until human verification
-    showHumanModal();
-  }
   // organize each books grid by year only on pages inside the /livros/ folder
   if (location.pathname.includes('/livros/')) {
     document.querySelectorAll('section.books .books-grid').forEach(grid => organizeGridByYear(grid));
