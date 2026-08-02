@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_5" data-name="Layer 5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 614.19 304.51">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Poppins-Bold, Poppins;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-2 {
+        font-size: 13.31px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #323232;
+      }
+
+      .cls-2 {
+        font-family: Poppins-Regular, Poppins;
+      }
+
+      .cls-4 {
+        fill: #0000dc;
+      }
+
+      .cls-5 {
+        fill: #ebebeb;
+      }
+
+      .cls-6 {
+        fill: #000064;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="cls-5" x="80.91" y="69.59" width="101.4" height="101.4" rx="48.91" ry="48.91"/>
+    <text class="cls-1" transform="translate(98.34 196.28)"><tspan x="0" y="0"># ebebeb</tspan></text>
+    <text class="cls-2" transform="translate(83.62 217.89)"><tspan x="0" y="0">(235, 235, 235)</tspan></text>
+  </g>
+  <g>
+    <rect class="cls-3" x="196.31" y="69.59" width="101.4" height="101.4" rx="48.7" ry="48.7"/>
+    <text class="cls-1" transform="translate(216.12 196.28)"><tspan x="0" y="0"># 323232</tspan></text>
+    <text class="cls-2" transform="translate(209.72 217.89)"><tspan x="0" y="0">(50, 50, 50)</tspan></text>
+  </g>
+  <g>
+    <rect class="cls-6" x="311.72" y="69.59" width="101.4" height="101.4" rx="48.91" ry="48.91"/>
+    <text class="cls-1" transform="translate(328.9 196.28)"><tspan x="0" y="0"># 000064</tspan></text>
+    <text class="cls-2" transform="translate(331.35 217.89)"><tspan x="0" y="0">(0, 0, 100)</tspan></text>
+  </g>
+  <g>
+    <rect class="cls-4" x="427.12" y="69.59" width="101.4" height="101.4" rx="48.91" ry="48.91"/>
+    <text class="cls-1" transform="translate(444.51 196.28)"><tspan x="0" y="0"># 0000dc</tspan></text>
+    <text class="cls-2" transform="translate(445.41 217.89)"><tspan x="0" y="0">(0, 0, 220)</tspan></text>
+  </g>
+</svg>
