@@ -250,29 +250,40 @@ body.light-theme .home-editorial-section .columns-toggle:focus-visible {
     position: absolute;
     left: 18px;
     top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-    background:transparent;
+    background: transparent;
     color: var(--alternate-bg);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 550;
 
     padding: 6px 8px;
     border-radius: 6px;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.0rem;
     z-index: 3;
-
 }
 
+.book-meta + .book-meta {
+    left: auto;
+    right: 18px;
+    justify-content: flex-end;
+}
 
-
-.book-meta .book-date {
+.book-meta .book-date,
+.book-meta .book-author {
     display: block;
+    line-height: 1.2;
 }
 
- .book-author {    
-        position: absolute;
-        right: 18px;
-        top: 40px;
+.book-author {
+    position: static;
+    right: auto;
+    top: auto;
+    margin-left: auto;
+    text-align: right;
+
 
 }
 
@@ -418,8 +429,10 @@ body.light-theme .home-editorial-section .columns-toggle:focus-visible {
         left: 6vw;
         top: 8vw;
         font-weight: 300;
+    }
 
-
+    .book-meta + .book-meta {
+        right: 6vw;
     }
 
     .store-callout__content {
