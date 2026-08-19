@@ -81,16 +81,20 @@ body.light-theme {
     margin-left: 50px;
 }
 
+
 main .books h2,
 main .container > h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-size: 78rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-top: 120px;
     margin-bottom: 16px;
-    line-height: 1.1;
+    line-height: 1rem;
 }
+
+
+
 
 /* ------------------- L A N D I N G  --------------- */
 .landing {
@@ -135,7 +139,7 @@ body.light-theme .landing-placeholder {
     font-weight: 450;
     line-height: 1;
     margin-bottom: 20px;
-    margin-left: 50px;
+    margin-left: 150px;
     text-transform: capitalize;
 
 }
@@ -145,14 +149,14 @@ body.light-theme .landing-placeholder {
     font-size: 1.05rem;
     line-height: 1.4;
     font-weight: 500;
-    margin-left: 50px;
+    margin-left: 150px;
     color: var(--text);
 }
 
 .home-editorial-section .books-toolbar {
     display: flex;
     justify-content: flex-end;
-    margin: 12px 0 18px;
+    margin: 12px 0 10px;
 }
 
 .home-editorial-section .columns-toggle {
@@ -262,7 +266,14 @@ body.light-theme .home-editorial-section .columns-toggle:focus-visible {
 
 
 .book-meta .book-date {
-    display: block
+    display: block;
+}
+
+ .book-author {    
+        position: absolute;
+        right: 18px;
+        top: 40px;
+
 }
 
 .grouped-books .year-section {
@@ -384,7 +395,7 @@ body.light-theme .home-editorial-section .columns-toggle:focus-visible {
     .landing-copy h1,
     .landing-copy p {
         margin-left: 5vw;
-max-width: 80vw;
+        max-width: 80vw;
     }
 
 

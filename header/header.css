@@ -22,7 +22,7 @@ body.light-theme .site-header {
 .header-inner {
     max-width: 95%;
     padding: 10px 24px;
-    min-height: 64px;
+    max-height: 64px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -84,7 +84,7 @@ body.light-theme .site-header {
 .nav-link {
     color: var(--text);
     text-decoration: none;
-    font-size: clamp(0.72rem, 0.9vw, 0.86rem);
+    font-size: clamp(0.5rem, 0.6vw, 0.7rem);
     font-weight: 600;
     letter-spacing: clamp(0.08em, 0.11vw, 0.15em);
     text-transform: uppercase;
@@ -100,17 +100,24 @@ body.light-theme .site-header {
     transform: translateY(-1px);
 }
 
+
 /* Página ativa */
 .nav-link--highlight {
-    background: rgba(255, 255, 255, 0.16);
-    color: var(--text);
+   color: #939393;
+   font-weight: 900;
+    font-size: clamp(0.55rem, 0.65vw, 0.75rem);
+
 }
 
 /* Ativa no claro */
 body.light-theme .nav-link--highlight {
-    background: rgba(0, 0, 0, 0.08);
+    /* background: rgba(0, 0, 0, 0.08); */
+        font-weight: 900;
+            font-size: clamp(0.55rem, 0.65vw, 0.75rem);
+
     color: #111111;
 }
+
 
 /* Links no claro */
 body.light-theme .nav-link {
@@ -158,7 +165,7 @@ body.light-theme .menu-toggle:focus-visible {
 .brand {
     color: var(--text);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -215,7 +222,7 @@ body:not(.light-theme) .theme-switcher {
     cursor: pointer;
 
     font-weight: 550;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 
 }
 
@@ -337,7 +344,7 @@ body:not(.light-theme) .theme-icon.moon {
     .nav-link {
         width: 90%;
         padding: 10px 10px;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         border-radius: 14px;
         font-weight: 700;
     }

@@ -1,11 +1,12 @@
 .books h2 {
     text-align: left;
-    font-size: 2rem;
-    font-weight: 700;
-
+    font-size: 6.5rem;
+    font-weight: 800;
     margin-top: 140px;
     margin-left: 50px;
     letter-spacing: 1px;
+    line-height: 0.9em;
+    margin-bottom: 20px;
 
 }
 
@@ -13,10 +14,11 @@
     text-align: left;
     font-size: 1.1rem;
     font-weight: 300;
-    margin-bottom: 50px;
-    line-height: 1.3em;
+    margin-bottom: 20px;
+    line-height: 1.2em;
     margin-left: 50px;
     letter-spacing: 1px;
+    max-width: 600px;
 }
 
 .books a {
@@ -151,22 +153,28 @@ body.light-theme .overlay {
 
 
 .view-more-btn {
-    display: block;
+
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 28px;
-    border-radius: 999px;
-    border: 1px solid var(--surface-border);
+    /* padding: 8px 20px;
+    border-radius: 999px; */
+
+    /* border: 1px solid var(--surface-border);
     background: var(--surface);
     color: var(--text);
-    text-decoration: none;
+    text-decoration: none; */
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: transform 0.2s ease, background 0.2s ease;
     text-align: center;
     width: fit-content;
-    margin: 50px auto 50px auto;
+
+    font-size: 11px;
+    margin: 20px 50px 20px 50px;
+    padding: 10px;
+
 }
 
 .view-more-btn:hover {
@@ -241,11 +249,11 @@ body.light-theme .view-more-btn:hover {
 
     }
 
-.view-more-btn{
+    .view-more-btn {
         max-width: 100vw;
         padding-left: 5vw;
         padding-right: 5vw;
-                font-size: clamp(1vw, 2em, 1.5vw);
+        font-size: clamp(1vw, 2em, 1.5vw);
 
 
     }

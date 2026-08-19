@@ -1,8 +1,8 @@
 const translations = {
   pt: {
-    designEditorialTitle: 'DESIGN EDITORIAL',
-    designGraficoTitle: 'DESIGN GRÁFICO',
-    fotografiaTitle: 'FOTOGRAFIA',
+    // designEditorialTitle: 'DESIGN<br>EDITORIAL',
+    // designGraficoTitle: 'DESIGN <br>GRÁFICO',
+    // fotografiaTitle: 'FOTOGRAFIA',
 
     'Imagem do livro Mundo de Sonhos e Fantasia': 'Imagem do livro Mundo de Sonhos e Fantasia',
     'Imagem do livro A Tosquia': 'Imagem do livro A Tosquia',
@@ -20,9 +20,9 @@ const translations = {
   },
 
   en: {
-    designEditorialTitle: 'EDITORIAL DESIGN',
-    designGraficoTitle: 'GRAPHIC DESIGN',
-    fotografiaTitle: 'PHOTOGRAPHY',
+    // designEditorialTitle: 'EDITORIAL DESIGN',
+    // designGraficoTitle: 'GRAPHIC DESIGN',
+    // fotografiaTitle: 'PHOTOGRAPHY',
  
     'Imagem do livro Mundo de Sonhos e Fantasia': 'Image of the book World of Dreams and Fantasy',
     'Imagem do livro A Tosquia': 'Image of the book The Shave',
