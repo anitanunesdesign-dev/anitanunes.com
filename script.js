@@ -201,9 +201,8 @@ function initLanguageSwitcher() {
   });
 
   const savedLang = localStorage.getItem('site-language') || 'pt';
-  const savedTheme = localStorage.getItem('site-theme') || 'dark';
   applyLanguage(savedLang);
-  applyTheme(savedTheme);
+  applyTheme('light');
   showRandomHomeBooks();
 }
 
@@ -315,4 +314,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('section.books .books-grid').forEach(grid => organizeGridByYear(grid));
   }
 });
-
