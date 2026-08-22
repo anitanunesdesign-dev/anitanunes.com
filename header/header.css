@@ -286,16 +286,14 @@ body:not(.light-theme) .theme-icon.moon {
     }
 
     .control-group {
-        order: 2;
-        /* margin-left: auto; */
+        order: 3;
+        margin-left: auto;
     }
 
     .menu-toggle {
-        order: 3;
-        /* display: inline-flex; */
-        /* margin-left: 12px; */
-
-           margin-right: auto;
+        order: 2;
+        margin-left: 12px;
+        margin-right: 0;
     }
 
     .site-nav {
