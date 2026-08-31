@@ -75,7 +75,7 @@ body.contact-page .contact-form button {
     border: 1px solid var(--surface-border);
     border-radius: 16px;
     box-sizing: border-box;
-    background: radial-gradient(circle at 100% 0, rgba(206, 0, 117, 0.2), transparent 38%), var(--surface);
+    background: linear-gradient(135deg, rgba(255, 79, 175, 0.08), rgba(168, 85, 247, 0.06) 52%, rgba(79, 140, 255, 0.08)), var(--surface);
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.16);
 }
 
@@ -112,6 +112,44 @@ body.contact-page .contact-form button {
     border-color: rgba(125, 77, 184, 0.45);
     background: #e4d8ff;
     transform: translateY(-1.5px);
+}
+
+/* Agenda para marcar conversas diretamente na página. */
+.appointment-scheduling {
+    width: min(583px, 38.5vw, calc(38.5dvh + 88px));
+    max-width: calc(100% - 44px);
+    margin: 48px auto 0;
+    padding: clamp(26px, 4.6dvh, 42px) 24px 24px;
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    box-sizing: border-box;
+    background: radial-gradient(circle at 100% 0, rgba(206, 0, 117, 0.2), transparent 38%), var(--surface);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.16);
+}
+
+.appointment-scheduling h3 {
+    margin: 0;
+    font-size: clamp(1.15rem, min(3.2vw, 3dvh), 1.9rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.appointment-scheduling p {
+    margin: 10px 0 22px;
+    color: var(--text-soft);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.appointment-scheduling iframe {
+    display: block;
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    border-radius: 10px;
+    background: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0 12px 28px rgba(168, 85, 247, 0.16), 0 5px 16px rgba(79, 140, 255, 0.1);
 }
 
 /* Estrutura vertical e texto em maiúsculas. */
