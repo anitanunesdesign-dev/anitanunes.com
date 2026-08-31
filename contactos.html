@@ -6,9 +6,10 @@
     <title>Contactos | Anita N.</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contactos.css">
     <link rel="stylesheet" href="header/header.css">
 </head>
-<body data-i18n-root="page">
+<body class="contact-page" data-i18n-root="page">
     <header class="site-header">
         <div id="header-placeholder" data-header-src="header/header.html"></div>
         <script src="header/load-header.js"></script>
@@ -17,31 +18,68 @@
     <main>
         <section class="books">
             <div class="container">
-                <h2>Contactos</h2>
-                <p>Para pedidos de informação sobre a loja, livros ou projetos, pode preencher o formulário abaixo e entrarei em contacto.</p>
+                <h2>Contacta-me</h2>
+                <p>Conta-me o que precisas.</p>
 
                 <div class="contact-form-wrapper" id="contact-form">
                     <form class="contact-form" action="https://formsubmit.co/anitanunes.design@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Nova mensagem do site Anita Nunes">
+                        <input type="hidden" name="_subject" value="Nova mensagem - anitanunes.com">
                         <input type="hidden" name="_next" value="https://anitanunes.com/contactos.html">
 
-                        <div class="contact-form__field">
-                            <label for="contact-name">Nome</label>
-                            <input id="contact-name" name="name" type="text" placeholder="O seu nome" required>
+                        <div class="contact-form__progress" aria-hidden="true">
+                            <span class="contact-form__progress-bar" id="contact-progress-bar"></span>
                         </div>
 
-                        <div class="contact-form__field">
-                            <label for="contact-email">Email</label>
-                            <input id="contact-email" name="email" type="email" placeholder="O seu email" required>
-                        </div>
+                        <fieldset class="contact-form__step is-active" data-step="1">
+                            <legend>Pergunta 1 de 4</legend>
+                            <h3>Preciso:</h3>
+                            <div class="contact-form__choices">
+                                <label><input type="radio" name="area_de_interesse" value="Livros ou loja" required><span>Fazer um Livro</span></label>
+                                <label><input type="radio" name="area_de_interesse" value="Design gráfico"><span>Branding</span></label>
+                                <label><input type="radio" name="area_de_interesse" value="Fotografia"><span>Fotógrafa</span></label>
+                                <label><input type="radio" name="area_de_interesse" value="Ilustração ou pintura"><span>que me pintes algo</span></label>
+                                <label><input type="radio" name="area_de_interesse" value="Parceria"><span>Ajuda com o meu projeto</span></label>
+                                <label><input type="radio" name="area_de_interesse" value="Outro assunto"><span>Outro assunto</span></label>
+                            </div>
+                        </fieldset>
 
-                        <div class="contact-form__field">
-                            <label for="contact-message">Mensagem</label>
-                            <textarea id="contact-message" name="message" rows="6" placeholder="Escreva a sua mensagem" required></textarea>
-                        </div>
+                        <fieldset class="contact-form__step" data-step="2" hidden>
+                            <legend>Pergunta 2 de 4</legend>
+                            <h3 data-question-title></h3>
+                            <div class="contact-form__choices" data-question-choices></div>
+                        </fieldset>
 
-                        <button type="submit">Enviar mensagem</button>
+                        <fieldset class="contact-form__step" data-step="3" hidden>
+                            <legend>Pergunta 3 de 4</legend>
+                            <h3 data-question-title></h3>
+                            <div class="contact-form__choices" data-question-choices></div>
+                        </fieldset>
+
+                        <fieldset class="contact-form__step" data-step="4" hidden>
+                            <legend>Os seus contactos</legend>
+                            <h3>Como posso falar contigo?</h3>
+                            <div class="contact-form__summary" aria-live="polite">
+                                <p>Resumidamente</p>
+                                <dl>
+                                    <div><dt>Preciso</dt><dd data-summary="area_de_interesse"></dd></div>
+                                    <div><dt>Detalhe</dt><dd data-summary="motivo_do_contacto"></dd></div>
+                                    <div><dt>Objetivo</dt><dd data-summary="detalhe_do_pedido"></dd></div>
+                                </dl>
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="contact-name">Nome</label>
+                                <input id="contact-name" name="name" type="text" placeholder="O teu nome" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label for="contact-email">Email</label>
+                                <input id="contact-email" name="email" type="email" placeholder="O teu email" required>
+                            </div>
+                            <button type="submit">Enviar mensagem</button>
+                        </fieldset>
                     </form>
+                </div>
+                <div class="contact-form-reset-wrapper">
+                    <button class="contact-form-reset" type="button">Voltar ao início</button>
                 </div>
             </div>
         </section>
@@ -50,5 +88,101 @@
     <div id="footer-placeholder"></div>
     <script src="footer/load-footer.js"></script>
     <script src="script.js"></script>
+    <script>
+        (() => {
+            const form = document.querySelector('.contact-form');
+            if (!form) return;
+
+            const steps = Array.from(form.querySelectorAll('.contact-form__step'));
+            const progress = document.querySelector('#contact-progress-bar');
+            const questions = {
+                'Livros ou loja': {
+                    step2: ['Que livro queres criar?', ['Livro infantil', 'Livro de poesia', 'Livro de memórias', 'Livro de Imagens', 'Livro técnico ou profissional', 'Outro tipo de livro']],
+                    step3: ['Em que fase está o teu livro?', ['Só tenho uma ideia', 'Já tenho os textos', 'Já tenho as imagens e os', 'Está pronto para avançar']]
+                },
+                'Design gráfico': {
+                    step2: ['Para que projeto precisas de branding?', ['Negócio novo', 'Negócio existente', 'Marca pessoal', 'Evento ou projeto']],
+                    step3: ['Que tipo de ajuda procuras?', ['Identidade completa', 'Logótipo', 'Conteúdos para redes', 'Uma sessão de orientação']]
+                },
+                'Fotografia': {
+                    step2: ['O que queres fotografar?', ['Retratos', 'Produto ou marca', 'Evento', 'Espaço ou projeto']],
+                    step3: ['Qual é o objetivo das fotografias?', ['Redes sociais', 'Site ou portefólio', 'Impressão', 'Recordação']]
+                },
+                'Ilustração ou pintura': {
+                    step2: ['O que gostavas que eu pintasse?', ['Retrato personalizado', 'Ilustração', 'Pintura para um espaço / Mural', 'Tela']],
+                    step3: ['Que estilo imaginas?', ['Colorido e leve', 'Minimalista', 'Cheio de detalhes', 'Ainda estou a explorar']]
+                },
+                'Parceria': {
+                    step2: ['Sobre o que é o teu projeto?', ['Cultura ou educação', 'Marca ou negócio', 'Evento', 'Projeto pessoal']],
+                    step3: ['Como imaginas a nossa colaboração?', ['Uma ideia pontual', 'Um projeto completo', 'Uma parceria contínua', 'Quero trocar ideias primeiro']]
+                },
+                'Outro assunto': {
+                    step2: ['Qual é o tema?', ['Uma pergunta', 'Um convite', 'Uma sugestão', 'Algo diferente']],
+                    step3: ['Como posso ajudar?', ['Quero saber mais', 'Quero marcar uma conversa', 'Quero partilhar uma ideia', 'Outro']]
+                }
+            };
+
+            const showStep = (stepNumber) => {
+                steps.forEach((step) => {
+                    const isCurrent = Number(step.dataset.step) === stepNumber;
+                    step.hidden = !isCurrent;
+                    step.classList.toggle('is-active', isCurrent);
+                });
+                progress.style.width = `${stepNumber * 25}%`;
+                const focusTarget = form.querySelector(`[data-step="${stepNumber}"] input, [data-step="${stepNumber}"] textarea`);
+                focusTarget?.focus();
+            };
+
+            const renderQuestion = (stepNumber, name, question) => {
+                const step = form.querySelector(`[data-step="${stepNumber}"]`);
+                step.querySelector('[data-question-title]').textContent = question[0];
+                step.querySelector('[data-question-choices]').replaceChildren(...question[1].map((answer, index) => {
+                    const label = document.createElement('label');
+                    const input = document.createElement('input');
+                    const text = document.createElement('span');
+                    input.type = 'radio';
+                    input.name = name;
+                    input.value = answer;
+                    input.required = index === 0;
+                    text.textContent = answer;
+                    label.append(input, text);
+                    return label;
+                }));
+            };
+
+            const updateSummary = () => {
+                form.querySelectorAll('[data-summary]').forEach((item) => {
+                    const answer = form.querySelector(`input[name="${item.dataset.summary}"]:checked`);
+                    item.textContent = answer ? answer.closest('label').querySelector('span').textContent : '';
+                });
+            };
+
+            form.querySelector('[data-step="1"]').addEventListener('change', (event) => {
+                const flow = questions[event.target.value];
+                if (!flow) return;
+                renderQuestion(2, 'motivo_do_contacto', flow.step2);
+                renderQuestion(3, 'detalhe_do_pedido', flow.step3);
+                showStep(2);
+            });
+
+            form.querySelector('[data-step="2"]').addEventListener('change', () => showStep(3));
+            form.querySelector('[data-step="3"]').addEventListener('change', () => {
+                updateSummary();
+                showStep(4);
+            });
+
+            document.querySelector('.contact-form-reset').addEventListener('click', () => {
+                form.reset();
+                form.querySelector('[data-step="2"] [data-question-title]').textContent = '';
+                form.querySelector('[data-step="2"] [data-question-choices]').replaceChildren();
+                form.querySelector('[data-step="3"] [data-question-title]').textContent = '';
+                form.querySelector('[data-step="3"] [data-question-choices]').replaceChildren();
+                updateSummary();
+                showStep(1);
+            });
+
+            progress.style.width = '25%';
+        })();
+    </script>
 </body>
 </html>

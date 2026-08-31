@@ -84,13 +84,13 @@ body.light-theme {
 
 main .books h2,
 main .container > h2 {
-    font-size: 78rem;
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-top: 120px;
     margin-bottom: 16px;
-    line-height: 1rem;
+    line-height: 1;
 }
 
 
@@ -323,65 +323,6 @@ body.light-theme .home-editorial-section .columns-toggle:focus-visible {
 
 
 
-.contact-form-wrapper {
-    max-width: 720px;
-    margin: 24px auto 0;
-    padding: 24px;
-    border: 1px solid var(--surface-border);
-    border-radius: 16px;
-    background: var(--surface);
-}
-
-.contact-form {
-    display: grid;
-    gap: 16px;
-}
-
-.contact-form__field {
-    display: grid;
-    gap: 8px;
-}
-
-.contact-form label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid var(--surface-border);
-    border-radius: 10px;
-    background: var(--bg);
-    color: var(--text);
-    font: inherit;
-    box-sizing: border-box;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: var(--text-soft);
-}
-
-.contact-form button {
-    justify-self: start;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 999px;
-    background: var(--text);
-    color: var(--inverse-text);
-    font: inherit;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.contact-form button:hover {
-    transform: translateY(-1px);
-}
 
 
 

@@ -1,0 +1,340 @@
+/* Paleta e cores exclusivas da página de contactos. */
+body.contact-page {
+    --bg: #ffffff;
+    --text: #17131b;
+    --text-rgb: 23, 19, 27;
+    --text-soft: rgba(23, 19, 27, 0.68);
+    --inverse-text: #ffffff;
+    --surface: #ffffff;
+    --surface-border: rgba(23, 19, 27, 0.14);
+    --header-bg: rgba(255, 255, 255, 0.94);
+    background: #ffffff;
+    color: #17131b;
+}
+
+/* Área principal branca, sem altura mínima forçada. */
+body.contact-page main {
+    min-height: 0;
+    background: #ffffff;
+}
+
+/* Espaçamento vertical da secção de contactos. */
+body.contact-page main .books {
+    min-height: 0;
+    box-sizing: border-box;
+    padding-block: clamp(10px, 2dvh, 24px);
+}
+
+/* Título principal responsivo. */
+body.contact-page main .books h2 {
+    margin-top: clamp(24px, 4dvh, 48px);
+    margin-bottom: 12px;
+    font-size: clamp(2.25rem, min(8vw, 8dvh), 5rem);
+}
+
+/* Alinhamento central do conteúdo e das etapas. */
+body.contact-page .container,
+/* Centralização dos elementos dentro de cada etapa. */
+body.contact-page .contact-form__step {
+    text-align: center;
+}
+
+body.contact-page .contact-form__step {
+    justify-items: center;
+}
+
+/* Centralização da indicação da pergunta e da grelha. */
+body.contact-page .contact-form__step legend,
+body.contact-page .contact-form__choices {
+    margin-inline: auto;
+}
+
+/* Largura e alinhamento dos campos de texto. */
+body.contact-page .contact-form__field {
+    width: min(100%, 506px);
+    text-align: center;
+}
+
+/* Texto centrado dentro dos campos. */
+body.contact-page .contact-form__field input,
+body.contact-page .contact-form__field textarea {
+    text-align: center;
+}
+
+/* Botão de envio centrado. */
+body.contact-page .contact-form button {
+    justify-self: center;
+}
+
+/* Cartão que envolve todo o questionário. */
+.contact-form-wrapper {
+    width: min(583px, 38.5vw, calc(38.5dvh + 88px));
+    max-width: calc(100% - 44px);
+    margin: clamp(12px, 2.6dvh, 24px) auto 0;
+    padding: clamp(26px, 4.6dvh, 42px) 24px clamp(18px, 3dvh, 28px);
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    box-sizing: border-box;
+    background: radial-gradient(circle at 100% 0, rgba(206, 0, 117, 0.2), transparent 38%), var(--surface);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.16);
+}
+
+/* Contentor exterior com a mesma largura responsiva do formulário. */
+.contact-form-reset-wrapper {
+    width: min(583px, 38.5vw, calc(38.5dvh + 88px));
+    max-width: calc(100% - 44px);
+    margin: 40px auto 0;
+}
+
+/* Botão exterior para reiniciar o questionário em qualquer etapa. */
+.contact-form-reset {
+    width: 55%;
+    margin: 0;
+    padding: 13px 18px;
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    box-sizing: border-box;
+    background: #eee7ff;
+    color: #5e3a96;
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Destaque subtil do botão de reinício. */
+.contact-form-reset:hover,
+.contact-form-reset:focus-visible {
+    color: #41236f;
+    border-color: rgba(125, 77, 184, 0.45);
+    background: #e4d8ff;
+    transform: translateY(-1.5px);
+}
+
+/* Estrutura vertical e texto em maiúsculas. */
+.contact-form {
+    display: grid;
+    gap: clamp(10px, 1.8dvh, 16px);
+    text-transform: uppercase;
+}
+
+/* Fundo da barra de progresso. */
+.contact-form__progress {
+    height: 4px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: var(--surface-border);
+}
+
+/* Parte preenchida e animada da barra de progresso. */
+.contact-form__progress-bar {
+    display: block;
+    width: 25%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, hsl(330 87% 81%), hsl(260 83% 84%), hsl(214 87% 81%));
+    box-shadow: 0 0 14px rgba(206, 185, 245, 0.6);
+    transition: width 0.3s ease;
+}
+
+/* Etapa individual do questionário. */
+.contact-form__step {
+    display: grid;
+    gap: clamp(12px, 2dvh, 18px);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    animation: contact-step-in 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Oculta as etapas que ainda não estão ativas. */
+.contact-form__step[hidden] { display: none; }
+
+/* Identificação discreta da etapa atual. */
+.contact-form__step legend {
+    padding: 0;
+    color: var(--text-soft);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Pergunta principal de cada etapa. */
+.contact-form__step h3 {
+    margin: 12px 0 0;
+    font-size: clamp(1.15rem, min(3.2vw, 3dvh), 1.9rem);
+    font-weight: 800;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+/* Grelha responsiva de duas colunas para as respostas. */
+.contact-form__choices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 35.2vw, 38.5dvh, 517px);
+    margin-top: clamp(10px, 2dvh, 20px);
+    gap: clamp(14px, 2dvh, 22px);
+}
+
+/* Área clicável de cada resposta. */
+.contact-form__choices label {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+/* Mantém o rádio acessível, mas visualmente escondido. */
+.contact-form__choices input { position: absolute; opacity: 0; }
+
+/* Aspeto em quadrado de cada opção de resposta. */
+.contact-form__choices span {
+    display: grid;
+    aspect-ratio: 2 / 1;
+    min-height: 0;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.035));
+    font-size: clamp(0.82rem, 1vw, 0.95rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-align: center;
+    text-transform: uppercase;
+    place-items: center;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 8px 18px rgba(0, 0, 0, 0.14);
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* Animação ao passar o cursor ou navegar por teclado. */
+.contact-form__choices label:hover span,
+.contact-form__choices input:focus-visible + span {
+    transform: translateY(-4px) scale(1.025);
+    background: linear-gradient(145deg, rgba(255, 79, 175, 0.32), rgba(168, 85, 247, 0.18));
+    box-shadow: 0 14px 28px rgba(150, 48, 170, 0.28);
+}
+
+/* Destaque da resposta selecionada. */
+.contact-form__choices input:checked + span {
+    transform: scale(0.98);
+    border-color: #ff78c0;
+    background: linear-gradient(135deg, #d6157e, #9146d9 58%, #4e73e8);
+    box-shadow: 0 12px 26px rgba(170, 52, 181, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Cartão com o resumo das respostas antes dos contactos. */
+.contact-form__summary {
+    width: min(100%, 506px);
+    padding: 16px 18px;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: 14px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, rgba(255, 79, 175, 0.1), rgba(168, 85, 247, 0.08), rgba(79, 140, 255, 0.1));
+    text-align: left;
+}
+
+/* Título do cartão-resumo. */
+.contact-form__summary p {
+    margin: 0 0 12px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+/* Lista das três respostas recolhidas. */
+.contact-form__summary dl {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+}
+
+.contact-form__summary dl div {
+    display: grid;
+    grid-template-columns: 82px 1fr;
+    gap: 10px;
+    align-items: baseline;
+}
+
+.contact-form__summary dt {
+    color: var(--text-soft);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.contact-form__summary dd {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Consistência de maiúsculas em botões, etiquetas e campos. */
+.contact-form button,
+.contact-form__field label,
+.contact-form__field input,
+.contact-form__field textarea { text-transform: uppercase; }
+
+/* Organização vertical de cada campo. */
+.contact-form__field { display: grid; gap: 8px; }
+
+/* Estilo das etiquetas dos campos. */
+.contact-form label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Estilo das caixas de escrita. */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--surface-border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    box-sizing: border-box;
+}
+
+/* Cor dos textos de sugestão nos campos. */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: var(--text-soft); }
+
+/* Botão principal com gradiente e sombra. */
+.contact-form button {
+    justify-self: start;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(110deg, #ff4faf, #a855f7, #4f8cff);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(168, 85, 247, 0.32);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Elevação do botão ao passar o cursor. */
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 28px rgba(168, 85, 247, 0.48);
+}
+
+/* Entrada suave de cada nova etapa. */
+@keyframes contact-step-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Ajustes de legibilidade para telemóveis pequenos. */
+@media (max-width: 480px) {
+    .contact-form__choices span { padding: 12px; font-size: 0.88rem; }
+}
