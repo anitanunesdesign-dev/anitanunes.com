@@ -58,13 +58,6 @@ body.light-theme .site-header {
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Controles do topo */
-.control-group {
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;
-}
-
 /* Logo e marca */
 .brand-wrap {
     display: flex;
@@ -103,19 +96,15 @@ body.light-theme .site-header {
 
 /* Página ativa */
 .nav-link--highlight {
-   color: #939393;
+   color: var(--highlight);
    font-weight: 900;
-    font-size: clamp(0.55rem, 0.65vw, 0.75rem);
-
 }
 
 /* Ativa no claro */
 body.light-theme .nav-link--highlight {
     /* background: rgba(0, 0, 0, 0.08); */
-        font-weight: 900;
-            font-size: clamp(0.55rem, 0.65vw, 0.75rem);
-
-    color: #111111;
+    font-weight: 900;
+    color: var(--highlight);
 }
 
 
@@ -172,12 +161,12 @@ body.light-theme .menu-toggle:focus-visible {
 }
 
 
-/* Controles de tema e idioma */
-.control-group {
+/* Controles de tema e idioma (dentro da navegação) */
+.site-nav .control-group {
     display: inline-flex;
-    align-items: right;
+    align-items: center;
     gap: 15px;
-
+    margin-left: auto;
 }
 
 /* Grupo de botões */
@@ -285,15 +274,10 @@ body:not(.light-theme) .theme-icon.moon {
         order: 1;
     }
 
-    .control-group {
-        order: 3;
-        margin-left: auto;
-    }
-
     .menu-toggle {
         display: inline-flex;
         order: 2;
-        margin-left: 12px;
+        margin-left: auto;
         margin-right: 0;
     }
 
@@ -346,5 +330,20 @@ body:not(.light-theme) .theme-icon.moon {
         font-size: 0.8rem;
         border-radius: 14px;
         font-weight: 700;
+    }
+
+    /* Garante a cor de destaque da página ativa dentro do menu hamburger */
+    .nav-link--highlight,
+    body.light-theme .nav-link--highlight {
+        color: var(--highlight);
+    }
+
+    /* Botões de tema e idioma dentro do menu hamburger */
+    .site-nav .control-group {
+        width: 90%;
+        margin: 10px auto 0;
+        padding-top: 12px;
+        border-top: 1px solid var(--surface-border);
+        justify-content: center;
     }
 }

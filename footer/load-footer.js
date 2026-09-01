@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then((html) => {
             placeholder.innerHTML = html;
+
+            const yearEl = placeholder.querySelector('#footer-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
             if (!linkPrefix) return;
 
             placeholder.querySelectorAll('a[href]').forEach((link) => {

@@ -391,3 +391,18 @@ body.contact-page .contact-form button {
 @media (max-width: 480px) {
     .contact-form__choices span { padding: 12px; font-size: 0.88rem; }
 }
+
+/* Margens laterais do formulário e da agenda reduzidas para 20% em mobile. */
+@media (max-width: 1023px) {
+    .contact-form-wrapper,
+    .contact-form-reset-wrapper,
+    .appointment-scheduling {
+        width: calc(100% - 8.8px);
+        max-width: calc(100% - 8.8px);
+    }
+
+    /* A grelha de respostas ocupa toda a largura do cartão em mobile. */
+    .contact-form__choices {
+        width: 100%;
+    }
+}
