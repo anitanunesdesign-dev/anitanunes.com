@@ -291,6 +291,7 @@ body:not(.light-theme) .theme-icon.moon {
     }
 
     .menu-toggle {
+        display: inline-flex;
         order: 2;
         margin-left: 12px;
         margin-right: 0;

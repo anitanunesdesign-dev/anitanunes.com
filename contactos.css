@@ -1,5 +1,5 @@
-/* Paleta e cores exclusivas da página de contactos. */
-body.contact-page {
+/* Paleta e cores exclusivas da página de contactos (modo claro). */
+body.contact-page.light-theme {
     --bg: #ffffff;
     --text: #17131b;
     --text-rgb: 23, 19, 27;
@@ -12,10 +12,24 @@ body.contact-page {
     color: #17131b;
 }
 
-/* Área principal branca, sem altura mínima forçada. */
+/* Paleta exclusiva da página de contactos (modo escuro). */
+body.contact-page:not(.light-theme) {
+    --bg: #17131b;
+    --text: #ffffff;
+    --text-rgb: 255, 255, 255;
+    --text-soft: rgba(255, 255, 255, 0.68);
+    --inverse-text: #17131b;
+    --surface: rgba(255, 255, 255, 0.06);
+    --surface-border: rgba(255, 255, 255, 0.14);
+    --header-bg: rgba(23, 19, 27, 0.94);
+    background: #17131b;
+    color: #ffffff;
+}
+
+/* Área principal, sem altura mínima forçada, seguindo o tema ativo. */
 body.contact-page main {
     min-height: 0;
-    background: #ffffff;
+    background: var(--bg);
 }
 
 /* Espaçamento vertical da secção de contactos. */
@@ -123,7 +137,8 @@ body.contact-page .contact-form button {
     border: 1px solid var(--surface-border);
     border-radius: 16px;
     box-sizing: border-box;
-    background: radial-gradient(circle at 100% 0, rgba(206, 0, 117, 0.2), transparent 38%), var(--surface);
+    /* Mantém o mesmo acabamento suave do cartão do formulário. */
+    background: linear-gradient(135deg, rgba(255, 79, 175, 0.08), rgba(168, 85, 247, 0.06) 52%, rgba(79, 140, 255, 0.08)), var(--surface);
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.16);
 }
 
@@ -145,11 +160,11 @@ body.contact-page .contact-form button {
 
 .appointment-scheduling iframe {
     display: block;
-    border: 1px solid rgba(168, 85, 247, 0.22);
+    /* border: 1px solid rgba(23, 19, 27, 0.1); */
     border-radius: 10px;
     background: #ffffff;
     box-sizing: border-box;
-    box-shadow: 0 12px 28px rgba(168, 85, 247, 0.16), 0 5px 16px rgba(79, 140, 255, 0.1);
+    box-shadow: 0 5px 14px rgba(23, 19, 27, 0.08);
 }
 
 /* Estrutura vertical e texto em maiúsculas. */
