@@ -104,28 +104,7 @@ body.contact-page .contact-form button {
 .contact-form-reset {
     width: 55%;
     margin: 0;
-    padding: 13px 18px;
-    border: 1px solid var(--surface-border);
-    border-radius: 12px;
     box-sizing: border-box;
-    background: #eee7ff;
-    color: #5e3a96;
-    font: inherit;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-/* Destaque subtil do botão de reinício. */
-.contact-form-reset:hover,
-.contact-form-reset:focus-visible {
-    color: #41236f;
-    border-color: rgba(125, 77, 184, 0.45);
-    background: #e4d8ff;
-    transform: translateY(-1.5px);
 }
 
 /* Agenda para marcar conversas diretamente na página. */
@@ -360,25 +339,9 @@ body.contact-page .contact-form button {
 .contact-form input::placeholder,
 .contact-form textarea::placeholder { color: var(--text-soft); }
 
-/* Botão principal com gradiente e sombra. */
+/* Botão de envio alinhado com o formulário. */
 .contact-form button {
     justify-self: start;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 999px;
-    background: linear-gradient(110deg, #ff4faf, #a855f7, #4f8cff);
-    color: #ffffff;
-    font: inherit;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 10px 24px rgba(168, 85, 247, 0.32);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Elevação do botão ao passar o cursor. */
-.contact-form button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 28px rgba(168, 85, 247, 0.48);
 }
 
 /* Entrada suave de cada nova etapa. */

@@ -172,21 +172,7 @@ body.light-theme .landing-placeholder {
 }
 
 .home-editorial-section .columns-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     gap: 5px;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--surface-border);
-    background: var(--surface);
-    color: var(--text);
-    font: inherit;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .home-editorial-section .columns-toggle__square {
@@ -195,17 +181,6 @@ body.light-theme .landing-placeholder {
     border-radius: 2px;
     background: currentColor;
     opacity: 0.9;
-}
-
-.home-editorial-section .columns-toggle:hover,
-.home-editorial-section .columns-toggle:focus-visible {
-    transform: translateY(-1px);
-    background: rgba(255, 255, 255, 0.16);
-}
-
-body.light-theme .home-editorial-section .columns-toggle:hover,
-body.light-theme .home-editorial-section .columns-toggle:focus-visible {
-    background: rgba(0, 0, 0, 0.08);
 }
 
 .home-editorial-section .books-grid {
@@ -242,21 +217,7 @@ body.light-theme .home-editorial-section .columns-toggle:focus-visible {
 }
 
 .books-page .columns-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     gap: 5px;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--surface-border);
-    background: rgba(245, 243, 243, 0.633);
-    color: var(--alternate-bg);
-    font: inherit;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .books-page .columns-toggle__square {
@@ -265,17 +226,6 @@ body.light-theme .home-editorial-section .columns-toggle:focus-visible {
     border-radius: 2px;
     background: currentColor;
     opacity: 0.9;
-}
-
-.books-page .columns-toggle:hover,
-.books-page .columns-toggle:focus-visible {
-    transform: translateY(-1px);
-    background: rgba(255, 255, 255, 0.16);
-}
-
-body.light-theme .books-page .columns-toggle:hover,
-body.light-theme .books-page .columns-toggle:focus-visible {
-    background: rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 1023px) {
@@ -410,6 +360,50 @@ body.light-theme .books-page .columns-toggle:focus-visible {
     margin-top: 2vh;
     margin-bottom: 4vh;
     margin-left: 5vw;
+}
+
+/* --- Estilo único de botão usado em todo o site: escolher .filled ou .stroke no HTML --- */
+.view-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 11px;
+    text-align: center;
+    width: fit-content;
+    transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+
+.view-more-btn:hover {
+    transform: translateY(-1.5px);
+}
+
+.view-more-btn.filled {
+    background: var(--highlight);
+    border-color: var(--highlight);
+    color: #ffffff;
+}
+
+.view-more-btn.filled:hover {
+    opacity: 0.85;
+}
+
+.view-more-btn.stroke {
+    background: transparent;
+    border-color: var(--highlight);
+    color: var(--highlight);
+}
+
+.view-more-btn.stroke:hover {
+    background: var(--highlight);
+    color: #ffffff;
 }
 
 

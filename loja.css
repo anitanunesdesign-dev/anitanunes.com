@@ -71,31 +71,7 @@
 }
 
 .store-info .view-more-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 28px;
-    border-radius: 999px;
-    border: 1px solid var(--surface-border);
-    background: var(--surface);
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: transform 0.2s ease, background 0.2s ease;
-    text-align: center;
-    width: fit-content;
     margin: 8px 0 0;
-}
-
-.store-info .view-more-btn:hover {
-    transform: translateY(-1.5px);
-    background: rgba(255, 255, 255, 0.16);
-}
-
-body.light-theme .store-info .view-more-btn:hover {
-    background: rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 1023px) {
