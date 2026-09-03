@@ -304,7 +304,7 @@ function parseDateString(str) {
 
 // Página dos projetos: coloca as secções .design-showcase por ordem do data-date, da mais recente para a mais antiga
 function sortDesignShowcaseByDate() {
-  const page = document.querySelector('.design-grafico-page');
+  const page = document.querySelector('.projetos-page');
   if (!page) return;
 
   const sections = Array.from(page.querySelectorAll(':scope > section.design-showcase'));

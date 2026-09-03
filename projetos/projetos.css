@@ -1,4 +1,4 @@
-.design-grafico-page {
+.projetos-page {
     min-height: calc(100vh - 84px);
     padding: clamp(16px, 2vw, 28px);
     background: #ededed;
@@ -142,7 +142,7 @@
         height: calc(80vw/3.8);
     }
 
-    .design-grafico-page {
+    .projetos-page {
         padding: 16px;
     }
 
