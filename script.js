@@ -1,3 +1,4 @@
+// PT/EN dictionary used to translate text and alt attributes across pages
 const translations = {
   pt: {
     // designEditorialTitle: 'DESIGN<br>EDITORIAL',
@@ -39,6 +40,7 @@ const translations = {
   }
 };
 
+// Swaps visible text, image alt text and aria-labels to the chosen language
 function applyLanguage(lang) {
   const root = document.querySelector('[data-i18n-root]') || document.body;
   const dict = translations[lang] || translations.pt;
@@ -98,6 +100,7 @@ function applyLanguage(lang) {
   localStorage.setItem('site-language', lang);
 }
 
+// Toggles light/dark theme class on <body> and highlights the active theme button
 function applyTheme(theme) {
   const body = document.body;
   const themeButtons = document.querySelectorAll('.theme-btn');
@@ -112,6 +115,7 @@ function applyTheme(theme) {
   localStorage.setItem('site-theme', theme);
 }
 
+// Fetches livros.html and fills the home page grid with 6 random book cards
 async function showRandomHomeBooks() {
   const editorialSection = document.querySelector('.home-editorial-section');
   if (!editorialSection) return;
@@ -138,11 +142,46 @@ async function showRandomHomeBooks() {
 
     const savedLang = localStorage.getItem('site-language') || 'pt';
     applyLanguage(savedLang);
+    initEmindBadges(grid);
+    disableBookCardLinks(grid);
   } catch (error) {
     console.error('Não foi possível carregar os livros.', error);
   }
 }
 
+// Book cards no longer link anywhere; block clicks so tapping/pressing the anchor does nothing
+function disableBookCardLinks(root = document) {
+  root.querySelectorAll('.book-card').forEach((card) => {
+    if (card.dataset.clickDisabled) return;
+    card.dataset.clickDisabled = 'true';
+    card.addEventListener('click', (event) => event.preventDefault());
+  });
+}
+
+// Adds a small clickable EMIND logo (links to the EMIND shop) to cards marked data-emind="true"
+function initEmindBadges(root = document) {
+  root.querySelectorAll('.book-card[data-emind="true"]').forEach((card) => {
+    if (card.querySelector('.emind-badge-wrap')) return;
+    const wrap = document.createElement('span');
+    wrap.className = 'emind-badge-wrap';
+    wrap.setAttribute('data-tooltip', 'Comprar livro ↓');
+
+    const badge = document.createElement('img');
+    badge.className = 'emind-badge';
+    badge.src = '/livros/Emind.svg';
+    badge.alt = 'EMIND';
+    wrap.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      window.open('https://emind.pt/shop', '_blank', 'noopener');
+    });
+
+    wrap.appendChild(badge);
+    card.appendChild(wrap);
+  });
+}
+
+// Home page: lets visitors cycle the editorial books grid through 2-5 columns, remembered via localStorage
 function initHomeBooksColumnsToggle() {
   const editorialSection = document.querySelector('.home-editorial-section');
   if (!editorialSection) return;
@@ -151,11 +190,12 @@ function initHomeBooksColumnsToggle() {
   const toggleButton = editorialSection.querySelector('.columns-toggle');
   if (!grid || !toggleButton) return;
 
-  const columnValues = [2, 3, 4];
+  const columnValues = [2, 3, 4, 5];
   const columnScales = {
     2: 1,
     3: 0.9,
     4: 0.81,
+    5: 0.73,
   };
   const savedColumns = Number(localStorage.getItem('home-books-columns'));
   const initialColumns = columnValues.includes(savedColumns) ? savedColumns : 2;
@@ -178,6 +218,48 @@ function initHomeBooksColumnsToggle() {
   });
 }
 
+// Livros page: same column-count toggle as the home page, but for the full books list
+function initLivrosBooksColumnsToggle() {
+  const booksSection = document.querySelector('body.books-page section.books');
+  if (!booksSection) return;
+
+  const toggleButton = booksSection.querySelector('.columns-toggle');
+  if (!toggleButton) return;
+
+  const columnValues = [2, 3, 4, 5];
+  const columnScales = {
+    2: 1,
+    3: 0.9,
+    4: 0.81,
+    5: 0.73,
+  };
+  const savedColumns = Number(localStorage.getItem('livros-books-columns'));
+  const initialColumns = columnValues.includes(savedColumns) ? savedColumns : 2;
+
+  // Grid is queried on every call because it may be replaced (e.g. by organizeGridByYear).
+  const getGrid = () => booksSection.querySelector('.books-grid');
+
+  const applyColumns = (columns) => {
+    const grid = getGrid();
+    if (!grid) return;
+    grid.style.setProperty('--books-columns', String(columns));
+    grid.style.setProperty('--books-card-scale', String(columnScales[columns] || 1));
+    const nextColumns = columnValues[(columnValues.indexOf(columns) + 1) % columnValues.length];
+    toggleButton.setAttribute('aria-label', `Alternar grelha para ${nextColumns} colunas`);
+    toggleButton.dataset.columns = String(columns);
+    localStorage.setItem('livros-books-columns', String(columns));
+  };
+
+  applyColumns(initialColumns);
+
+  toggleButton.addEventListener('click', () => {
+    const currentColumns = Number(toggleButton.dataset.columns) || initialColumns;
+    const nextColumns = columnValues[(columnValues.indexOf(currentColumns) + 1) % columnValues.length];
+    applyColumns(nextColumns);
+  });
+}
+
+// Wires up the language/theme buttons and kicks off the initial language, theme and home books
 function initLanguageSwitcher() {
   const root = document.querySelector('[data-i18n-root]') || document.body;
   const buttons = root.querySelectorAll('.lang-btn');
@@ -207,6 +289,7 @@ function initLanguageSwitcher() {
 }
 
 // --- Organize books by date/year and insert meta date if missing ---
+// Parses "dd.mm.yyyy" strings or ISO dates into a Date, falling back to a default
 function parseDateString(str) {
   if (!str) return new Date('2026-07-08');
   str = str.trim();
@@ -219,6 +302,20 @@ function parseDateString(str) {
   return new Date('2026-07-08');
 }
 
+// Página dos projetos: coloca as secções .design-showcase por ordem do data-date, da mais recente para a mais antiga
+function sortDesignShowcaseByDate() {
+  const page = document.querySelector('.design-grafico-page');
+  if (!page) return;
+
+  const sections = Array.from(page.querySelectorAll(':scope > section.design-showcase'));
+  if (sections.length < 2) return;
+
+  sections
+    .sort((a, b) => parseDateString(b.dataset.date) - parseDateString(a.dataset.date))
+    .forEach((section) => page.appendChild(section));
+}
+
+// Livros page: sorts all book cards newest-first and groups them under year-section headers
 function organizeGridByYear(grid) {
   if (!grid) return;
   const cards = Array.from(grid.querySelectorAll('.book-card'));
@@ -293,6 +390,7 @@ function organizeGridByYear(grid) {
   Array.from(groups.keys()).sort((a,b)=>b-a).forEach(year => {
     const sep = document.createElement('div');
     sep.className = 'year-section';
+    sep.dataset.year = String(year);
     const label = document.createElement('div'); label.className='year-label'; label.textContent=year;
     const line = document.createElement('div'); line.className='year-line';
     sep.appendChild(label);
@@ -305,6 +403,76 @@ function organizeGridByYear(grid) {
   grid.replaceWith(newGrid);
 }
 
+// Livros page: floating year label (inside the toolbar) that updates as you scroll past each year group
+function initLivrosYearStickyIndicator() {
+  const booksSection = document.querySelector('body.books-page section.books');
+  if (!booksSection) return;
+
+  const yearSections = Array.from(booksSection.querySelectorAll('.year-section'));
+  if (!yearSections.length) return;
+
+  let indicator = booksSection.querySelector('.year-sticky-indicator');
+  if (!indicator) {
+    indicator = document.createElement('div');
+    indicator.className = 'year-sticky-indicator';
+    const toolbar = booksSection.querySelector('.books-toolbar');
+    if (toolbar) {
+      // Shares the toolbar's sticky row so both sit at the same height.
+      toolbar.prepend(indicator);
+    } else {
+      booksSection.querySelector('.container')?.prepend(indicator);
+    }
+  }
+
+  // Reflects the year of whichever books are currently scrolled past the indicator.
+  const updateIndicator = () => {
+    const referenceLine = indicator.getBoundingClientRect().bottom;
+    let currentYear = yearSections[0].dataset.year;
+
+    yearSections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= referenceLine) {
+        currentYear = section.dataset.year;
+      }
+    });
+
+    indicator.textContent = currentYear;
+  };
+
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateIndicator();
+      ticking = false;
+    });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  updateIndicator();
+}
+
+// Página dos projetos: o zoom da imagem ao passar o rato segue a posição do cursor, em vez de ficar sempre no centro
+function initDesignImageZoom() {
+  document.querySelectorAll('.module--image').forEach((moduleEl) => {
+    const img = moduleEl.querySelector('img');
+    if (!img) return;
+
+    moduleEl.addEventListener('mousemove', (event) => {
+      const rect = moduleEl.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      img.style.transformOrigin = `${x}% ${y}%`;
+    });
+
+    moduleEl.addEventListener('mouseleave', () => {
+      img.style.transformOrigin = '50% 50%';
+    });
+  });
+}
+
+// Entry point: run all page setup once the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initLanguageSwitcher();
   initHomeBooksColumnsToggle();
@@ -312,5 +480,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // organize each books grid by year only on pages inside the /livros/ folder
   if (location.pathname.includes('/livros/')) {
     document.querySelectorAll('section.books .books-grid').forEach(grid => organizeGridByYear(grid));
+    initLivrosYearStickyIndicator();
   }
+
+  initEmindBadges();
+  disableBookCardLinks();
+  initLivrosBooksColumnsToggle();
+  sortDesignShowcaseByDate();
+  initDesignImageZoom();
 });
