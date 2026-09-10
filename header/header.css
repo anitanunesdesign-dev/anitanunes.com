@@ -327,9 +327,14 @@ body:not(.light-theme) .theme-icon.moon {
     .nav-link {
         width: 90%;
         padding: 10px 10px;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         border-radius: 14px;
         font-weight: 700;
+    }
+
+    .theme-switcher .theme-btn,
+    .lang-switcher .lang-btn {
+        font-size: 0.8rem;
     }
 
     /* Garante a cor de destaque da página ativa dentro do menu hamburger */

@@ -256,6 +256,9 @@ body.light-theme .landing-placeholder {
 
     .home-editorial-section .books-toolbar {
         justify-content: flex-end;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        box-sizing: border-box;
     }
 
     .home-editorial-section .columns-toggle {
@@ -438,6 +441,10 @@ body.light-theme .landing-placeholder {
 
 /*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
 @media (max-width: 1023px) {
+
+    .view-more-btn {
+        font-size: 0.8rem;
+    }
 
     /* ------------------- L A N D I N G  --------------- */
     .landing {

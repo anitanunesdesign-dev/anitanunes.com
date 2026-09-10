@@ -1,7 +1,7 @@
 .projetos-page {
     min-height: calc(100vh - 84px);
 
-    background: #ededed;
+    background: #ececec;
 }
 
 .projetos-page__title {
@@ -32,22 +32,33 @@
 
 
 .design-showcase {
-    width: 87vw;
+    width: calc(100vw - 700px);
     height: auto;
     margin: 0 auto;
     box-sizing: border-box;
     padding: 16px;
 }
 
+.design-showcase__title {
+    margin: 0 0 14px;
+    color: #222222;
+    font-size: clamp(2rem, 2.6vw, 3.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
 .design-showcase + .design-showcase {
-    margin-top: 100px;
+    margin-top: 50px;
+    padding-bottom: 50px;
 }
 
 .design-grid {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, calc((100vh - 90px) / 2));
     gap: 16px;
 }
 
@@ -59,10 +70,11 @@
     background: #ffffff;
     border-radius: 8px;
     box-shadow:
-        2px 2px 7px rgba(0, 0, 0, 0.12),
-        -2px -2px 7px rgba(255, 255, 255, 0.493);
+        2px 2px 7px rgba(0, 0, 0, 0.4),
+        -2px -2px 7px rgba(255, 255, 255, 0.5);
 
-    height: calc((100vh - 90px) / 2);
+    aspect-ratio: 4 / 3;
+    height: auto;
 
     box-sizing: border-box;
 }
@@ -160,25 +172,44 @@
 
 @media (max-width: 1080px) {
 
-    .design-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, calc(80vw/3.8));
-        
-    }
-    .module {
-        height: calc(80vw/3.8);
-    }
-
     .projetos-page {
         padding: 16px;
     }
 
     .projetos-page__title {
+        padding-top: 100px;
         margin-left: 0;
+        font-size: 5rem;
+    }
+
+    .projetos-page > p {
+        margin-left: 0;
+        font-size: 1rem;
+    }
+
+    .design-showcase {
+        width: 100%;
+        margin: 0;
+        padding: 12px 0;
+    }
+
+    .design-showcase__title {
+        padding: 12px 0;
+        font-size: clamp(1.7rem, 4vw, 2.5rem);
+    }
+
+    .design-showcase + .design-showcase {
+        margin-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .design-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .module--text-block {
-        padding: 14px;
+        padding: 16px;
     }
 
     .module--text-block h1 {
@@ -200,20 +231,45 @@
 
 @media (max-width: 768px) {
 
-    .design-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(9, calc(95vw / 2.4));
-    }
-    .module {
-        height: calc(95vw/2.4);
+    .projetos-page {
+        padding: 12px;
     }
 
-    .module--text-block h1 {
-        font-size: 3rem;
+    .projetos-page__title {
+        padding-top: 72px;
+        font-size: clamp(9vw, 1em, 10vw);
+        line-height: 1em;
+        max-width: 80vw;
+        margin-bottom: 12px;
+    }
+
+    .projetos-page > p {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .design-showcase {
+        padding: 8px 0;
+    }
+
+    .design-showcase__title {
+        margin-bottom: 8px;
+        padding: 8px 0;
+        font-size: clamp(1.5rem, 7vw, 2.1rem);
+    }
+
+    .design-showcase + .design-showcase {
+        margin-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .design-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 
     .module--text-block h2 {
-        font-size: 10pt;
+        font-size: 10.5pt;
     }
 
     .module--text-block p {

@@ -115,7 +115,7 @@ function applyTheme(theme) {
   localStorage.setItem('site-theme', theme);
 }
 
-// Fetches livros.html and fills the home page grid with 6 random book cards
+// Fetches livros.html and fills the home page grid with random book cards
 async function showRandomHomeBooks() {
   const editorialSection = document.querySelector('.home-editorial-section');
   if (!editorialSection) return;
@@ -136,7 +136,8 @@ async function showRandomHomeBooks() {
     if (!cards.length) return;
 
     const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
-    const selectedCards = shuffledCards.slice(0, 12).map((card) => document.importNode(card, true));
+    const cardLimit = window.matchMedia('(max-width: 1023px)').matches ? 8 : 12;
+    const selectedCards = shuffledCards.slice(0, cardLimit).map((card) => document.importNode(card, true));
 
     grid.replaceChildren(...selectedCards);
 
