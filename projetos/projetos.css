@@ -277,3 +277,288 @@
         line-height: 1.25;
     }
 }
+
+/* Editorial case-study composition */
+.projetos-page {
+    background: #ffffff;
+    color: #151515;
+}
+
+.projetos-page__title {
+    width: min(1280px, calc(100% - 100px));
+    margin: 0 auto 22px;
+    padding-top: 150px;
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-weight: 500;
+    letter-spacing: -0.075em;
+    line-height: 0.84;
+}
+
+.projetos-page > p {
+    width: min(560px, calc(100% - 100px));
+    margin: 0 auto 140px;
+    font-size: 1rem;
+    line-height: 1.55;
+    letter-spacing: 0;
+}
+
+.design-showcase {
+    width: min(1280px, calc(100% - 100px));
+    margin: 0 auto;
+    padding: clamp(64px, 8vw, 112px) 0 150px;
+    border-top: 1px solid rgba(21, 21, 21, 0.14);
+}
+
+.design-showcase + .design-showcase {
+    margin-top: 0;
+    padding-bottom: 150px;
+}
+
+.design-showcase__title {
+    margin: 0 0 54px;
+    padding: 0;
+    font-size: clamp(3rem, 7vw, 7.5rem);
+    font-weight: 500;
+    letter-spacing: -0.075em;
+    line-height: 0.86;
+    text-transform: none;
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    column-gap: clamp(16px, 2vw, 32px);
+    row-gap: clamp(24px, 4vw, 64px);
+}
+
+.module {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: auto;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.module--text-block {
+    display: block;
+    padding: 0 10% 0 0;
+    text-align: left;
+    align-self: center;
+}
+
+.module--text-block::before {
+    display: block;
+    margin-bottom: 24px;
+    color: rgba(21, 21, 21, 0.5);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.module--text-block:nth-child(1)::before {
+    content: '01 — INTRODUÇÃO';
+}
+
+.module--text-block:nth-child(4)::before {
+    content: '02 — SISTEMA VISUAL';
+}
+
+.module--text-block:nth-child(7)::before {
+    content: '03 — APLICAÇÕES';
+}
+
+.module--text-block .module__body {
+    max-width: 34rem;
+}
+
+.module--text-block h1,
+.module--text-block h2 {
+    margin: 0 0 18px;
+    color: #151515;
+    font-size: clamp(1.35rem, 2vw, 2.2rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.module--text-block p {
+    max-width: 32rem;
+    margin: 0 0 14px;
+    color: rgba(21, 21, 21, 0.7);
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.module--image {
+    min-height: 220px;
+    overflow: hidden;
+    background: #f3f3f1;
+}
+
+.module--image img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.module--image:hover img {
+    transform: scale(1.025);
+}
+
+.design-grid .module:nth-child(1) {
+    grid-column: 1 / 5;
+    grid-row: 1 / 3;
+}
+
+.design-grid .module:nth-child(2) {
+    grid-column: 5 / 13;
+    grid-row: 1 / 5;
+    min-height: 520px;
+}
+
+.design-grid .module:nth-child(3) {
+    grid-column: 1 / 5;
+    grid-row: 3 / 5;
+}
+
+.design-grid .module:nth-child(4) {
+    grid-column: 1 / 5;
+    grid-row: 5 / 7;
+}
+
+.design-grid .module:nth-child(5) {
+    grid-column: 5 / 9;
+    grid-row: 5 / 7;
+}
+
+.design-grid .module:nth-child(6) {
+    grid-column: 9 / 13;
+    grid-row: 5 / 7;
+}
+
+.design-grid .module:nth-child(7) {
+    grid-column: 1 / 5;
+    grid-row: 7 / 9;
+}
+
+.design-grid .module:nth-child(8) {
+    grid-column: 5 / 9;
+    grid-row: 7 / 9;
+}
+
+.design-grid .module:nth-child(9) {
+    grid-column: 9 / 13;
+    grid-row: 7 / 9;
+}
+
+@media (max-width: 1080px) {
+    .projetos-page__title,
+    .projetos-page > p,
+    .design-showcase {
+        width: calc(100% - 64px);
+    }
+
+    .projetos-page__title {
+        padding-top: 120px;
+    }
+
+    .projetos-page > p {
+        margin-bottom: 100px;
+    }
+
+    .design-showcase {
+        padding-bottom: 110px;
+    }
+
+    .design-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .design-grid .module:nth-child(1) {
+        grid-column: 1 / 3;
+    }
+
+    .design-grid .module:nth-child(2) {
+        grid-column: 3 / 7;
+        min-height: 420px;
+    }
+
+    .design-grid .module:nth-child(3),
+    .design-grid .module:nth-child(4) {
+        grid-column: 1 / 4;
+    }
+
+    .design-grid .module:nth-child(5),
+    .design-grid .module:nth-child(6),
+    .design-grid .module:nth-child(7),
+    .design-grid .module:nth-child(8),
+    .design-grid .module:nth-child(9) {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .projetos-page__title,
+    .projetos-page > p,
+    .design-showcase {
+        width: calc(100% - 32px);
+    }
+
+    .projetos-page__title {
+        padding-top: 90px;
+        font-size: clamp(3.3rem, 16vw, 5.5rem);
+    }
+
+    .projetos-page > p {
+        margin-bottom: 80px;
+        font-size: 0.92rem;
+    }
+
+    .design-showcase {
+        padding: 28px 0 90px;
+    }
+
+    .design-showcase + .design-showcase {
+        padding-bottom: 90px;
+    }
+
+    .design-showcase__title {
+        margin-bottom: 38px;
+        font-size: clamp(2.8rem, 13vw, 5rem);
+    }
+
+    .design-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+    }
+
+    .module,
+    .design-grid .module:nth-child(n) {
+        min-height: 0;
+        width: 100%;
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .module--text-block {
+        padding: 0;
+    }
+
+    .module--image,
+    .design-grid .module:nth-child(2) {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .module--image img {
+        object-fit: cover;
+    }
+
+    .module--text-block::before {
+        margin-bottom: 18px;
+    }
+}
