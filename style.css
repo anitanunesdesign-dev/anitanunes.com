@@ -1,5 +1,5 @@
 /* Reset geral do layout */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
     --bg: #000000;
@@ -12,7 +12,7 @@
     --surface-border: rgba(255, 255, 255, 0.12);
     --fundo-datas: rgba(0, 0, 0, 0.25);
     --header-bg: rgba(0, 0, 0, 0.72);
-    --highlight: #ce0075;
+    --highlight: #9b0058;
 }
 
 body {
@@ -144,11 +144,12 @@ body.light-theme .landing-placeholder {
 
 /* ----------- ANITA home page -----------*/
 .landing-copy h1 {
+    font-family: 'Playfair Display', serif;
     font-size: clamp(3.2rem, 8vw, 7rem);
     font-weight: 450;
     line-height: 1;
     margin-bottom: 20px;
-    margin-left: 150px;
+    margin-left: 50px;
     text-transform: capitalize;
 
 }
@@ -158,7 +159,7 @@ body.light-theme .landing-placeholder {
     font-size: 1.05rem;
     line-height: 1.4;
     font-weight: 500;
-    margin-left: 150px;
+    margin-left: 56px;
     color: var(--text);
 }
 
@@ -169,13 +170,34 @@ body.light-theme .landing-placeholder {
     display: flex;
     justify-content: flex-start;
     margin: 12px 0 10px;
-    padding-left: clamp(22px, 3.6vw, 50px);
 }
 
 .home-editorial-section .books-actions {
     justify-content: flex-start;
     box-sizing: border-box;
     max-width: 90vw;
+}
+
+.home-editorial-section .books-grid + .books-actions {
+    padding-top: 24px;
+}
+
+.home-editorial-section .books-actions:has(.buy) {
+    padding-top: 15px;
+}
+
+@media (min-width: 1081px) {
+    .home-editorial-section .books-toolbar {
+        justify-content: flex-end;
+        top: 70px;
+        margin-bottom: 24px;
+        padding: 0 50px;
+        box-sizing: border-box;
+    }
+
+    .home-editorial-section .books-actions {
+        padding: 0 50px;
+    }
 }
 
 .home-editorial-section .columns-toggle {
@@ -398,7 +420,7 @@ body.light-theme .landing-placeholder {
     border: 1px solid transparent;
     text-decoration: none;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 650;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 11px;
@@ -430,6 +452,12 @@ body.light-theme .landing-placeholder {
 .view-more-btn.stroke:hover {
     background: var(--highlight);
     color: #ffffff;
+}
+
+@media (max-width: 1080px) {
+    .home-editorial-section .books-toolbar {
+        display: none;
+    }
 }
 
 

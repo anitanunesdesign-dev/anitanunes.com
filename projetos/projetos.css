@@ -1,14 +1,14 @@
 .projetos-page {
     min-height: calc(100vh - 84px);
 
-    background: #ececec;
+    background: #ffffff;
 }
 
 .projetos-page__title {
 
     text-transform: uppercase;
     text-align: left;
-    font-size: 6.5rem;
+    font-size: 6rem;
     font-weight: 800;
     padding-top: 140px;
     margin-top: 0px;
@@ -21,7 +21,7 @@
 
 .projetos-page > p {
     margin-left: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     font-size: 1.1rem;
     font-weight: 300;
     line-height: 1.2em;
