@@ -40,13 +40,14 @@
 }
 
 .design-showcase__title {
+    font-family: 'Playfair Display', serif;
     margin: 0 0 14px;
     color: #222222;
-    font-size: clamp(2rem, 2.6vw, 3.2rem);
+    font-size: clamp(1.8rem, 2.6vw, 3rem);
     line-height: 0.9;
     letter-spacing: -0.06em;
     font-weight: 800;
-    text-transform: uppercase;
+    text-transform:lowercase;
     padding: 20px 0;
 }
 
@@ -112,7 +113,7 @@
 
 /* Módulos de texto simples  */
 .module--text-block:not(:has(h1)) h2 {
-    font-size: 12pt;
+    font-size: 16pt;
     font-weight: 700;
 }
 
