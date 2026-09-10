@@ -1,8 +1,35 @@
 .projetos-page {
     min-height: calc(100vh - 84px);
-    padding: clamp(16px, 2vw, 28px);
+
     background: #ededed;
 }
+
+.projetos-page__title {
+
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 6.5rem;
+    font-weight: 800;
+    padding-top: 140px;
+    margin-top: 0px;
+    margin-left: 50px;
+    letter-spacing: 1px;
+    line-height: 1em;
+    margin-bottom: 20px;
+}
+
+
+.projetos-page > p {
+    margin-left: 50px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.2em;
+    letter-spacing: 1px;
+    max-width: 600px;
+    text-wrap: pretty;
+}
+
 
 .design-showcase {
     width: 87vw;
@@ -144,6 +171,10 @@
 
     .projetos-page {
         padding: 16px;
+    }
+
+    .projetos-page__title {
+        margin-left: 0;
     }
 
     .module--text-block {

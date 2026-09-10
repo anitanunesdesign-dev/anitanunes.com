@@ -136,7 +136,7 @@ async function showRandomHomeBooks() {
     if (!cards.length) return;
 
     const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
-    const selectedCards = shuffledCards.slice(0, 8).map((card) => document.importNode(card, true));
+    const selectedCards = shuffledCards.slice(0, 12).map((card) => document.importNode(card, true));
 
     grid.replaceChildren(...selectedCards);
 
@@ -197,12 +197,19 @@ function initHomeBooksColumnsToggle() {
     4: 0.81,
     5: 0.73,
   };
+  const columnTextScales = {
+    2: 1,
+    3: 0.85,
+    4: 0.7,
+    5: 0.55,
+  };
   const savedColumns = Number(localStorage.getItem('home-books-columns'));
   const initialColumns = columnValues.includes(savedColumns) ? savedColumns : 2;
 
   const applyColumns = (columns) => {
     grid.style.setProperty('--home-columns', String(columns));
     grid.style.setProperty('--home-card-scale', String(columnScales[columns] || 1));
+    grid.style.setProperty('--home-text-scale', String(columnTextScales[columns] || 1));
     const nextColumns = columnValues[(columnValues.indexOf(columns) + 1) % columnValues.length];
     toggleButton.setAttribute('aria-label', `Alternar grelha para ${nextColumns} colunas`);
     toggleButton.dataset.columns = String(columns);
