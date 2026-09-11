@@ -144,6 +144,7 @@ async function showRandomHomeBooks() {
     const savedLang = localStorage.getItem('site-language') || 'pt';
     applyLanguage(savedLang);
     initEmindBadges(grid);
+    protectDisplayedImages(grid);
     disableBookCardLinks(grid);
   } catch (error) {
     console.error('Não foi possível carregar os livros.', error);
@@ -156,6 +157,15 @@ function disableBookCardLinks(root = document) {
     if (card.dataset.clickDisabled) return;
     card.dataset.clickDisabled = 'true';
     card.addEventListener('click', (event) => event.preventDefault());
+  });
+}
+
+// Dificulta o salvamento acidental das imagens sem esconder falsamente os seus URLs.
+function protectDisplayedImages(root = document) {
+  root.querySelectorAll('img').forEach((image) => {
+    image.setAttribute('draggable', 'false');
+    image.addEventListener('dragstart', (event) => event.preventDefault());
+    image.addEventListener('contextmenu', (event) => event.preventDefault());
   });
 }
 
@@ -204,8 +214,7 @@ function initHomeBooksColumnsToggle() {
     4: 0.7,
     5: 0.55,
   };
-  const savedColumns = Number(localStorage.getItem('home-books-columns'));
-  const initialColumns = columnValues.includes(savedColumns) ? savedColumns : 2;
+  const initialColumns = 2;
 
   const applyColumns = (columns) => {
     grid.style.setProperty('--home-columns', String(columns));
@@ -482,6 +491,7 @@ function initDesignImageZoom() {
 
 // Entry point: run all page setup once the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+  protectDisplayedImages();
   initLanguageSwitcher();
   initHomeBooksColumnsToggle();
 

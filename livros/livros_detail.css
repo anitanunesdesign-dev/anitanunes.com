@@ -29,11 +29,11 @@
 
 /* ---  Nome do livro em grande ---*/
 .book-detail-copy h1{
+    font-family: 'Playfair Display', serif;
     max-width: 40vw;
     color: #ffffff;
     font-size: 3vw;
     font-weight: 600;
-    letter-spacing: .05em;
 }
 
 
@@ -44,7 +44,6 @@
     color: #fff;
     font-size: 1.82rem;
     font-weight: 600;
-    letter-spacing: .12em;
     text-decoration: none;
     text-transform: uppercase;
 }

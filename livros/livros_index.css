@@ -1,12 +1,4 @@
 .books h2 {
-    text-align: left;
-    font-size: 6rem;
-    font-weight: 800;
-    margin-top: 140px;
-    margin-left: 50px;
-    letter-spacing: 1px;
-    line-height: 0.9em;
-    margin-bottom: 20px;
 
 }
 
@@ -15,9 +7,7 @@
     font-size: 1.1rem;
     font-weight: 300;
     margin-bottom: 20px;
-    line-height: 1.2em;
     margin-left: 50px;
-    letter-spacing: 1px;
     max-width: 600px;
 }
 
@@ -137,13 +127,10 @@ body.light-theme .overlay {
     left: 25px;
     bottom: 12px;
 
-    color: white;
+    color: rgba(255, 255, 255, 0.847);
 
     font-size: 15px;
     font-weight: 420;
-    line-height: 1.4em;
-    letter-spacing: 0.035em;
-
     width: 90%;
 
     z-index: 2;
@@ -180,7 +167,6 @@ body.light-theme .overlay {
     color: var(--text);
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
     padding: 6px 10px;
     border-radius: 6px;
     opacity: 0;
@@ -209,8 +195,6 @@ body.light-theme .overlay {
 
     .books h2 {
         font-size: clamp(9vw, 1em, 10vw);
-
-        line-height: 1em;
         font-weight: 800;
         max-width: 80vw;
         padding-left: 5vw;
@@ -263,7 +247,6 @@ body.light-theme .overlay {
     .books p {
         max-width: 80vw;
         font-size: 1rem;
-        line-height: 1.15em;
         max-width: 100vw;
         padding-left: 5vw;
         padding-right: 5vw;

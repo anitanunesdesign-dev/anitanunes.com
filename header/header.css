@@ -79,7 +79,6 @@ body.light-theme .site-header {
     text-decoration: none;
     font-size: clamp(0.5rem, 0.6vw, 0.7rem);
     font-weight: 600;
-    letter-spacing: clamp(0.08em, 0.11vw, 0.15em);
     text-transform: uppercase;
     padding: clamp(5px, 0.6vw, 7px) clamp(7px, 0.9vw, 10px);
     border-radius: 999px;
@@ -156,7 +155,6 @@ body.light-theme .menu-toggle:focus-visible {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 

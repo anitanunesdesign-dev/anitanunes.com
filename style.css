@@ -1,6 +1,7 @@
-/* Reset geral do layout */
+/* Fontes usadas no site */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* Cores e valores partilhados por todas as páginas */
 :root {
     --bg: #000000;
     --text: #ffffff;
@@ -13,8 +14,25 @@
     --fundo-datas: rgba(0, 0, 0, 0.25);
     --header-bg: rgba(0, 0, 0, 0.72);
     --highlight: #9b0058;
-}
 
+
+
+    /* -------------------------Estilo tipográfico único de todos os h2 do site ----------------*/
+    --h2-font: 'Playfair Display', serif;
+    --h2-size: clamp(2.5rem, 8vw, 5rem);
+    --h2-weight: 600;
+    --h2-line-height: 1;
+    --h2-letter-spacing: 0;
+    --h2-text-transform: uppercase;
+    --h2-margin-top: 140px;
+    --h2-margin-left: 50px;
+    --h2-margin-bottom: 20px;   
+}
+/*----------------------------------------------------------------------------------------------*/
+
+
+
+/* Configuração base do documento */
 body {
     margin: 0;
     padding: 0;
@@ -25,19 +43,38 @@ body {
     font-weight: 280;
     /* ExtraBold */
     padding-top: 54px;
-
-
 }
 
-/* Evita que a última linha de títulos/textos fique com uma palavra órfã sozinha */
+
+
+/* -------------------------Estilo tipográfico único de todos os h2 do site ----------------*/
+h2 {
+    font-family: var(--h2-font) !important;
+    font-size: var(--h2-size) !important;
+    font-weight: var(--h2-weight) !important;
+    line-height: var(--h2-line-height) !important;
+    letter-spacing: var(--h2-letter-spacing) !important;
+    margin-top: var(--h2-margin-top) !important;
+    margin-left: var(--h2-margin-left) !important;
+    margin-bottom: var(--h2-margin-bottom) !important;
+}
+
+/*----------------------------------------------------------------------------------------------*/
+
+
+
+
+/* Evita palavras isoladas no fim de títulos e parágrafos */
 h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
 }
 
+/* Melhora a distribuição das linhas dos parágrafos */
 p {
     text-wrap: pretty;
 }
 
+/* Substitui as cores principais quando o tema claro está ativo */
 body.light-theme {
     --bg: #ffffff;
     --text: #111111;
@@ -55,7 +92,7 @@ body.light-theme {
 
 
 
-/* ------------- Conteúdo central da página ------------ */
+/* Largura e centralização do conteúdo principal */
 .container {
     max-width: 1320px;
     width: calc(100% - 2 * clamp(22px, 3.6vw, 50px));
@@ -63,12 +100,14 @@ body.light-theme {
     box-sizing: border-box;
 }
 
+/* O início ocupa toda a largura do ecrã */
 .index-page .container {
     max-width: none;
     width: 100%;
     margin: 0;
 }
 
+/* A página de livros também usa grelha de largura total */
 .index-page .books .container,
 .books-page .books .container {
     max-width: none;
@@ -76,42 +115,47 @@ body.light-theme {
     margin: 0;
 }
 
+/* Conteúdo editorial da página inicial sem limite lateral */
 .home-page .books .container {
     width: 100%;
     max-width: none;
 }
 
+/* Margem do título da secção editorial na página inicial */
 .home-page .books h2 {
     margin-top: 140px;
     margin-left: 50px;
+    font-family: 'Playfair Display', serif;
 }
 
+/* Margem da descrição da secção editorial na página inicial */
 .home-page .books p {
     margin-left: 50px;
 }
 
 
+/* Títulos grandes das secções principais */
 main .books h2,
 main .container > h2 {
+    font-family: 'Playfair Display', serif;
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     margin-top: 120px;
     margin-bottom: 16px;
-    line-height: 1;
 }
 
 
 
 
-/* ------------------- L A N D I N G  --------------- */
+/* ------------------- Página inicial: área de apresentação ------------------- */
+/* Área que apresenta o nome e a imagem de entrada */
 .landing {
     min-height: calc(100vh - 84px);
     display: flex;
     align-items: center;
 }
 
+/* Colunas do conteúdo introdutório */
 .landing-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -122,6 +166,7 @@ main .container > h2 {
 
 }
 
+/* Espaço reservado para a imagem ou elemento visual de entrada */
 .landing-placeholder {
     justify-self: end;
     width: min(34vw, 420px);
@@ -134,6 +179,7 @@ main .container > h2 {
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
+/* Versão do elemento visual no tema claro */
 body.light-theme .landing-placeholder {
     background:
         radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.65), transparent 38%),
@@ -142,27 +188,27 @@ body.light-theme .landing-placeholder {
 }
 
 
-/* ----------- ANITA home page -----------*/
+/* Nome principal apresentado na página inicial */
 .landing-copy h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3.2rem, 8vw, 7rem);
     font-weight: 450;
-    line-height: 1;
     margin-bottom: 20px;
     margin-left: 50px;
     text-transform: capitalize;
 
 }
 
+/* Texto introdutório da página inicial */
 .landing-copy p {
     max-width: 450px;
     font-size: 1.05rem;
-    line-height: 1.4;
     font-weight: 500;
     margin-left: 56px;
     color: var(--text);
 }
 
+/* Barra de ferramentas da grelha editorial na página inicial */
 .home-editorial-section .books-toolbar {
     position: sticky;
     top: 30px;
@@ -172,20 +218,24 @@ body.light-theme .landing-placeholder {
     margin: 12px 0 10px;
 }
 
+/* Grupo de ações da secção editorial */
 .home-editorial-section .books-actions {
     justify-content: flex-start;
     box-sizing: border-box;
     max-width: 90vw;
 }
 
+/* Espaçamento das ações depois da grelha de livros */
 .home-editorial-section .books-grid + .books-actions {
     padding-top: 24px;
 }
 
+/* Espaçamento especial do botão de compra */
 .home-editorial-section .books-actions:has(.buy) {
     padding-top: 15px;
 }
 
+/* Ajustes da barra de ferramentas em ecrãs largos */
 @media (min-width: 1081px) {
     .home-editorial-section .books-toolbar {
         justify-content: flex-end;
@@ -200,11 +250,13 @@ body.light-theme .landing-placeholder {
     }
 }
 
+/* Botão que alterna o número de colunas */
 .home-editorial-section .columns-toggle {
     gap: 5px;
     padding: 9px 18px;
 }
 
+/* Pequeno indicador visual do botão de colunas */
 .home-editorial-section .columns-toggle__square {
     width: 7px;
     height: 7px;
@@ -213,6 +265,7 @@ body.light-theme .landing-placeholder {
     opacity: 0.9;
 }
 
+/* Grelha de livros da página inicial */
 .home-editorial-section .books-grid {
     --home-columns: 2;
     --home-card-scale: 1;
@@ -221,18 +274,22 @@ body.light-theme .landing-placeholder {
     gap: 0;
 }
 
+/* Altura dos cartões de livros da página inicial */
 .home-editorial-section .book-card {
     height: calc(100vh * var(--home-card-scale));
 }
 
+/* Tamanho do nome do livro conforme a escala da grelha */
 .home-editorial-section .book-card h3 {
     font-size: calc(15px * var(--home-text-scale, 1));
 }
 
+/* Tamanho dos metadados conforme a escala da grelha */
 .home-editorial-section .book-card .book-meta {
     font-size: calc(0.9rem * var(--home-text-scale, 1));
 }
 
+/* Barra de ferramentas da página completa de livros */
 .books-page .books-toolbar {
     position: sticky;
     top: 80px;
@@ -243,6 +300,7 @@ body.light-theme .landing-placeholder {
     margin: 12px 50px 10px;
 }
 
+/* Indicador do ano atualmente visível */
 .books-page .year-sticky-indicator {
     width: fit-content;
     font-weight: 700;
@@ -254,10 +312,12 @@ body.light-theme .landing-placeholder {
     pointer-events: none;
 }
 
+/* Botão de colunas da página de livros */
 .books-page .columns-toggle {
     gap: 5px;
 }
 
+/* Indicador visual do botão de colunas da página de livros */
 .books-page .columns-toggle__square {
     width: 8px;
     height: 8px;
@@ -266,6 +326,7 @@ body.light-theme .landing-placeholder {
     opacity: 0.9;
 }
 
+/* Ajustes intermédios para tablets e ecrãs pequenos */
 @media (max-width: 1023px) {
     .landing-grid {
         grid-template-columns: 1fr;
@@ -336,7 +397,8 @@ body.light-theme .landing-placeholder {
 
 
 
-/* ---  D A T A S   D O S   L I V R O S  --- */
+/* ------------------- Metadados dos livros ------------------- */
+/* Data e autor apresentados sobre os cartões */
 .book-meta {
     position: absolute;
     left: 18px;
@@ -352,22 +414,23 @@ body.light-theme .landing-placeholder {
 
     padding: 6px 8px;
     border-radius: 6px;
-    letter-spacing: 0.0rem;
     z-index: 3;
 }
 
+/* Segundo grupo de metadados alinhado à direita */
 .book-meta + .book-meta {
     left: auto;
     right: 18px;
     justify-content: flex-end;
 }
 
+/* Elementos internos dos metadados */
 .book-meta .book-date,
 .book-meta .book-author {
     display: block;
-    line-height: 1.2;
 }
 
+/* Nome do autor alinhado no extremo direito */
 .book-author {
     position: static;
     right: auto;
@@ -378,6 +441,7 @@ body.light-theme .landing-placeholder {
 
 }
 
+/* Linha que agrupa os livros de um mesmo ano */
 .grouped-books .year-section {
     grid-column: 1 / -1;
     display: flex;
@@ -392,10 +456,12 @@ body.light-theme .landing-placeholder {
     font-weight: 700;
     font-size: 1.4rem;
     position: absolute;
-    color: var(--text);
+    color: var(--text-soft);
 
     margin-top: 2vh;
-    left: 2vw;
+    left: 50px;
+    right: 50px;
+
     margin-bottom: 4vh;
 }
 
@@ -405,9 +471,10 @@ body.light-theme .landing-placeholder {
     background: var(--surface-border);
     border: 0;
 
-    margin-top: 2vh;
+    margin-top: 3vh;
     margin-bottom: 4vh;
-    margin-left: 5vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
 }
 
 /* --- Estilo único de botão usado em todo o site: escolher .filled ou .stroke no HTML --- */
@@ -415,13 +482,12 @@ body.light-theme .landing-placeholder {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 28px;
+    padding: 12px 24px;
     border-radius: 999px;
     border: 1px solid transparent;
     text-decoration: none;
     cursor: pointer;
     font-weight: 650;
-    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 11px;
     text-align: center;
