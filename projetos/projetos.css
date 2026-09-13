@@ -286,7 +286,7 @@
 }
 
 .design-showcase {
-    width: min(1280px, calc(100% - 100px));
+    width: min(1500px, calc(100% - 100px));
     margin: 0 auto;
     padding: clamp(64px, 8vw, 112px) 0 150px;
     border-top: 1px solid rgba(21, 21, 21, 0.14);
