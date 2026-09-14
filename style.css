@@ -133,6 +133,9 @@ body.light-theme {
     margin-left: 50px;
 }
 
+.books .container p {
+    margin-left: 50px;
+}
 
 /* Títulos grandes das secções principais */
 main .books h2,

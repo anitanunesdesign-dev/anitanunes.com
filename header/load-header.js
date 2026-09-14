@@ -79,13 +79,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            const currentPath = window.location.pathname.replace(/\/$/, '');
-            const normalizedPath = currentPath === '' ? '/index.html' : currentPath;
+            const normalizePath = (value) => {
+                if (!value) return '/';
+
+                try {
+                    const resolved = new URL(value, window.location.href).pathname;
+                    return resolved.replace(/index\.html?$/i, '').replace(/\/$/, '') || '/';
+                } catch (error) {
+                    return value.replace(/index\.html?$/i, '').replace(/\/$/, '') || '/';
+                }
+            };
+
+            const currentPath = normalizePath(window.location.pathname);
 
             placeholder.querySelectorAll('.nav-link').forEach((link) => {
                 const href = link.getAttribute('href') || '';
-                const normalizedHref = href.startsWith('/') ? href : `/${href}`;
-                const isCurrent = normalizedHref === normalizedPath || normalizedHref === `${normalizedPath}/`;
+                const normalizedHref = normalizePath(href);
+                const isCurrent = normalizedHref === currentPath;
 
                 link.classList.toggle('nav-link--highlight', isCurrent);
             });
