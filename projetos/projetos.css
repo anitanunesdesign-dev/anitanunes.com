@@ -355,6 +355,10 @@
     content: '03 — APLICAÇÕES';
 }
 
+.module--text-block:nth-child(10)::before {
+    content: '04 — EXTRAS';
+}
+
 .module--text-block .module__body {
     max-width: 34rem;
 }
@@ -437,6 +441,21 @@
     grid-row: 7 / 9;
 }
 
+.design-grid .module:nth-child(10) {
+    grid-column: 1 / 5;
+    grid-row: 9 / 11;
+}
+
+.design-grid .module:nth-child(11) {
+    grid-column: 5 / 9;
+    grid-row: 9 / 11;
+}
+
+.design-grid .module:nth-child(12) {
+    grid-column: 9 / 13;
+    grid-row: 9 / 11;
+}
+
 @media (max-width: 1080px) {
     .projetos-page__title,
     .projetos-page > p,
@@ -482,7 +501,10 @@
     .design-grid .module:nth-child(6),
     .design-grid .module:nth-child(7),
     .design-grid .module:nth-child(8),
-    .design-grid .module:nth-child(9) {
+    .design-grid .module:nth-child(9),
+    .design-grid .module:nth-child(10),
+    .design-grid .module:nth-child(11),
+    .design-grid .module:nth-child(12) {
         grid-column: span 2;
     }
 }
