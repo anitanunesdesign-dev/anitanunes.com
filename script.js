@@ -300,8 +300,9 @@ function initLanguageSwitcher() {
   });
 
   const savedLang = localStorage.getItem('site-language') || 'pt';
+  const savedTheme = localStorage.getItem('site-theme') || 'light';
   applyLanguage(savedLang);
-  applyTheme('light');
+  applyTheme(savedTheme);
   showRandomHomeBooks();
 }
 

@@ -1,7 +1,7 @@
 .projetos-page {
     min-height: calc(100vh - 84px);
-
-    background: #ffffff;
+    background: var(--bg);
+    color: var(--text);
 }
 
 .projetos-page__title {
@@ -16,6 +16,7 @@
     margin-bottom: 20px;
     line-height: 0.9;
     text-transform: capitalize;
+    color: var(--text);
 }
 
 
@@ -26,6 +27,7 @@
     font-weight: 300;
     max-width: 600px;
     text-wrap: pretty;
+    color: var(--text-soft);
 }
 
 
@@ -40,7 +42,7 @@
 .design-showcase__title {
     font-family: 'Playfair Display', serif;
     margin: 0 0 14px;
-    color: #222222;
+    color: var(--text);
     font-size: clamp(1.8rem, 2.6vw, 3rem);
     font-weight: 800;
     text-transform:lowercase;
@@ -64,11 +66,11 @@
     min-width: 0;
     min-height: 0;
     overflow: hidden;
-    background: #ffffff;
+    background: var(--surface);
     border-radius: 8px;
     box-shadow:
-        2px 2px 7px rgba(0, 0, 0, 0.4),
-        -2px -2px 7px rgba(255, 255, 255, 0.5);
+        2px 2px 7px rgba(0, 0, 0, 0.25),
+        -2px -2px 7px rgba(255, 255, 255, 0.04);
 
     aspect-ratio: 4 / 3;
     height: auto;
@@ -81,7 +83,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #222222;
+    color: var(--text);
     text-align: left;
 }
 
@@ -116,7 +118,7 @@
 }
 
 .module--image {
-    background: #ffffff;
+    background: var(--surface);
 }
 
 .module--image img {
@@ -139,20 +141,20 @@
     font-size: 0.78rem;
     font-weight: 800;
     text-transform: uppercase;
-    color: rgba(34, 34, 34, 0.82);
+    color: var(--text-soft);
     pointer-events: none;
 }
 
 .column--media .module__name {
-    color: rgba(34, 34, 34, 0.9);
+    color: var(--text-soft);
 }
 
 .design-showcase--secondary .module--blank {
-    background: #ffffff;
+    background: var(--surface);
 }
 
 .design-showcase--secondary .module--blank .module__name {
-    color: #000000;
+    color: var(--text);
 }
 
 .design-showcase--secondary .module--blank img {
@@ -267,8 +269,8 @@
 
 /* Editorial case-study composition */
 .projetos-page {
-    background: #ffffff;
-    color: #151515;
+    background: var(--bg);
+    color: var(--text);
 }
 
 .projetos-page__title {
@@ -277,19 +279,21 @@
     padding-top: 150px;
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 500;
+    color: var(--text);
 }
 
 .projetos-page > p {
     width: min(560px, calc(100% - 100px));
     margin: 0 0 140px 50px;
     font-size: 1rem;
+    color: var(--text-soft);
 }
 
 .design-showcase {
     width: min(1500px, calc(100% - 100px));
     margin: 0 auto;
     padding: clamp(64px, 8vw, 112px) 0 150px;
-    border-top: 1px solid rgba(21, 21, 21, 0.14);
+    border-top: 1px solid var(--surface-border);
 }
 
 .design-showcase + .design-showcase {
@@ -328,12 +332,13 @@
     padding: 0 10% 0 0;
     text-align: left;
     align-self: center;
+    color: var(--text);
 }
 
 .module--text-block::before {
     display: block;
     margin-bottom: 24px;
-    color: rgba(21, 21, 21, 0.5);
+    color: var(--text-soft);
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -358,7 +363,7 @@
 .module--text-block h2 {
     font-family: 'Playfair Display', serif;
     margin: 0 0 18px;
-    color: #151515;
+    color: var(--text);
     font-size: clamp(1.35rem, 2vw, 2.2rem);
     font-weight: 500;
 }
@@ -366,14 +371,14 @@
 .module--text-block p {
     max-width: 32rem;
     margin: 0 0 14px;
-    color: rgba(21, 21, 21, 0.7);
+    color: var(--text-soft);
     font-size: 0.88rem;
 }
 
 .module--image {
     min-height: 220px;
     overflow: hidden;
-    background: #f3f3f1;
+    background: var(--surface);
 }
 
 .module--image img {
