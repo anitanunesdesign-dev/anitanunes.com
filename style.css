@@ -569,7 +569,6 @@ body.light-theme .landing-placeholder {
     }
 
 
-
     /* ------------- Conteúdo central da página ------------ */
 
 
@@ -597,6 +596,11 @@ body.light-theme .landing-placeholder {
         margin-left: 5vw;
         margin-right: 5vw;
         padding: 24px;
+    }
+
+       .home-editorial-section .book-card h3,
+    .home-editorial-section .book-card .book-meta {
+        font-size: 0.9rem;
     }
 
 }
