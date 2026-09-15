@@ -490,6 +490,65 @@ function initDesignImageZoom() {
   });
 }
 
+// Página dos projetos: controla a galeria central do projeto MitOConexão
+function initMitoCarousel() {
+  document.querySelectorAll('.mito-carousel').forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll('.mito-carousel__slide'));
+    const dotsContainer = carousel.querySelector('.mito-carousel__dots');
+    const previousButton = carousel.querySelector('.mito-carousel__button--previous');
+    const nextButton = carousel.querySelector('.mito-carousel__button--next');
+    if (slides.length < 2 || !dotsContainer || !previousButton || !nextButton) return;
+
+    let currentIndex = 0;
+    let timer;
+    const dots = slides.map((slide, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'mito-carousel__dot';
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Mostrar imagem ${index + 1}`);
+      dot.addEventListener('click', () => showSlide(index));
+      dotsContainer.appendChild(dot);
+      return dot;
+    });
+
+    const showSlide = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === currentIndex;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+        dots[slideIndex].classList.toggle('is-active', isActive);
+        dots[slideIndex].setAttribute('aria-current', isActive ? 'true' : 'false');
+      });
+    };
+
+    const restartTimer = () => {
+      window.clearInterval(timer);
+      timer = window.setInterval(() => showSlide(currentIndex + 1), 5000);
+    };
+
+    previousButton.addEventListener('click', () => {
+      showSlide(currentIndex - 1);
+      restartTimer();
+    });
+
+    nextButton.addEventListener('click', () => {
+      showSlide(currentIndex + 1);
+      restartTimer();
+    });
+
+    carousel.addEventListener('mouseenter', () => window.clearInterval(timer));
+    carousel.addEventListener('mouseleave', restartTimer);
+    carousel.addEventListener('focusin', () => window.clearInterval(timer));
+    carousel.addEventListener('focusout', (event) => {
+      if (!carousel.contains(event.relatedTarget)) restartTimer();
+    });
+
+    showSlide(0);
+    restartTimer();
+  });
+}
+
 // Entry point: run all page setup once the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   protectDisplayedImages();
@@ -507,4 +566,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLivrosBooksColumnsToggle();
   sortDesignShowcaseByDate();
   initDesignImageZoom();
+  initMitoCarousel();
 });

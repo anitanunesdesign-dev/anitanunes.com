@@ -339,24 +339,24 @@
     display: block;
     margin-bottom: 24px;
     color: var(--text-soft);
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
 .module--text-block:nth-child(1)::before {
-    content: '01 — INTRODUÇÃO';
+    content: '_01   INTRODUÇÃO';
 }
 
 .module--text-block:nth-child(4)::before {
-    content: '02 — SISTEMA VISUAL';
+    content: '_02    SISTEMA VISUAL';
 }
 
 .module--text-block:nth-child(7)::before {
-    content: '03 — APLICAÇÕES';
+    content: '_03   APLICAÇÕES';
 }
 
 .design-grid .module--extras-text::before {
-    content: '04 — EXTRAS';
+    content: '_04  EXTRAS';
 }
 
 .module--text-block .module__body {
@@ -392,7 +392,7 @@
 }
 
 .module--image:hover img {
-    transform: scale(1.025);
+    transform: scale(2.2);
 }
 
 .design-grid .module:nth-child(1) {
@@ -475,6 +475,143 @@
 .design-grid .module--extras-image-1,
 .design-grid .module--extras-image-2 {
     position: relative;
+}
+
+.design-showcase--mito .design-grid .mito-carousel {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+}
+
+.design-showcase--mito .design-grid .mito-carousel--fourth {
+    grid-row: 9 / 11;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    align-self: start;
+}
+
+.design-showcase--mito .design-grid .mito-carousel--one {
+    grid-column: 1 / 5;
+}
+
+.design-showcase--mito .design-grid .mito-carousel--two {
+    grid-column: 5 / 9;
+}
+
+.design-showcase--mito .design-grid .mito-carousel--three {
+    grid-column: 9 / 13;
+}
+
+.mito-carousel__track,
+.mito-carousel__slide {
+    width: 100%;
+    height: 100%;
+}
+
+.mito-carousel__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+}
+
+.mito-carousel__slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mito-carousel__slide img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.mito-carousel__button {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.mito-carousel__button:hover,
+.mito-carousel__button:focus-visible {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.mito-carousel__button--previous {
+    left: 20px;
+}
+
+.mito-carousel__button--next {
+    right: 20px;
+}
+
+.mito-carousel__dots {
+    position: absolute;
+    right: 0;
+    bottom: 18px;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.mito-carousel__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+}
+
+.mito-carousel__dot.is-active {
+    background: #fff;
+    transform: scale(1.35);
+}
+
+@media (max-width: 1080px) {
+    .design-showcase--mito .design-grid .mito-carousel--one {
+        grid-column: 1 / 3;
+    }
+
+    .design-showcase--mito .design-grid .mito-carousel--two {
+        grid-column: 3 / 5;
+    }
+
+    .design-showcase--mito .design-grid .mito-carousel--three {
+        grid-column: 5 / 7;
+    }
+}
+
+@media (max-width: 768px) {
+    .design-showcase--mito .design-grid .mito-carousel--fourth {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .mito-carousel__button--previous {
+        left: 12px;
+    }
+
+    .mito-carousel__button--next {
+        right: 12px;
+    }
 }
 
 @media (max-width: 1080px) {
