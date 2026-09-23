@@ -240,8 +240,17 @@ body.light-theme .landing-placeholder {
 
 }
 
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+
 /* Ajustes da barra de ferramentas em ecrãs largos */
 @media (min-width: 1081px) {
+
     .home-editorial-section .books-toolbar {
         justify-content: flex-end;
         top: 70px;
@@ -334,6 +343,16 @@ body.light-theme .landing-placeholder {
 
 
 
+
+
+
+
+
+
+/*  ------------------------------------------------------------------------------------------------------------ */
+
+
+
 /* Ajustes intermédios para tablets e ecrãs pequenos */
 @media (max-width: 1023px) {
 
@@ -357,8 +376,8 @@ body.light-theme .landing-placeholder {
     }
 
     .home-editorial-section .columns-toggle {
-        padding: 10px 14px;
-        font-size: 0.78rem;
+        padding: 8px 12px;
+        font-size: 0.7rem;
     }
 
     .home-editorial-section .books-grid {
@@ -385,8 +404,8 @@ body.light-theme .landing-placeholder {
     }
 
     .books-page .columns-toggle {
-        padding: 10px 14px;
-        font-size: 0.78rem;
+        padding: 8px 12px;
+        font-size: 0.7rem;
     }
 
     .books-page .books-grid {
@@ -397,9 +416,6 @@ body.light-theme .landing-placeholder {
         height: 90vh;
     }
 }
-
-
-
 
 
 
@@ -503,6 +519,8 @@ body.light-theme .landing-placeholder {
     text-align: center;
     width: fit-content;
     transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+
+
 }
 
 .view-more-btn:hover {
@@ -530,25 +548,10 @@ body.light-theme .landing-placeholder {
     color: #ffffff;
 }
 
-@media (max-width: 1080px) {
-    .home-editorial-section .books-toolbar {
-        display: none;
-    }
-}
 
 
 
 
-
-
-
-
-
-
-/*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
-@media (max-width: 1023px) {
-
-    /* Versão mobile do estilo tipográfico único de todos os h2 do site. */
     :root {
         --h2-size: clamp(2.25rem, 10vw, 3.9rem);
         --h2-weight: 600;
@@ -556,8 +559,9 @@ body.light-theme .landing-placeholder {
         --h2-margin-top: 72px;
         --h2-margin-left: 3vw;
         --h2-margin-bottom: 12px;
-        --h2-width: 80vw;
+        --h2-maxwidth: 91vw;
         --h2-padding-left: 3vw;
+        --h2-padding-right: 6vw;
     }
 
     h2 {
@@ -571,7 +575,7 @@ body.light-theme .landing-placeholder {
     
     .books .container p  {
         margin-left: var(--h2-margin-left) !important;
-        width: var(--h2-width) !important;
+        max-width: var(--h2-maxwidth) !important;
         padding-left: var(--h2-padding-left) !important;
         font-size: 0.8em;
     }
@@ -579,7 +583,14 @@ body.light-theme .landing-placeholder {
     
 
     .view-more-btn {
+        padding: 10px 20px;
         font-size: 0.8rem;
+    }
+
+    /* Botões da página inicial, excluindo o botão de colunas */
+    .index-page .view-more-btn:not(.columns-toggle) {
+        padding: 7px 15px;
+        
     }
 
     .home-editorial-section .books-toolbar {
@@ -588,7 +599,7 @@ body.light-theme .landing-placeholder {
 
     /* ------------------- L A N D I N G  --------------- */
     .landing {
-        height: 100vh;
+        height: 50vh;
         width: 100vw;
     }
 
@@ -601,9 +612,17 @@ body.light-theme .landing-placeholder {
     /* ----------- ANITA home page -----------*/
     .landing-copy h1,
     .landing-copy p {
-        margin-left: 5vw;
-        max-width: 80vw;
+        padding-left: var(--h2-padding-left) !important;
+        margin-left: var(--h2-margin-left) !important;
+        max-width: var(--h2-maxwidth) !important;
+
     }
+
+    .landing-copy p {
+        text-transform: uppercase;
+        font-size: 0.6rem;
+    }
+
 
 
     /* ------------- Conteúdo central da página ------------ */
@@ -651,8 +670,9 @@ body.light-theme .landing-placeholder {
 
 /* Espaçamento das ações depois da grelha de livros */
 .home-editorial-section .books-grid + .books-actions {
- margin-left: var(--h2-margin-left);
+        margin-left: var(--h2-margin-left);
         padding-left: var(--h2-padding-left);
-        padding-bottom: 30px;}
+        padding-bottom: 30px;
+    }
 
 }
