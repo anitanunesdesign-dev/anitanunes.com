@@ -554,24 +554,26 @@ body.light-theme .landing-placeholder {
         --h2-weight: 600;
         --h2-line-height: 1;
         --h2-margin-top: 72px;
-        --h2-margin-left: 5vw;
+        --h2-margin-left: 3vw;
         --h2-margin-bottom: 12px;
         --h2-width: 80vw;
-        --h2-padding-left: 5vw;
+        --h2-padding-left: 3vw;
     }
 
     h2 {
         box-sizing: border-box;
         width: 80vw;
         max-width: none;
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: var(--h2-padding-left) !important;
+        margin-left: var(--h2-margin-left) !important;
     }
 
     
     .books .container p  {
-        margin-left: var(--h2-margin-left);
-        width: var(--h2-width);
+        margin-left: var(--h2-margin-left) !important;
+        width: var(--h2-width) !important;
+        padding-left: var(--h2-padding-left) !important;
+        font-size: 0.8em;
     }
 
     
@@ -646,5 +648,11 @@ body.light-theme .landing-placeholder {
         padding-left: var(--h2-padding-left);
         padding-bottom: 30px;
 }
+
+/* Espaçamento das ações depois da grelha de livros */
+.home-editorial-section .books-grid + .books-actions {
+ margin-left: var(--h2-margin-left);
+        padding-left: var(--h2-padding-left);
+        padding-bottom: 30px;}
 
 }
