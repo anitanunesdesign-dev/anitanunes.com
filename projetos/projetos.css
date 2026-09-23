@@ -1,6 +1,6 @@
 .projetos-page {
     min-height: calc(100vh - 84px);
-    background: var(--bg);
+    background: rgb(255, 244, 239);
     color: var(--text);
 }
 
@@ -769,7 +769,10 @@
     .projetos-page .projetos-page__title {
         margin-top: 0;
         margin-bottom: 22px;
+        width: 80vw !important;
+        max-width: none !important;
         margin-left: 0 !important;
+        font-size: clamp(2.25rem, 10vw, 3.9rem) !important;
     }
 
     .design-showcase {

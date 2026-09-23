@@ -43,6 +43,7 @@ body {
     font-weight: 280;
     /* ExtraBold */
     padding-top: 54px;
+
 }
 
 
@@ -153,7 +154,7 @@ main .container > h2 {
 /* ------------------- Página inicial: área de apresentação ------------------- */
 /* Área que apresenta o nome e a imagem de entrada */
 .landing {
-    min-height: calc(100vh - 84px);
+    min-height: 70vh;
     display: flex;
     align-items: center;
 }
@@ -236,6 +237,7 @@ body.light-theme .landing-placeholder {
 /* Espaçamento especial do botão de compra */
 .home-editorial-section .books-actions:has(.buy) {
     padding-top: 15px;
+
 }
 
 /* Ajustes da barra de ferramentas em ecrãs largos */
@@ -329,8 +331,13 @@ body.light-theme .landing-placeholder {
     opacity: 0.9;
 }
 
+
+
+
 /* Ajustes intermédios para tablets e ecrãs pequenos */
 @media (max-width: 1023px) {
+
+
     .landing-grid {
         grid-template-columns: 1fr;
     }
@@ -541,6 +548,34 @@ body.light-theme .landing-placeholder {
 /*-------------- M O B I L E  ----------------------------------------------------------------------------------*/
 @media (max-width: 1023px) {
 
+    /* Versão mobile do estilo tipográfico único de todos os h2 do site. */
+    :root {
+        --h2-size: clamp(2.25rem, 10vw, 3.9rem);
+        --h2-weight: 600;
+        --h2-line-height: 1;
+        --h2-margin-top: 72px;
+        --h2-margin-left: 5vw;
+        --h2-margin-bottom: 12px;
+        --h2-width: 80vw;
+        --h2-padding-left: 5vw;
+    }
+
+    h2 {
+        box-sizing: border-box;
+        width: 80vw;
+        max-width: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    
+    .books .container p  {
+        margin-left: var(--h2-margin-left);
+        width: var(--h2-width);
+    }
+
+    
+
     .view-more-btn {
         font-size: 0.8rem;
     }
@@ -601,6 +636,15 @@ body.light-theme .landing-placeholder {
        .home-editorial-section .book-card h3,
     .home-editorial-section .book-card .book-meta {
         font-size: 0.9rem;
+
+
     }
+
+    /* Espaçamento especial do botão de compra */
+.home-editorial-section .books-actions:has(.buy) {
+        margin-left: var(--h2-margin-left);
+        padding-left: var(--h2-padding-left);
+        padding-bottom: 30px;
+}
 
 }
