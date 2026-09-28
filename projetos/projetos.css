@@ -269,13 +269,15 @@
 
 /* Editorial case-study composition */
 .projetos-page {
+    --page-margin: clamp(2rem, 4vw, 3.125rem);
     background: var(--bg);
     color: var(--text);
 }
 
 .projetos-page__title {
-    width: calc(100% - 100px);
-    margin: 0 0 22px 50px;
+    width: calc(100% - (var(--page-margin) * 2));
+    /* sobrepõe a regra global h2 (--h2-margin-left) para não crescer sem limite */
+    margin: 0 0 22px var(--page-margin) !important;
     padding-top: 150px;
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 500;
@@ -283,14 +285,14 @@
 }
 
 .projetos-page > p {
-    width: min(560px, calc(100% - 100px));
-    margin: 0 0 140px 50px;
+    width: min(560px, calc(100% - (var(--page-margin) * 2)));
+    margin: 0 0 140px var(--page-margin);
     font-size: 1rem;
     color: var(--text-soft);
 }
 
 .design-showcase {
-    width: min(1500px, calc(100% - 100px));
+    width: min(1500px, calc(100% - (var(--page-margin) * 2)));
     margin: 0 auto;
     padding: clamp(64px, 8vw, 112px) 0 150px;
     border-top: 1px solid var(--surface-border);
@@ -625,18 +627,18 @@
     .projetos-page__title,
     .projetos-page > p,
     .design-showcase {
-        width: calc(100% - 64px);
+        width: calc(100% - (var(--page-margin) * 2));
     }
 
     .projetos-page__title {
-        width: calc(100% - 50px);
-        margin-left: 50px;
+        width: calc(100% - var(--page-margin));
+        margin-left: var(--page-margin);
         padding-top: 120px;
     }
 
     .projetos-page > p {
-        width: calc(100% - 50px);
-        margin-left: 50px;
+        width: calc(100% - var(--page-margin));
+        margin-left: var(--page-margin);
         margin-bottom: 100px;
     }
 
@@ -752,7 +754,7 @@
     .projetos-page {
         box-sizing: border-box;
         width: 100%;
-        padding-inline: 20px;
+        padding-inline: 24px;
         overflow-x: hidden;
     }
 
@@ -795,5 +797,18 @@
     .module--text-block p {
         min-width: 0;
         overflow-wrap: anywhere;
+    }
+}
+
+/* Margem cresce à medida que o ecrã encolhe */
+@media (max-width: 768px) {
+    .projetos-page {
+        padding-inline: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projetos-page {
+        padding-inline: 32px;
     }
 }

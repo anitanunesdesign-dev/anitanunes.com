@@ -638,11 +638,11 @@ body.light-theme .landing-placeholder {
         margin-bottom: 2vh;
         margin-left: 18vw;
     }
-
+/* 
     .book-meta {
         left: 6vw;
         top: 8vw;
-    }
+    } */
 
     .book-meta + .book-meta {
         right: 6vw;
