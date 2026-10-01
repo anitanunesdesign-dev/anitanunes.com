@@ -1,10 +1,9 @@
 .projetos-page {
     min-height: calc(100vh - 84px);
-    background: rgb(255, 244, 239);
     color: var(--text);
 }
 
-.projetos-page__title {
+/* .projetos-page__title {
 
     font-family: 'Playfair Display', serif;
     text-align: left;
@@ -17,18 +16,19 @@
     line-height: 0.9;
     text-transform: capitalize;
     color: var(--text);
-}
+}  */
 
-
+ 
 .projetos-page > p {
-    margin-left: 50px;
-    margin-bottom: 80px;
-    font-size: 1.1rem;
-    font-weight: 300;
-    max-width: 600px;
-    text-wrap: pretty;
-    color: var(--text-soft);
-}
+        box-sizing: border-box;
+        width: 80vw;
+        max-width: none;
+        padding-left: var(--h2-padding-left) !important;
+        margin-left: var(--h2-margin-left) !important;
+        font-size: 1rem;
+    } 
+
+    
 
 
 .design-showcase {
@@ -61,6 +61,9 @@
     gap: 16px;
 }
 
+
+/* --------------------------------------  MODULE STYLES ----------------------------------------- */
+
 .module {
     position: relative;
     min-width: 0;
@@ -87,6 +90,24 @@
     text-align: left;
 }
 
+
+/* Texto dos blocos */
+.module--text-block p {
+    max-width: 32rem;
+    color: var(--text-soft);
+    margin: 0 0 10px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+
+p[medidas] {    
+    color:rgb(160, 160, 160);
+    font-weight: 480;
+    font-size: 0.98rem;
+}
+
+
 .module--text-block .module__body {
     margin: 0;
     max-width: 100%;
@@ -111,11 +132,7 @@
     font-weight: 700;
 }
 
-.module--text-block p {
-    margin: 0 0 10px;
-    font-size: 0.95rem;
-    font-weight: 400;
-}
+
 
 .module--image {
     background: var(--surface);
@@ -161,135 +178,18 @@
     display: none;
 }
 
-
-
-@media (max-width: 1080px) {
-
-    .projetos-page {
-        padding: 16px;
-    }
-
-    .projetos-page__title {
-        padding-top: 100px;
-        margin-left: 0;
-        font-size: 5rem;
-    }
-
-    .projetos-page > p {
-        margin-left: 0;
-        font-size: 1rem;
-    }
-
-    .design-showcase {
-        width: 100%;
-        margin: 0;
-        padding: 12px 0;
-    }
-
-    .design-showcase__title {
-        padding: 12px 0;
-        font-size: clamp(1.7rem, 4vw, 2.5rem);
-    }
-
-    .design-showcase + .design-showcase {
-        margin-top: 32px;
-        padding-bottom: 32px;
-    }
-
-    .design-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .module--text-block {
-        padding: 16px;
-    }
-
-    .module--text-block h1 {
-        font-size: 2rem;
-        margin-bottom: 4px;
-    }
-
-    .module--text-block h2 {
-        font-size: 10.5pt;
-        margin-bottom: 4px;
-    }
-
-    .module--text-block p {
-        font-size: 0.78rem;
-        margin-bottom: 5px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .projetos-page {
-        padding: 12px;
-    }
-
-    .projetos-page__title {
-        padding-top: 72px;
-        font-size: clamp(9vw, 1em, 10vw);
-        max-width: 80vw;
-        margin-bottom: 12px;
-    }
-
-    .projetos-page > p {
-        font-size: 0.9rem;
-    }
-
-    .design-showcase {
-        padding: 8px 0;
-    }
-
-    .design-showcase__title {
-        margin-bottom: 8px;
-        padding: 8px 0;
-        font-size: clamp(1.5rem, 7vw, 2.1rem);
-    }
-
-    .design-showcase + .design-showcase {
-        margin-top: 24px;
-        padding-bottom: 24px;
-    }
-
-    .design-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .module--text-block h2 {
-        font-size: 10.5pt;
-    }
-
-    .module--text-block p {
-        font-size: 0.75rem;
-    }
-}
+/* --------------------------------------  MODULE STYLES END ----------------------------------------- */
 
 /* Editorial case-study composition */
 .projetos-page {
-    --page-margin: clamp(2rem, 4vw, 3.125rem);
+    --page-margin: 3vw;
     background: var(--bg);
     color: var(--text);
 }
 
-.projetos-page__title {
-    width: calc(100% - (var(--page-margin) * 2));
-    /* sobrepõe a regra global h2 (--h2-margin-left) para não crescer sem limite */
-    margin: 0 0 22px var(--page-margin) !important;
-    padding-top: 150px;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 500;
-    color: var(--text);
-}
 
-.projetos-page > p {
-    width: min(560px, calc(100% - (var(--page-margin) * 2)));
-    margin: 0 0 140px var(--page-margin);
-    font-size: 1rem;
-    color: var(--text-soft);
-}
+
+
 
 .design-showcase {
     width: min(1500px, calc(100% - (var(--page-margin) * 2)));
@@ -337,12 +237,16 @@
     color: var(--text);
 }
 
+
+
+
+/* --------------------------------------  TITULOS DAS SECÇOES -------------------------- */
 .module--text-block::before {
     display: block;
     margin-bottom: 24px;
-    color: var(--text-soft);
-    font-size: 1rem;
-    font-weight: 600;
+    color:rgb(160, 160, 160);
+    font-size: 1.1rem;
+    font-weight: 550;
 }
 
 .module--text-block:nth-child(1)::before {
@@ -361,6 +265,9 @@
     content: '_04  EXTRAS';
 }
 
+
+
+
 .module--text-block .module__body {
     max-width: 34rem;
 }
@@ -374,12 +281,8 @@
     font-weight: 500;
 }
 
-.module--text-block p {
-    max-width: 32rem;
-    margin: 0 0 14px;
-    color: var(--text-soft);
-    font-size: 0.88rem;
-}
+
+/* ESTE BLOCO REFERE-SE AOS PARÁGRAFOS DENTRO DO MÓDULO DE TEXTO */
 
 .module--image {
     min-height: 220px;
@@ -394,8 +297,10 @@
 }
 
 .module--image:hover img {
-    transform: scale(2.2);
+    transform: scale(1.3);
 }
+
+/* --------------------------------------   DESIGN GRID MODULE LAYOUT ----------------------------------------- */
 
 .design-grid .module:nth-child(1) {
     grid-column: 1 / 5;
@@ -479,6 +384,12 @@
     position: relative;
 }
 
+
+
+
+/* --------------------------------------   MITOCONEXAO CAROUSEL STYLES----------------------------------------- */
+
+
 .design-showcase--mito .design-grid .mito-carousel {
     position: relative;
     overflow: hidden;
@@ -509,6 +420,8 @@
 .design-showcase--mito .design-grid .mito-carousel--three {
     grid-column: 9 / 13;
 }
+  
+/* -------.design-grid  end --------- */
 
 .mito-carousel__track,
 .mito-carousel__slide {
@@ -592,165 +505,74 @@
     transform: scale(1.35);
 }
 
-@media (max-width: 1080px) {
-    .design-showcase--mito .design-grid .mito-carousel--one {
-        grid-column: 1 / 3;
-    }
 
-    .design-showcase--mito .design-grid .mito-carousel--two {
-        grid-column: 3 / 5;
-    }
 
-    .design-showcase--mito .design-grid .mito-carousel--three {
-        grid-column: 5 / 7;
-    }
-}
+/* ------------------------------------------------------------------------------------------------------------------ */
 
-@media (max-width: 768px) {
-    .design-showcase--mito .design-grid .mito-carousel--fourth {
-        grid-column: auto;
-        grid-row: auto;
-        min-height: 0;
-        aspect-ratio: 4 / 3;
-    }
 
-    .mito-carousel__button--previous {
-        left: 12px;
-    }
 
-    .mito-carousel__button--next {
-        right: 12px;
-    }
-}
+
+/* ----------------------------------------- T A B L E T ------------------------------------------------ */
 
 @media (max-width: 1080px) {
-    .projetos-page__title,
-    .projetos-page > p,
-    .design-showcase {
-        width: calc(100% - (var(--page-margin) * 2));
+
+    .projetos-page {
     }
 
     .projetos-page__title {
-        width: calc(100% - var(--page-margin));
-        margin-left: var(--page-margin);
-        padding-top: 120px;
+        padding-top: 100px;
+        margin-left: 0;
+        font-size: 5rem;
     }
 
     .projetos-page > p {
+        margin-left: 0;
+        font-size: 1rem;
         width: calc(100% - var(--page-margin));
         margin-left: var(--page-margin);
         margin-bottom: 100px;
-    }
+        }
 
     .design-showcase {
-        padding-bottom: 110px;
-    }
-
-    .design-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-
-    .design-grid .module:nth-child(1) {
-        grid-column: 1 / 3;
-    }
-
-    .design-grid .module:nth-child(2) {
-        grid-column: 3 / 7;
-        min-height: 420px;
-    }
-
-    .design-grid .module:nth-child(3),
-    .design-grid .module:nth-child(4) {
-        grid-column: 1 / 4;
-    }
-
-    .design-grid .module:nth-child(5),
-    .design-grid .module:nth-child(6),
-    .design-grid .module:nth-child(7),
-    .design-grid .module:nth-child(8),
-    .design-grid .module:nth-child(9),
-    .design-grid .module:nth-child(10),
-    .design-grid .module:nth-child(11),
-    .design-grid .module:nth-child(12) {
-        grid-column: span 2;
-    }
-}
-
-
-
-
-
-
-@media (max-width: 768px) {
-    .projetos-page__title,
-    .projetos-page > p,
-    .design-showcase {
-        width: calc(100% - 40px); 
-        
-        
-    }
-
-    .projetos-page__title {
-        width: calc(100% - 40px); 
-        padding-top: 50px;
-        font-size: clamp(2.4rem, 13vw, 4.4rem); 
-        max-width:  calc(100% - 40px); 
-    }
-
-    .projetos-page > p {
-        width: calc(100% - 40px);
-        margin-left: 40px;
-        margin-bottom: 80px;
-        font-size: 0.92rem;
-    }
-
-    .design-showcase {
-        padding: 28px 0 90px;
-    }
-
-    .design-showcase + .design-showcase {
-        padding-bottom: 90px;
+        width: 100%;
+        margin: 0;
+        padding: 12px 0;
     }
 
     .design-showcase__title {
-        margin-bottom: 40px;
-         font-size: clamp(2.4rem, 13vw, 4.4rem); 
+        padding: 12px 0;
+        font-size: clamp(1.7rem, 4vw, 2.5rem);
+    }
+
+    .design-showcase + .design-showcase {
+        margin-top: 32px;
+        padding-bottom: 32px;
     }
 
     .design-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 44px;
-    }
-
-    .module,
-    .design-grid .module:nth-child(n) {
-        min-height: 0;
-        width: 100%;
-        grid-column: auto;
-        grid-row: auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .module--text-block {
-        padding: 0;
+        padding: 16px;
     }
 
-    .module--image,
-    .design-grid .module:nth-child(2) {
-        min-height: 0;
-        aspect-ratio: 4 / 3;
+    .module--text-block h1 {
+        font-size: 2rem;
+        margin-bottom: 4px;
     }
 
-    .module--image img {
-        object-fit: cover;
+    .module--text-block h2 {
+        font-size: 10.5pt;
+        margin-bottom: 4px;
     }
 
-    .module--text-block::before {
-        margin-bottom: 18px;
+    .module--text-block p {
+        font-size: 0.78rem;
+        margin-bottom: 5px;
     }
-}
 
-@media (max-width: 1080px) {
     .projetos-page {
         box-sizing: border-box;
         width: 100%;
@@ -798,17 +620,137 @@
         min-width: 0;
         overflow-wrap: anywhere;
     }
+
+    .projetos-page__title,
+    .projetos-page > p,
+    .design-showcase {
+        width: calc(100% - (var(--page-margin) * 2));
+    }
+
+    .projetos-page__title {
+        width: calc(100% - var(--page-margin));
+        margin-left: var(--page-margin);
+        padding-top: 120px;
+    }
+
+
+
+    .design-showcase {
+        padding-bottom: 110px;
+    }
+
+    /* Layout simples de 2 colunas: reinicia os posicionamentos explícitos do grid desktop (12 colunas) */
+    .design-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .design-grid .module.module {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* Os blocos de texto ocupam a largura toda; as imagens ficam a par, 2 a 2 */
+    .design-grid .module--text-block.module--text-block {
+        grid-column: 1 / -1;
+        min-height: 0;
+    }
+
+    .design-showcase--mito .design-grid .mito-carousel.mito-carousel {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
 }
 
-/* Margem cresce à medida que o ecrã encolhe */
+
+
+/* --------------------------------------- P H O N E -------------------------------------------------- */
+
+
 @media (max-width: 768px) {
+
+    .projetos-page {
+        padding: 12px;
+    }
+
+    .projetos-page__title {
+        padding-top: 72px;
+        font-size: clamp(9vw, 1em, 10vw);
+        max-width: 80vw;
+        margin-bottom: 12px;
+    }
+
+    .projetos-page > p {
+        font-size: 0.9rem;
+    }
+
+    .design-showcase {
+        padding: 8px 0;
+    }
+
+    .design-showcase__title {
+        margin-bottom: 8px;
+        padding: 8px 0;
+        font-size: clamp(1.5rem, 7vw, 2.1rem);
+    }
+
+    .design-showcase + .design-showcase {
+        margin-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .design-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Reset tablet column/row placements so modules stack in a single column (extra .module.module boosts specificity over the nth-child rules above) */
+    .design-grid .module.module {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .module--text-block h2 {
+        font-size: 10.5pt;
+    }
+
+    .module--text-block p {
+        font-size: 0.75rem;
+    }
+
+/* Margem cresce à medida que o ecrã encolhe */
     .projetos-page {
         padding-inline: 28px;
     }
+
+       .design-showcase--mito .design-grid .mito-carousel--fourth,
+       .design-showcase--mito .design-grid .mito-carousel--one,
+       .design-showcase--mito .design-grid .mito-carousel--two,
+       .design-showcase--mito .design-grid .mito-carousel--three {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .mito-carousel__button--previous {
+        left: 12px;
+    }
+
+    .mito-carousel__button--next {
+        right: 12px;
+    }
 }
+
+
+
+/* --------------------------------------- SMALLER P H O N E -------------------------------------------------- */
+
 
 @media (max-width: 480px) {
     .projetos-page {
         padding-inline: 32px;
     }
 }
+
+

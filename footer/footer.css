@@ -11,6 +11,7 @@
     padding-bottom: 30px;
 
     color: var(--text-soft);
+    text-align: left;
 }
 
 /* Layout da grelha de colunas. */

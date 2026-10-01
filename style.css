@@ -16,19 +16,29 @@
     --highlight: #9b0058;
 
 
-
-    /* -------------------------Estilo tipográfico único de todos os h2 do site ----------------*/
     --h2-font: 'Playfair Display', serif;
-    --h2-size: clamp(2.5rem, 8vw, 5rem);
-    --h2-weight: 600;
     --h2-line-height: 1;
     --h2-letter-spacing: 0;
     --h2-text-transform: uppercase;
+    --h2-size: calc(2.25rem + 3.6vw);
+    --h2-weight: 700;
     --h2-margin-top: 140px;
     --h2-margin-left: 50px;
-    --h2-margin-bottom: 20px;   
+    --h2-margin-bottom: 20px;
+    --h2-maxwidth: 91vw;
+    --h2-padding-left: 3vw;
+    --h2-padding-right: 6vw;
 }
-/*----------------------------------------------------------------------------------------------*/
+
+
+.books .container p, 
+.home-page .books p {
+    margin-left: var(--h2-margin-left) !important;
+    max-width: var(--h2-maxwidth) !important;
+    padding-left: var(--h2-padding-left) !important;
+    font-size: 1rem;
+}
+
 
 
 
@@ -40,8 +50,7 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: 'Montserrat', sans-serif;
-    font-weight: 280;
-    /* ExtraBold */
+    font-weight: 300;
     padding-top: 54px;
 
 }
@@ -58,12 +67,15 @@ h2 {
     margin-top: var(--h2-margin-top) !important;
     margin-left: var(--h2-margin-left) !important;
     margin-bottom: var(--h2-margin-bottom) !important;
+    padding-left: var(--h2-padding-left) !important;
+    box-sizing: border-box;
+    width: 80vw;
+    max-width: none;
 }
 
-/*----------------------------------------------------------------------------------------------*/
-
-
-
+h2 {
+margin: auto;
+}
 
 /* Evita palavras isoladas no fim de títulos e parágrafos */
 h1, h2, h3, h4, h5, h6 {
@@ -74,6 +86,9 @@ h1, h2, h3, h4, h5, h6 {
 p {
     text-wrap: pretty;
 }
+
+
+
 
 /* Substitui as cores principais quando o tema claro está ativo */
 body.light-theme {
@@ -101,52 +116,16 @@ body.light-theme {
     box-sizing: border-box;
 }
 
+
 /* O início ocupa toda a largura do ecrã */
-.index-page .container {
+.index-page .container, .index-page .books .container,
+.books-page .books .container, .home-page .books .container  {
     max-width: none;
     width: 100%;
     margin: 0;
 }
 
-/* A página de livros também usa grelha de largura total */
-.index-page .books .container,
-.books-page .books .container {
-    max-width: none;
-    width: 100%;
-    margin: 0;
-}
 
-/* Conteúdo editorial da página inicial sem limite lateral */
-.home-page .books .container {
-    width: 100%;
-    max-width: none;
-}
-
-/* Margem do título da secção editorial na página inicial */
-.home-page .books h2 {
-    margin-top: 140px;
-    margin-left: 50px;
-    font-family: 'Playfair Display', serif;
-}
-
-/* Margem da descrição da secção editorial na página inicial */
-.home-page .books p {
-    margin-left: 50px;
-}
-
-.books .container p {
-    margin-left: 50px;
-}
-
-/* Títulos grandes das secções principais */
-main .books h2,
-main .container > h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 700;
-    margin-top: 120px;
-    margin-bottom: 16px;
-}
 
 
 
@@ -200,7 +179,7 @@ body.light-theme .landing-placeholder {
     margin-bottom: 20px;
     margin-left: 50px;
     text-transform: capitalize;
-
+letter-spacing: 2.8px;
 }
 
 /* Texto introdutório da página inicial */
@@ -230,7 +209,7 @@ body.light-theme .landing-placeholder {
 }
 
 /* Espaçamento das ações depois da grelha de livros */
-.home-editorial-section .books-grid + .books-actions {
+.home-editorial-section .books-grid+.books-actions {
     padding-top: 24px;
 }
 
@@ -241,28 +220,8 @@ body.light-theme .landing-placeholder {
 }
 
 
+/*  
 
-
-
-
-/* ----------------------------------------------------------------------------------------------------- */
-
-
-/* Ajustes da barra de ferramentas em ecrãs largos */
-@media (min-width: 1081px) {
-
-    .home-editorial-section .books-toolbar {
-        justify-content: flex-end;
-        top: 70px;
-        margin-bottom: 24px;
-        padding: 0 50px;
-        box-sizing: border-box;
-    }
-
-    .home-editorial-section .books-actions {
-        padding: 0 50px;
-    }
-}
 
 /* Botão que alterna o número de colunas */
 .home-editorial-section .columns-toggle {
@@ -349,78 +308,6 @@ body.light-theme .landing-placeholder {
 
 
 
-/*  ------------------------------------------------------------------------------------------------------------ */
-
-
-
-/* Ajustes intermédios para tablets e ecrãs pequenos */
-@media (max-width: 1023px) {
-
-
-    .landing-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .landing-placeholder {
-        justify-self: start;
-        width: min(72vw, 340px);
-    }
-
-    .home-editorial-section .books-toolbar {
-        justify-content: flex-end;
-        /* padding-left: 5vw; */
-        margin-right: 5vw;
-        box-sizing: border-box;
-            max-width: 90vw;
-
-    }
-
-    .home-editorial-section .columns-toggle {
-        padding: 8px 12px;
-        font-size: 0.7rem;
-    }
-
-    .home-editorial-section .books-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .home-editorial-section .book-card {
-        height: 90vh;
-    }
-
-    .home-editorial-section .book-card h3,
-    .home-editorial-section .book-card .book-meta {
-        font-size: revert;
-    }
-
-    .books-page .books-toolbar {
-        justify-content: space-between;
-        margin: 12px 5vw 10px;
-    }
-
-    .books-page .year-sticky-indicator {
-        font-size: 1.1rem;
-        margin: 0;
-    }
-
-    .books-page .columns-toggle {
-        padding: 8px 12px;
-        font-size: 0.7rem;
-    }
-
-    .books-page .books-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .books-page .book-card {
-        height: 90vh;
-    }
-}
-
-
-
-
-
 
 
 /* ------------------- Metadados dos livros ------------------- */
@@ -444,7 +331,7 @@ body.light-theme .landing-placeholder {
 }
 
 /* Segundo grupo de metadados alinhado à direita */
-.book-meta + .book-meta {
+.book-meta+.book-meta {
     left: auto;
     right: 18px;
     justify-content: flex-end;
@@ -552,127 +439,186 @@ body.light-theme .landing-placeholder {
 
 
 
-    :root {
-        --h2-size: clamp(2.25rem, 10vw, 3.9rem);
-        --h2-weight: 600;
-        --h2-line-height: 1;
-        --h2-margin-top: 72px;
-        --h2-margin-left: 3vw;
-        --h2-margin-bottom: 12px;
-        --h2-maxwidth: 91vw;
-        --h2-padding-left: 3vw;
-        --h2-padding-right: 6vw;
-    }
 
-    h2 {
-        box-sizing: border-box;
-        width: 80vw;
-        max-width: none;
-        padding-left: var(--h2-padding-left) !important;
-        margin-left: var(--h2-margin-left) !important;
-    }
+.view-more-btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+}
 
-    
-    .books .container p  {
-        margin-left: var(--h2-margin-left) !important;
-        max-width: var(--h2-maxwidth) !important;
-        padding-left: var(--h2-padding-left) !important;
-        font-size: 0.8em;
-    }
+/* Botões da página inicial, excluindo o botão de colunas */
+.index-page .view-more-btn:not(.columns-toggle) {
+    padding: 7px 15px;
 
-    
+}
 
-    .view-more-btn {
-        padding: 10px 20px;
-        font-size: 0.8rem;
-    }
+.home-editorial-section .books-toolbar {
+    display: none;
+}
 
-    /* Botões da página inicial, excluindo o botão de colunas */
-    .index-page .view-more-btn:not(.columns-toggle) {
-        padding: 7px 15px;
-        
-    }
+/* ------------------- L A N D I N G  --------------- */
+.landing {
+    height: 50vh;
+    width: 100vw;
+}
 
-    .home-editorial-section .books-toolbar {
-        display: none;
-    }
+.landing-grid {
+    grid-template-columns: 1fr;
+    width: 100vw;
 
-    /* ------------------- L A N D I N G  --------------- */
-    .landing {
-        height: 50vh;
-        width: 100vw;
-    }
+}
 
-    .landing-grid {
-        grid-template-columns: 1fr;
-        width: 100vw;
+/* ----------- ANITA home page -----------*/
+.landing-copy h1,
+.landing-copy p {
+    padding-left: var(--h2-padding-left) !important;
+    margin-left: var(--h2-margin-left) !important;
+    max-width: var(--h2-maxwidth) !important;
 
-    }
+}
 
-    /* ----------- ANITA home page -----------*/
-    .landing-copy h1,
-    .landing-copy p {
-        padding-left: var(--h2-padding-left) !important;
-        margin-left: var(--h2-margin-left) !important;
-        max-width: var(--h2-maxwidth) !important;
-
-    }
-
-    .landing-copy p {
-        text-transform: uppercase;
-        font-size: 0.6rem;
-    }
+.landing-copy p {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+}
 
 
 
-    /* ------------- Conteúdo central da página ------------ */
+/* ------------- Conteúdo central da página ------------ */
 
 
-    .grouped-books .year-label {
-        left: 5vw;
-        margin-bottom: 2vh;
-        background: transparent;
-    }
+.grouped-books .year-label {
+    left: 5vw;
+    margin-bottom: 2vh;
+    background: transparent;
+}
 
-    .grouped-books .year-line {
-        margin-bottom: 2vh;
-        margin-left: 18vw;
-    }
+.grouped-books .year-line {
+    margin-bottom: 2vh;
+    margin-left: 18vw;
+}
+
 /* 
     .book-meta {
         left: 6vw;
         top: 8vw;
     } */
 
-    .book-meta + .book-meta {
-        right: 6vw;
-    }
+.book-meta+.book-meta {
+    right: 6vw;
+}
 
-    .store-callout__content {
-        margin-left: 5vw;
-        margin-right: 5vw;
-        padding: 24px;
-    }
+.store-callout__content {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding: 24px;
+}
 
-       .home-editorial-section .book-card h3,
-    .home-editorial-section .book-card .book-meta {
-        font-size: 0.9rem;
+.home-editorial-section .book-card h3,
+.home-editorial-section .book-card .book-meta {
+    font-size: 0.9rem;
 
 
-    }
+}
 
-    /* Espaçamento especial do botão de compra */
+/* Espaçamento especial do botão de compra */
 .home-editorial-section .books-actions:has(.buy) {
-        margin-left: var(--h2-margin-left);
-        padding-left: var(--h2-padding-left);
-        padding-bottom: 30px;
+    margin-left: var(--h2-margin-left);
+    padding-left: var(--h2-padding-left);
+    padding-bottom: 30px;
 }
 
 /* Espaçamento das ações depois da grelha de livros */
-.home-editorial-section .books-grid + .books-actions {
-        margin-left: var(--h2-margin-left);
-        padding-left: var(--h2-padding-left);
-        padding-bottom: 30px;
+.home-editorial-section .books-grid+.books-actions {
+    margin-left: var(--h2-margin-left);
+    padding-left: var(--h2-padding-left);
+    padding-bottom: 30px;
+}
+
+
+
+
+/*  --------------------------------------  ecrãs largos -------------------------------------- */
+@media (min-width: 1081px) {
+
+    .home-editorial-section .books-toolbar {
+        justify-content: flex-end;
+        top: 70px;
+        margin-bottom: 24px;
+        padding: 0 50px;
+        box-sizing: border-box;
     }
 
+    .home-editorial-section .books-actions {
+        padding: 0 50px;
+    }
 }
+
+
+/*  ------------------------------------------tablets e ecrãs pequenos ----------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+
+
+    .landing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .landing-placeholder {
+        justify-self: start;
+        width: min(72vw, 340px);
+    }
+
+    .home-editorial-section .books-toolbar {
+        justify-content: flex-end;
+        /* padding-left: 5vw; */
+        margin-right: 5vw;
+        box-sizing: border-box;
+        max-width: 90vw;
+
+    }
+
+    .home-editorial-section .columns-toggle {
+        padding: 8px 12px;
+        font-size: 0.7rem;
+    }
+
+    .home-editorial-section .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-editorial-section .book-card {
+        height: 90vh;
+    }
+
+    .home-editorial-section .book-card h3,
+    .home-editorial-section .book-card .book-meta {
+        font-size: revert;
+    }
+
+    .books-page .books-toolbar {
+        justify-content: space-between;
+        margin: 12px 5vw 10px;
+    }
+
+    .books-page .year-sticky-indicator {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .books-page .columns-toggle {
+        padding: 8px 12px;
+        font-size: 0.7rem;
+    }
+
+    .books-page .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .books-page .book-card {
+        height: 90vh;
+    }
+}
+
+/*  ------------------------------------------tablets e ecrãs pequenos END ----------------------------------------------------------------- */
