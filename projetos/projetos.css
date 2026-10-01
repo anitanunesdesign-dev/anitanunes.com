@@ -550,7 +550,7 @@ p[medidas] {
     }
 
     .design-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 12px;
     }
 
@@ -639,20 +639,14 @@ p[medidas] {
         padding-bottom: 110px;
     }
 
-    /* Layout simples de 2 colunas: reinicia os posicionamentos explícitos do grid desktop (12 colunas) */
+    /* Empilha tudo numa coluna: reinicia os posicionamentos do grid desktop (12 colunas) para a imagem principal não encolher ao tamanho das secundárias */
     .design-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
     }
 
     .design-grid .module.module {
         grid-column: auto;
         grid-row: auto;
-    }
-
-    /* Os blocos de texto ocupam a largura toda; as imagens ficam a par, 2 a 2 */
-    .design-grid .module--text-block.module--text-block {
-        grid-column: 1 / -1;
-        min-height: 0;
     }
 
     .design-showcase--mito .design-grid .mito-carousel.mito-carousel {
