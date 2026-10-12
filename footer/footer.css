@@ -15,11 +15,12 @@
 }
 
 /* Layout da grelha de colunas. */
-.footer-grid {
+.site-footer .footer-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 60px;
     width: 80vw;
+    max-width: none;
     margin: 0 auto;
     padding-bottom: 24px;
 }
@@ -95,7 +96,7 @@
 
 /* Ajuste para ecrãs médios. */
 @media (max-width: 900px) {
-    .footer-grid {
+    .site-footer .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
@@ -115,7 +116,7 @@
 
 
 
-    .footer-grid {
+    .site-footer .footer-grid {
         grid-template-columns: 1fr;
         text-align: left;
         gap: 10px;

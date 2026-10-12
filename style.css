@@ -622,3 +622,12 @@ letter-spacing: 2.8px;
 }
 
 /*  ------------------------------------------tablets e ecrãs pequenos END ----------------------------------------------------------------- */
+
+/* Margem lateral reduzida do título principal e do parágrafo em mobile */
+@media (max-width: 1023px) {
+    :root {
+        --h2-margin-left: 0;
+        --h2-padding-left: 5vw;
+        --h2-maxwidth: 90vw;
+    }
+}

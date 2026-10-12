@@ -24,7 +24,7 @@
         width: 80vw;
         max-width: none;
         padding-left: var(--h2-padding-left) !important;
-        margin-left: var(--h2-margin-left) !important;
+        margin-left: var(--h2-margin-left);
         font-size: 1rem;
     } 
 
@@ -235,34 +235,6 @@ p[medidas] {
     text-align: left;
     align-self: center;
     color: var(--text);
-}
-
-
-
-
-/* --------------------------------------  TITULOS DAS SECÇOES -------------------------- */
-.module--text-block::before {
-    display: block;
-    margin-bottom: 24px;
-    color:rgb(160, 160, 160);
-    font-size: 1.1rem;
-    font-weight: 550;
-}
-
-.module--text-block:nth-child(1)::before {
-    content: '_01   INTRODUÇÃO';
-}
-
-.module--text-block:nth-child(4)::before {
-    content: '_02    SISTEMA VISUAL';
-}
-
-.module--text-block:nth-child(7)::before {
-    content: '_03   APLICAÇÕES';
-}
-
-.design-grid .module--extras-text::before {
-    content: '_04  EXTRAS';
 }
 
 
@@ -649,6 +621,13 @@ p[medidas] {
         padding-bottom: 110px;
     }
 
+    /* Título e parágrafo alinhados com as imagens: a margem vem do padding da página */
+    .projetos-page .projetos-page__title,
+    .projetos-page > p {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
     /* Empilha tudo numa coluna: reinicia os posicionamentos do grid desktop (12 colunas) para a imagem principal não encolher ao tamanho das secundárias */
     .design-grid {
         grid-template-columns: 1fr;
@@ -662,6 +641,16 @@ p[medidas] {
     .design-showcase--mito .design-grid .mito-carousel.mito-carousel {
         grid-column: auto;
         grid-row: auto;
+    }
+
+    /* Todas as imagens com o mesmo tamanho e proporção */
+    .design-grid .module.module--image.module--image,
+    .design-grid .mito-carousel.mito-carousel {
+        width: 100%;
+        min-height: 0;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        align-self: auto;
     }
 
 }
@@ -686,6 +675,8 @@ p[medidas] {
 
     .projetos-page > p {
         font-size: 0.9rem;
+                margin-left: 0;
+
     }
 
     .design-showcase {
@@ -758,3 +749,35 @@ p[medidas] {
 }
 
 
+
+
+/* --------------------------------------  O MEU PAPEL ----------------------------------------- */
+
+.design-role {
+    /* Ocupa as 3 colunas do grid em desktop e a única coluna em tablet/mobile */
+    margin-top: clamp(24px, 4vw, 64px);
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.design-role__title {
+    margin: 0 0 24px !important;
+    padding: 0 !important;
+    width: auto !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 550 !important;
+    line-height: normal !important;
+    text-transform: uppercase !important;
+    color: rgb(160, 160, 160);
+}
+
+.design-role p {
+    margin: 0;
+    max-width: 100%;
+    color: var(--text-soft);
+    font-weight: 500;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
