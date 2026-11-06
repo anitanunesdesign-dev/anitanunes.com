@@ -3,36 +3,279 @@
 }
 
 .sobre-page main .books .container {
-    width: min(100% - 2.5rem, 70rem);
+    width: min(100% - clamp(2rem, 5vw, 5rem), 100rem);
     margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.55fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.sobre-page main .books .sobre-content {
+    min-width: 0;
+}
+
+.sobre-page main .books .sobre-eyebrow {
+    margin: 0 0 1rem !important;
+    padding: 0 !important;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
 }
 
 .sobre-page main .books .page-title {
     font-family: var(--h2-font);
-    font-size: clamp(4rem, 7vw, 6rem);
+    font-size: clamp(2.5rem, 5vw, 5rem);
     font-weight: var(--h2-weight);
     line-height: var(--h2-line-height);
     letter-spacing: var(--h2-letter-spacing);
-    width: 100% !important;
-    margin: 0 0 clamp(1.5rem, 4vw, 3rem) !important;
+    width: 100%;
+    margin: 0 0 clamp(1.5rem, 4vw, 3rem);
     padding: 0 !important;
-    text-align: center;
+    text-align: left;
 }
 
 .sobre-page main .books .sobre {
     max-width: 70ch !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.sobre-page main .books .sobre-block + .sobre-block {
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.sobre-page main .books .sobre-section-title {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em !important;
+    line-height: 1.4 !important;
+    text-transform: uppercase;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+}
+
+.sobre-page main .books .sobre p {
+    margin: 0 !important;
     padding: 0 !important;
     font-size: clamp(1rem, 1.4vw, 1.15rem);
+    font-weight: 400;
     line-height: 1.8;
+}
+
+.sobre-page main .books .sobre p.sobre-highlight {
+    margin-bottom: 0.75rem !important;
+    color: var(--highlight);
+    font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+    font-weight: 500;
+    line-height: 1.45;
+    text-transform: uppercase;
+}
+
+.sobre-page main .books .sobre-contact-cta {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    border-top: 1px solid var(--surface-border);
+    padding-top: 1.5rem;
+}
+
+.sobre-page main .books .sobre-contact-cta p {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.6;
+}
+
+.sobre-page main .books .sobre-faq {
+    grid-column: 1 / -1;
+    width: min(100%, 74rem);
+    margin: clamp(2rem, 5vw, 4rem) auto 0;
+}
+
+.sobre-page main .books .sobre-faq-title {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 0 1.5rem !important;
+    padding: 0 !important;
+    font-family: var(--h2-font) !important;
+    font-size: clamp(1.75rem, 3vw, 2.5rem) !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+}
+
+.sobre-page main .books .sobre-faq-intro {
+    max-width: 62ch !important;
+    margin: 0 0 2rem !important;
+    padding: 0 !important;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.sobre-page main .books .sobre-faq-layout {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.32fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+}
+
+.sobre-page main .books .sobre-faq-nav {
+    position: sticky;
+    top: 5rem;
+    display: grid;
+    gap: 0.25rem;
+}
+
+.sobre-page main .books .sobre-faq-nav a {
+    padding: 0.65rem 0.75rem;
+    border-left: 2px solid transparent;
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.sobre-page main .books .sobre-faq-nav a:hover,
+.sobre-page main .books .sobre-faq-nav a:focus-visible {
+    border-left-color: var(--highlight);
+    color: var(--text);
+}
+
+.sobre-page main .books .sobre-faq-nav a:focus-visible {
+    outline: 2px solid var(--highlight);
+    outline-offset: 2px;
+}
+
+.sobre-page main .books .sobre-faq-category {
+    scroll-margin-top: 2rem;
+}
+
+.sobre-page main .books .sobre-faq-category + .sobre-faq-category {
+    margin-top: 2.5rem;
+}
+
+.sobre-page main .books .sobre-faq-category h3 {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 720 !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.5 !important;
+    text-transform: uppercase;
+    color:  #9b0058;
+}
+
+.sobre-page main .books .sobre-faq-item {
+    border-top: 1px solid var(--surface-border);
+}
+
+.sobre-page main .books .sobre-faq-item:last-child {
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.sobre-page main .books .sobre-faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.4rem 0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    list-style: none;
+}
+
+.sobre-page main .books .sobre-faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.sobre-page main .books .sobre-faq-item summary::after {
+    content: '+';
+    color: var(--highlight);
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.sobre-page main .books .sobre-faq-item[open] summary::after {
+    content: '−';
+}
+
+.sobre-page main .books .sobre-faq-item summary:focus-visible {
+    outline: 2px solid var(--highlight);
+    outline-offset: 4px;
+}
+
+.sobre-page main .books .sobre-faq-item p {
+    max-width: 70ch !important;
+    margin: 0 0 1rem !important;
+    padding: 0 !important;
+    color: var(--text);
+    opacity: 0.92;
+    font-size: 1rem;
+    font-weight: 430;
+    line-height: 1.7;
+}
+
+.sobre-page main .books .sobre-faq-item p a {
+    color: inherit;
+    text-decoration-color: var(--highlight);
+    text-underline-offset: 0.2em;
+}
+
+.sobre-page main .books .sobre-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
 }
 
 @media (max-width: 600px) {
     .sobre-page main .books .container {
-        width: min(100% - 1.25rem, 70rem);
+        width: min(100% - 2rem, 100rem);
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
     }
 
-    .sobre-page main .books .sobre {
+    .sobre-page main .books .sobre p {
         line-height: 1.7;
+    }
+
+    .sobre-page main .books .sobre-video {
+        width: min(100%, 24rem);
+        justify-self: center;
+    }
+
+    .sobre-page main .books .sobre-contact-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .sobre-page main .books .sobre-faq-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .sobre-page main .books .sobre-faq-nav {
+        position: static;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.25rem 0.75rem;
+    }
+
+    .sobre-page main .books .sobre-faq-nav a {
+        padding: 0.5rem;
+        font-size: 0.8rem;
     }
 }
