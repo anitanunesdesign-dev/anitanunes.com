@@ -119,18 +119,38 @@
     line-height: 1.7;
 }
 
+.sobre-page main .books .sobre-faq-contact-cta {
+    position: sticky;
+    top: 5rem;
+    grid-area: contact;
+    width: fit-content;
+    height: fit-content;
+    justify-self: end;
+    margin: 0 50px 0 0;
+}
+
+.sobre-page main .books .sobre-faq-contact-cta .view-more-btn {
+    background: var(--surface);
+}
+
 .sobre-page main .books .sobre-faq-layout {
     display: grid;
-    grid-template-columns: minmax(12rem, 0.32fr) minmax(0, 1fr);
+    grid-template-columns: minmax(12rem, 0.32fr) minmax(0, 1fr) minmax(9rem, auto);
+    grid-template-areas: "nav content contact";
     gap: clamp(2rem, 5vw, 5rem);
     align-items: start;
 }
 
 .sobre-page main .books .sobre-faq-nav {
+    grid-area: nav;
     position: sticky;
     top: 5rem;
     display: grid;
     gap: 0.25rem;
+}
+
+.sobre-page main .books .sobre-faq-content {
+    grid-area: content;
 }
 
 .sobre-page main .books .sobre-faq-nav a {
@@ -241,6 +261,19 @@
     object-fit: cover;
 }
 
+@media (max-width: 900px) {
+    .sobre-page main .books .sobre-faq-layout {
+        grid-template-columns: minmax(12rem, 0.32fr) minmax(0, 1fr);
+        grid-template-areas:
+            "nav contact"
+            "content content";
+    }
+
+    .sobre-page main .books .sobre-faq-contact-cta {
+        position: static;
+    }
+}
+
 @media (max-width: 600px) {
     .sobre-page main .books .container {
         width: min(100% - 2rem, 100rem);
@@ -265,7 +298,16 @@
 
     .sobre-page main .books .sobre-faq-layout {
         grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "contact"
+            "nav"
+            "content";
         gap: 2rem;
+    }
+
+    .sobre-page main .books .sobre-faq-contact-cta {
+        position: static;
+        margin-right: 50px;
     }
 
     .sobre-page main .books .sobre-faq-nav {
