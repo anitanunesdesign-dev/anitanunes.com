@@ -1,0 +1,113 @@
+.error-content {
+    min-height: min(720px, calc(100svh - 54px));
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    padding: 100px 24px 80px;
+    overflow: hidden;
+}
+
+.error-content__inner {
+    position: relative;
+    width: min(100%, 760px);
+    text-align: center;
+}
+
+.error-code {
+    margin: 0;
+    color: var(--highlight);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(7rem, 24vw, 16rem);
+    font-weight: 500;
+    letter-spacing: -0.09em;
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.error-eyebrow {
+    margin: 0 0 12px;
+    color: var(--highlight);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.error-content h1 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.error-description {
+    max-width: 500px;
+    margin: 20px auto 0;
+    color: var(--text-soft);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.error-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    border: 1px solid var(--highlight);
+    border-radius: 999px;
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.error-button:hover,
+.error-button:focus-visible {
+    transform: translateY(-2px);
+}
+
+.error-button--primary {
+    background: var(--highlight);
+    color: #fff;
+}
+
+.error-button--primary:hover,
+.error-button--primary:focus-visible {
+    background: transparent;
+    color: var(--text);
+}
+
+.error-button--secondary {
+    background: transparent;
+}
+
+.error-button--secondary:hover,
+.error-button--secondary:focus-visible {
+    background: var(--highlight);
+}
+
+@media (max-width: 600px) {
+    .error-content {
+        padding-inline: 20px;
+    }
+
+    .error-actions {
+        align-items: stretch;
+        flex-direction: column;
+        margin-inline: auto;
+        max-width: 280px;
+    }
+}

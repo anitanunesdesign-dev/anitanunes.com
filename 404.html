@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="404.css">
+    <title>Página não encontrada | Anita Nunes</title>
+</head>
+
+<body class="error-page" data-i18n-root="page">
+    <header class="site-header">
+        <div id="header-placeholder"></div>
+        <script src="header/load-header.js"></script>
+    </header>
+
+    <main class="error-content">
+        <div class="error-content__inner">
+            <p class="error-code" aria-hidden="true">404</p>
+            <p class="error-eyebrow" data-i18n="notFoundEyebrow">Parece que este caminho não existe.</p>
+            <h1 data-i18n="notFoundTitle">Página não encontrada</h1>
+            <p class="error-description" data-i18n="notFoundDescription">
+                A página que procuras pode ter sido movida ou já não estar disponível.
+            </p>
+            <section id="snake-game" aria-label="Jogo da lagarta" data-i18n-aria="snakeGame">
+                <div class="snake-board">
+                    <canvas id="snake-canvas" width="400" height="400" aria-label="Jogo da lagarta" data-i18n-aria="snakeGame"></canvas>
+                    <p id="snake-result" hidden role="status" aria-live="polite"></p>
+                </div>
+            </section>
+            <div class="error-actions">
+                <a class="error-button error-button--primary" href="/" data-i18n="notFoundHome">Voltar à página inicial</a>
+                <a class="error-button error-button--secondary" href="/projetos/" data-i18n="notFoundProjects">Explorar projetos</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="footer/load-footer.js"></script>
+    <script src="script.js"></script>
+    <style>
+        #snake-game {
+            width: min(100%, 400px);
+            margin: 36px auto 0;
+        }
+
+        .snake-board {
+            position: relative;
+        }
+
+        #snake-canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: #fff;
+            touch-action: none;
+        }
+
+        #snake-result[hidden] {
+            display: none;
+        }
+
+        #snake-result:not([hidden]) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            padding: 12px 20px;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            color: #b82558;
+            font-size: clamp(1.6rem, 7vw, 2.8rem);
+            font-weight: 700;
+            text-align: center;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+    </style>
+    <script>
+        (() => {
+            const game = document.getElementById('snake-game');
+            const canvas = document.getElementById('snake-canvas');
+            const result = document.getElementById('snake-result');
+            const context = canvas?.getContext('2d');
+            if (!game || !canvas || !result || !context) return;
+
+            const cellSize = 20;
+            const gridSize = 20;
+            const directions = {
+                up: { x: 0, y: -1 },
+                down: { x: 0, y: 1 },
+                left: { x: -1, y: 0 },
+                right: { x: 1, y: 0 }
+            };
+            const keyDirections = {
+                ArrowUp: 'up',
+                ArrowDown: 'down',
+                ArrowLeft: 'left',
+                ArrowRight: 'right'
+            };
+
+            let snake = [];
+            let food;
+            let direction;
+            let nextDirection;
+            let score = 0;
+            let timer = null;
+            let playing = false;
+
+            function createFood() {
+                const emptyCells = [];
+                for (let y = 0; y < gridSize; y += 1) {
+                    for (let x = 0; x < gridSize; x += 1) {
+                        if (!snake.some((part) => part.x === x && part.y === y)) {
+                            emptyCells.push({ x, y });
+                        }
+                    }
+                }
+
+                if (!emptyCells.length) return false;
+                food = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+                return true;
+            }
+
+            function draw() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillStyle = '#e8e4e5';
+                for (let x = 10; x < canvas.width; x += cellSize) {
+                    for (let y = 10; y < canvas.height; y += cellSize) {
+                        context.beginPath();
+                        context.arc(x, y, 1.4, 0, Math.PI * 2);
+                        context.fill();
+                    }
+                }
+
+                if (food) {
+                    context.fillStyle = '#b82558';
+                    context.beginPath();
+                    context.arc(food.x * cellSize + 10, food.y * cellSize + 10, 6, 0, Math.PI * 2);
+                    context.fill();
+                }
+
+                snake.forEach((part, index) => {
+                    context.fillStyle = index === 0 ? '#8f1943' : '#b82558';
+                    context.beginPath();
+                    context.arc(part.x * cellSize + 10, part.y * cellSize + 10, 8.5, 0, Math.PI * 2);
+                    context.fill();
+                });
+
+                context.fillStyle = '#fff';
+                const head = snake[0];
+                let eyes = [{ x: -3, y: -3 }, { x: 3, y: -3 }];
+                if (direction.x === 1) eyes = [{ x: 3, y: -3 }, { x: 3, y: 3 }];
+                else if (direction.x === -1) eyes = [{ x: -3, y: -3 }, { x: -3, y: 3 }];
+                else if (direction.y === 1) eyes = [{ x: -3, y: 3 }, { x: 3, y: 3 }];
+
+                eyes.forEach((eye) => {
+                    context.beginPath();
+                    context.arc(head.x * cellSize + 10 + eye.x, head.y * cellSize + 10 + eye.y, 1.7, 0, Math.PI * 2);
+                    context.fill();
+                });
+            }
+
+            function start(initialDirection) {
+                window.clearInterval(timer);
+                score = 0;
+                result.hidden = true;
+                result.textContent = '';
+                direction = { ...initialDirection };
+                nextDirection = { ...initialDirection };
+                const head = { x: 10, y: 10 };
+                snake = [
+                    head,
+                    { x: head.x - direction.x, y: head.y - direction.y },
+                    { x: head.x - direction.x * 2, y: head.y - direction.y * 2 },
+                    { x: head.x - direction.x * 3, y: head.y - direction.y * 3 }
+                ];
+                createFood();
+                playing = true;
+                draw();
+                timer = window.setInterval(step, 130);
+            }
+
+            function step() {
+                direction = nextDirection;
+                const head = {
+                    x: (snake[0].x + direction.x + gridSize) % gridSize,
+                    y: (snake[0].y + direction.y + gridSize) % gridSize
+                };
+                const ate = head.x === food.x && head.y === food.y;
+                const body = snake.slice(0, ate ? snake.length : -1);
+
+                if (body.some((part) => part.x === head.x && part.y === head.y)) {
+                    window.clearInterval(timer);
+                    timer = null;
+                    playing = false;
+                    result.textContent = `Score: ${score}`;
+                    result.hidden = false;
+                    return;
+                }
+
+                snake.unshift(head);
+                if (ate) {
+                    score += 1;
+                    if (!createFood()) {
+                        window.clearInterval(timer);
+                        timer = null;
+                        playing = false;
+                    }
+                } else {
+                    snake.pop();
+                }
+                draw();
+            }
+
+            function move(name) {
+                const next = directions[name];
+                if (!next) return;
+                if (!playing) {
+                    start(next);
+                    return;
+                }
+                if (next.x !== -direction.x || next.y !== -direction.y) {
+                    nextDirection = next;
+                }
+            }
+
+            document.addEventListener('keydown', (event) => {
+                const name = keyDirections[event.key];
+                if (!name) return;
+                event.preventDefault();
+                if (!result.hidden) {
+                    result.hidden = true;
+                    result.textContent = '';
+                    start(directions[name]);
+                    return;
+                }
+                move(name);
+            }, true);
+
+            direction = directions.right;
+            snake = [
+                { x: 10, y: 10 },
+                { x: 9, y: 10 },
+                { x: 8, y: 10 },
+                { x: 7, y: 10 }
+            ];
+            createFood();
+            draw();
+        })();
+    </script>
+</body>
+
+</html>
