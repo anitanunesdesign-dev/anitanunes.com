@@ -43,6 +43,11 @@
     background: #e9e9e9;
 }
 
+.books-page .book-meta + .book-meta {
+    right: 25px;
+    padding-right: 0;
+}
+
 /* Imagens e efeito hover dos cartões */
 
 .book-card img {
@@ -135,6 +140,16 @@ body.light-theme .overlay {
 
 }
 
+.book-card .book-designer {
+    position: absolute;
+    left: 25px;
+    bottom: 44px;
+    z-index: 2;
+    color: transparent;
+    font-size: 12px;
+    font-weight: 400;
+}
+
 .book-card .emind-badge-wrap {
     position: absolute;
     right: 25px;
@@ -191,7 +206,7 @@ body.light-theme .overlay {
 @media (max-width: 1023px) {
 
     .books h2 {
-        font-size: clamp(9vw, 1em, 10vw);
+        font-size: clamp(8vw, 1em, 9vw);
         font-weight: 800;
         max-width: 80vw;
         padding-left: 5vw;
@@ -204,6 +219,10 @@ body.light-theme .overlay {
 
         grid-template-columns: 1fr;
         gap: 0;
+    }
+
+    .books-page .book-meta + .book-meta {
+        right: 5vw;
     }
 
 
@@ -233,7 +252,13 @@ body.light-theme .overlay {
 
         color: #FFFFFF;
         font-weight: 600;
+        font-size: 13px;
 
+    }
+
+    .book-card .book-designer {
+        left: 5vw;
+        bottom: 58px;
     }
 
     .book-card .emind-badge-wrap {
@@ -243,7 +268,7 @@ body.light-theme .overlay {
 
     .books p {
         max-width: 80vw;
-        font-size: 1rem;
+        font-size: 0.9rem;
         max-width: 100vw;
         margin-left: var(--h2-margin-left);
         padding-left: var(--h2-padding-left);

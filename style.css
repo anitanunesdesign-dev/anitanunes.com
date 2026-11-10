@@ -597,19 +597,14 @@ letter-spacing: 2.8px;
         font-size: revert;
     }
 
-    .books-page .books-toolbar {
-        justify-content: space-between;
-        margin: 12px 5vw 10px;
-    }
-
+    /* Em mobile: sem botão de colunas nem ano sticky */
+    .books-page .books-toolbar,
     .books-page .year-sticky-indicator {
-        font-size: 1.1rem;
-        margin: 0;
+        display: none;
     }
 
-    .books-page .columns-toggle {
-        padding: 8px 12px;
-        font-size: 0.7rem;
+    .books-page .book-meta {
+        font-size: 0.8rem;
     }
 
     .books-page .books-grid {
