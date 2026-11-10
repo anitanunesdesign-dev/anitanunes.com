@@ -257,8 +257,7 @@ body.light-theme .overlay {
     }
 
     .book-card .book-designer {
-        left: 5vw;
-        bottom: 58px;
+        display: none;
     }
 
     .book-card .emind-badge-wrap {
