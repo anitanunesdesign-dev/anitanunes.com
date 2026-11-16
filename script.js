@@ -113,7 +113,7 @@ function applyLanguage(lang) {
 }
 
 // Toggles light/dark theme class on <body> and highlights the active theme button
-function applyTheme(theme) {
+function applyTheme(theme, persist = true) {
   const body = document.body;
   const themeButtons = document.querySelectorAll('.theme-btn');
   const isLight = theme === 'light';
@@ -124,11 +124,13 @@ function applyTheme(theme) {
     btn.classList.toggle('active', isActive);
     btn.setAttribute('aria-pressed', String(isActive));
   });
-  localStorage.setItem('site-theme', theme);
+  if (persist) {
+    localStorage.setItem('site-theme-preference', theme);
+  }
 }
 
-// Fetches livros.html and fills the home page grid with random book cards
-async function showRandomHomeBooks() {
+// Loads the 9 most recent books into the home page grid
+async function showRecentHomeBooks() {
   const editorialSection = document.querySelector('.home-editorial-section');
   if (!editorialSection) return;
 
@@ -147,9 +149,14 @@ async function showRandomHomeBooks() {
     const cards = Array.from(sourceDocument.querySelectorAll('.books-grid .book-card'));
     if (!cards.length) return;
 
-    const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
-    const cardLimit = window.matchMedia('(max-width: 1023px)').matches ? 8 : 12;
-    const selectedCards = shuffledCards.slice(0, cardLimit).map((card) => document.importNode(card, true));
+    const selectedCards = [...cards]
+      .sort((a, b) => {
+        const dateA = parseDateString(a.dataset.date || a.querySelector('.book-date')?.textContent);
+        const dateB = parseDateString(b.dataset.date || b.querySelector('.book-date')?.textContent);
+        return dateB - dateA;
+      })
+      .slice(0, 9)
+      .map((card) => document.importNode(card, true));
 
     grid.replaceChildren(...selectedCards);
 
@@ -226,7 +233,7 @@ function initHomeBooksColumnsToggle() {
     4: 0.7,
     5: 0.55,
   };
-  const initialColumns = 2;
+  const initialColumns = 3;
 
   const applyColumns = (columns) => {
     grid.style.setProperty('--home-columns', String(columns));
@@ -262,13 +269,18 @@ function initLivrosBooksColumnsToggle() {
     4: 0.81,
     5: 0.73,
   };
-  const savedColumns = Number(localStorage.getItem('livros-books-columns'));
-  const initialColumns = columnValues.includes(savedColumns) ? savedColumns : 2;
+  const savedColumns = Number(localStorage.getItem('livros-books-columns-preference'));
+  const legacyColumns = Number(localStorage.getItem('livros-books-columns'));
+  const initialColumns = columnValues.includes(savedColumns)
+    ? savedColumns
+    : columnValues.includes(legacyColumns) && legacyColumns !== 2
+      ? legacyColumns
+      : 3;
 
   // Grid is queried on every call because it may be replaced (e.g. by organizeGridByYear).
   const getGrid = () => booksSection.querySelector('.books-grid');
 
-  const applyColumns = (columns) => {
+  const applyColumns = (columns, persist = false) => {
     const grid = getGrid();
     if (!grid) return;
     grid.style.setProperty('--books-columns', String(columns));
@@ -276,7 +288,9 @@ function initLivrosBooksColumnsToggle() {
     const nextColumns = columnValues[(columnValues.indexOf(columns) + 1) % columnValues.length];
     toggleButton.setAttribute('aria-label', `Alternar grelha para ${nextColumns} colunas`);
     toggleButton.dataset.columns = String(columns);
-    localStorage.setItem('livros-books-columns', String(columns));
+    if (persist) {
+      localStorage.setItem('livros-books-columns-preference', String(columns));
+    }
   };
 
   applyColumns(initialColumns);
@@ -284,7 +298,7 @@ function initLivrosBooksColumnsToggle() {
   toggleButton.addEventListener('click', () => {
     const currentColumns = Number(toggleButton.dataset.columns) || initialColumns;
     const nextColumns = columnValues[(columnValues.indexOf(currentColumns) + 1) % columnValues.length];
-    applyColumns(nextColumns);
+    applyColumns(nextColumns, true);
   });
 }
 
@@ -312,10 +326,17 @@ function initLanguageSwitcher() {
   });
 
   const savedLang = localStorage.getItem('site-language') || 'pt';
-  const savedTheme = localStorage.getItem('site-theme') || 'light';
+  const savedTheme = localStorage.getItem('site-theme-preference')
+    || (localStorage.getItem('site-theme') === 'dark' ? 'dark' : null);
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   applyLanguage(savedLang);
-  applyTheme(savedTheme);
-  showRandomHomeBooks();
+  applyTheme(savedTheme || (systemTheme.matches ? 'dark' : 'light'), Boolean(savedTheme));
+  systemTheme.addEventListener('change', (event) => {
+    if (!localStorage.getItem('site-theme-preference') && localStorage.getItem('site-theme') !== 'dark') {
+      applyTheme(event.matches ? 'dark' : 'light', false);
+    }
+  });
+  showRecentHomeBooks();
 }
 
 // --- Organize books by date/year and insert meta date if missing ---
@@ -440,6 +461,7 @@ function initLivrosYearStickyIndicator() {
 
   const yearSections = Array.from(booksSection.querySelectorAll('.year-section'));
   if (!yearSections.length) return;
+  const bookCards = Array.from(booksSection.querySelectorAll('.book-card'));
 
   let indicator = booksSection.querySelector('.year-sticky-indicator');
   if (!indicator) {
@@ -454,7 +476,7 @@ function initLivrosYearStickyIndicator() {
     }
   }
 
-  // Reflects the year of whichever books are currently scrolled past the indicator.
+  // Show the sticky year only while its position overlaps a book cover.
   const updateIndicator = () => {
     const referenceLine = indicator.getBoundingClientRect().bottom;
     let currentYear = yearSections[0].dataset.year;
@@ -466,6 +488,12 @@ function initLivrosYearStickyIndicator() {
     });
 
     indicator.textContent = currentYear;
+    const overBook = bookCards.some((card) => {
+      const bounds = card.getBoundingClientRect();
+      return bounds.top < referenceLine && bounds.bottom > referenceLine;
+    });
+    indicator.classList.toggle('is-over-book', overBook);
+    indicator.setAttribute('aria-hidden', String(!overBook));
   };
 
   let ticking = false;

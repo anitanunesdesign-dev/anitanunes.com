@@ -240,7 +240,7 @@ letter-spacing: 2.8px;
 
 /* Grelha de livros da página inicial */
 .home-editorial-section .books-grid {
-    --home-columns: 2;
+    --home-columns: 3;
     --home-card-scale: 1;
     display: grid;
     grid-template-columns: repeat(var(--home-columns), minmax(0, 1fr));
@@ -270,7 +270,7 @@ letter-spacing: 2.8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 12px 50px 10px;
+    margin: 75px 8vw -75px 3vw;
 }
 
 /* Indicador do ano atualmente visível */
@@ -283,6 +283,11 @@ letter-spacing: 2.8px;
     margin: 0;
     padding: 0;
     pointer-events: none;
+    visibility: hidden;
+}
+
+.books-page .year-sticky-indicator.is-over-book {
+    visibility: visible;
 }
 
 /* Botão de colunas da página de livros */
@@ -496,7 +501,17 @@ letter-spacing: 2.8px;
 
 .grouped-books .year-line {
     margin-bottom: 2vh;
-    margin-left: 18vw;
+    margin-left: 2vw;
+}
+
+.books-page .grouped-books .year-label {
+    position: static;
+    flex: 0 0 auto;
+    margin: 2vh 0 2vh 10vw;
+}
+
+.books-page .grouped-books .year-line {
+    margin-right: 8vw;
 }
 
 /* 
@@ -531,9 +546,14 @@ letter-spacing: 2.8px;
 
 /* Espaçamento das ações depois da grelha de livros */
 .home-editorial-section .books-grid+.books-actions {
-    margin-left: var(--h2-margin-left);
-    padding-left: var(--h2-padding-left);
     padding-bottom: 30px;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.index-page .home-editorial-section .books-grid+.books-actions .view-more-btn {
+    padding: 9px 18px;
 }
 
 
