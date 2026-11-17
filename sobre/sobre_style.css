@@ -15,6 +15,12 @@
     min-width: 0;
 }
 
+.sobre-page main .books .sobre-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .sobre-page main .books .sobre-eyebrow {
     margin: 0 0 1rem !important;
     padding: 0 !important;
@@ -254,13 +260,6 @@
     text-underline-offset: 0.2em;
 }
 
-.sobre-page main .books .sobre-video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-}
-
 @media (max-width: 900px) {
     .sobre-page main .books .sobre-faq-layout {
         grid-template-columns: minmax(12rem, 0.32fr) minmax(0, 1fr);
@@ -285,7 +284,7 @@
         line-height: 1.7;
     }
 
-    .sobre-page main .books .sobre-video {
+    .sobre-page main .books .sobre-image {
         width: min(100%, 24rem);
         justify-self: center;
     }
